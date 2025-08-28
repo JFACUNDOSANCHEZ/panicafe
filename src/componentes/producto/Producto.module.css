@@ -1,0 +1,91 @@
+.section {
+  padding: 60px 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.seeAll {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #2b2b2b;
+  border-bottom: 1px solid #2b2b2b;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  text-align: left;
+  /* Adicionado para o efeito de hover */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  /* Adicionado o efeito de hover */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  background: #fafafa;
+  padding: 20px;
+  /* Adicionado para altura fixa */
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  /* Modificado para preencher o espaço e manter a proporção */
+  height: 100%;
+  object-fit: cover;
+}
+
+.soldOut {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #2b2b2b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: 1px solid #2b2b2b;
+  text-transform: uppercase;
+}
+
+.productName {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 15px;
+  color: #2b2b2b;
+}
+
+.price {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
