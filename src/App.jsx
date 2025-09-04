@@ -1,20 +1,24 @@
-import Header from './componentes/Header/Header'
-import Nav from './componentes/Nav/Nav'
-import Producto from './componentes/producto/Producto'
-import './App.css'
+// src/App.js
 
-function App() {
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './componentes/Header/Header'; // El header principal
+import Nav from './componentes/Nav/Nav'; // La barra de navegación
+import Producto from './componentes/producto/Producto'; // Un componente de página
+import FranchisePage from './componentes/FranchisePage/FranchisePage'; // Otro componente de página
+import './App.css';
 
+const App = () => {
   return (
     <>
-      
-   
-<Header></Header>
 
-<Producto></Producto>
-      
+      <Routes>
+        {/* Aquí defines las rutas y qué componente se muestra en cada una */}
+        <Route path="/" element={<Header />} />
+        <Route path="/franquicias" element={<FranchisePage />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

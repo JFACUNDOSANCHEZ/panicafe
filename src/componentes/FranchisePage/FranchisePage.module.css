@@ -1,0 +1,15 @@
+.franchisePage {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contactSection {
+  background-color: #f7f7f7;
+  padding: 50px 20px;
+}

@@ -1,26 +1,27 @@
 import React from "react";
 import styles from "./Nav.module.css";
-import logoNav from "../../assets/pP3.png"; // Asegúrate de que la ruta sea correcta
+import { Link } from "react-router-dom"; // Importa el componente Link
+import logoNav from "../../assets/pP3.png";
 
 const Nav = () => {
   return (
     <div className={styles.header}>
-      {/* Contenedor del logo y el menú principal */}
       <div className={styles.leftNavGroup}>
-        {/* Logo */}
         <div className={styles.logo}>
-          <img src={logoNav} alt="Logo" />
+          {/* Usa Link para ir a la página de inicio */}
+          <Link to="/"> 
+            <img src={logoNav} alt="Logo" />
+          </Link>
         </div>
-        {/* Menú principal */}
         <nav className={styles.mainNav}>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Franquicias</a></li>
-            <li><a href="#contact">Carta</a></li>
+            <li><Link to="/">Home</Link></li>
+            {/* Aquí cambias el a por el Link y pones la ruta que definiste */}
+            <li><Link to="/franquicias">Franquicias</Link></li>
+            <li><Link to="/carta">Carta</Link></li>
           </ul>
         </nav>
       </div>
-      {/* Menú secundario */}
       <nav className={styles.secondaryNav}>
         <ul>
           <li><a href="#lang">EN | €</a></li>

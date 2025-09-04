@@ -3,9 +3,11 @@ import styles from "./Header.module.css";
 import videoBg from "../../assets/videobg2.mp4";
 import logo from "../../assets/LogoPani.png";
 import Nav from "../Nav/Nav";
+import Producto from "../producto/Producto";
 
 const Header = () => {
   return (
+    <>
     <header className={styles.header}>
       <video
         className={styles.videoBackground}
@@ -13,7 +15,7 @@ const Header = () => {
         autoPlay
         loop
         muted
-      />
+        />
       <div className={styles.overlay}></div>
       <div className={styles.navContainer}>
         <Nav />
@@ -26,7 +28,12 @@ const Header = () => {
           DISCOVER APOLLONIA'S RECIPES
         </button>
       </div>
+
+
     </header>
+        <Producto></Producto>
+        
+        </>
   );
 };
 

@@ -30,7 +30,7 @@
 }
 
 .mainNav ul li a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -50,7 +50,7 @@
 }
 
 .secondaryNav ul li a {
-  color: #fff;
+  color: #fffbfb;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;

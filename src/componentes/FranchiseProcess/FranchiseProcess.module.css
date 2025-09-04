@@ -1,0 +1,47 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.stepsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.step {
+  width: 250px;
+  text-align: center;
+  padding: 20px;
+}
+
+.stepNumber {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff6f61; /* Color de tu marca */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.stepTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.stepDescription {
+  font-size: 0.9rem;
+  color: #777;
+}

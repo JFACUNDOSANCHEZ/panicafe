@@ -1,0 +1,64 @@
+.header {
+  height: 70vh;
+  background-image: url('../../assets/fr.jpeg'); /* Reemplaza con una imagen de alta calidad */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex; /* Para centrar el contenido verticalmente */
+  flex-direction: column; /* Para que el Nav y el contenido se apilen */
+  align-items: center; /* Centra horizontalmente */
+  text-align: center;
+  color: white; /* Color base para el texto dentro de este header */
+  overflow: hidden; /* Para que nada se desborde */
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay oscuro para que el texto resalte */
+  z-index: 0; /* Asegura que el overlay esté debajo del contenido */
+}
+
+/* El componente Nav se va a posicionar de forma absoluta dentro de este header */
+/* No necesitas cambiar el CSS del Nav si lo configuras como 'position: absolute' en su propio modulo */
+
+.content {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté por encima del overlay */
+  max-width: 800px;
+  padding: 20px;
+  /* IMPORTANTE: Añade un padding-top para que el contenido no quede debajo del Nav */
+  /* Ajusta este valor según la altura de tu Nav */
+  padding-top: 80px; /* Por ejemplo, si tu Nav tiene 60px de alto, dale un poco más */
+  box-sizing: border-box; /* Para que el padding no añada ancho extra */
+  flex-grow: 1; /* Para que ocupe el espacio restante y el contenido se centre */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente dentro del espacio */
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ... (resto de tus estilos para subtitle y ctaButton) ... */
+.ctaButton {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #cac6c6;
+}
