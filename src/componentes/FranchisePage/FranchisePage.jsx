@@ -6,6 +6,7 @@ import FranchiseProcess from '../FranchiseProcess/FranchiseProcess';
 import ContactForm from '../ContactForm/ContactForm';
 import Nav from '../Nav/Nav';
 import VideoSection from '../VideoSection/VideoSection';
+import LocationsMap from '../LocationsMap/LocationsMap';
 
 const FranchisePage = () => {
   return (
@@ -14,17 +15,8 @@ const FranchisePage = () => {
       <FranchiseHeader />
       <br /><br /><b></b>
       <main>
-<VideoSection></VideoSection>
+        <LocationsMap></LocationsMap>
 
-        <section className={styles.section}>
-          <FranchiseProcess />
-        </section>
-        <section className={styles.section}>
-          <WhyInvest />
-        </section>
-        <section className={styles.contactSection}>
-          <ContactForm />
-        </section>
       </main>
     </div>
     </>

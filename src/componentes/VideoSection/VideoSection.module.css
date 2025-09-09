@@ -1,69 +1,41 @@
-.container {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.contentWrapper {
+.section {
   display: flex;
   flex-direction: column;
-  gap: 40px;
   align-items: center;
-  margin-top: 50px; /* <-- Nuevo: Añade un margen arriba para bajar el componente */
+  padding: 6rem 2rem;
+  background: #ffffff; /* limpio, minimalista */
 }
 
-@media (min-width: 768px) {
-  .contentWrapper {
-    flex-direction: row;
-  }
+.heading {
+  font-size: 2rem;
+  max-width: 850px;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  color: #111; /* casi negro, elegante */
+  font-weight: 300; /* liviano y moderno */
+  letter-spacing: 0.5px;
 }
 
-.videoContainer {
-  width: 100%; /* El ancho en móvil sigue siendo 100% */
-  padding-top: 56.25%; /* Relación de aspecto 16:9, se mantiene */
+.videoWrapper {
   position: relative;
-  flex-shrink: 0;
-  flex-grow: 1;
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000; /* para que el espacio vacío se vea sólido */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .videoContainer {
-    width: 50%; /* <-- Modificado: Cambia el ancho del video en pantallas grandes */
-    padding-top: 30%; /* <-- Modificado: Reduce el alto proporcionalmente */
-    
-  }
+.videoWrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
 }
 
-.iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.video {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-}
-
-.textContainer {
-  width: 100%;
-  text-align: left;
-  line-height: 1.6;
-  color: #555;
-}
-
-@media (min-width: 768px) {
-  .textContainer {
-    width: 50%; /* <-- Modificado: El texto ocupa el resto del espacio */
-  }
-}
-
-.textContainer p {
-  margin-bottom: 1rem;
+  border: none;
 }

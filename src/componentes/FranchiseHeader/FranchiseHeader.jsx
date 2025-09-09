@@ -1,25 +1,24 @@
-import React from 'react';
-import styles from './FranchiseHeader.module.css';
-import Nav from '../Nav/Nav'; // <-- Importa Nav aquí
+import React from "react";
+import styles from "./FranchiseHeader.module.css";
+import logo from "../../assets/LogoPani.png";
+import Nav from "../Nav/Nav";
 
 const FranchiseHeader = () => {
-  return (
-    <header className={styles.header}>
-      {/* Coloca el Nav aquí, al principio del header */}
-      <Nav /> 
-      
-      {/* El div 'content' necesita un padding-top para que su contenido no quede debajo del nav */}
-      <div className={styles.content}> 
-        <h1 className={styles.title}>
-          Tu Sueño Americano Hecho Café
-        </h1>
-        <br /><br /><br />
-        {/* <button className={styles.ctaButton}>
-          Solicita Información Ahora
-        </button> */}
-      </div>
-    </header>
-  );
+return (
+<header className={styles.header}>
+<div className={styles.navContainer}>
+<Nav />
+</div>
+
+<div className={styles.imageSection}>
+<div className={styles.imageBackground}></div>
+<div className={styles.overlay}></div>
+<div className={styles.logoContainer}>
+{/* <img src={logo} alt="PANICAFE" className={styles.mainLogo} /> */}
+</div>
+</div>
+</header>
+);
 };
 
 export default FranchiseHeader;

@@ -1,63 +1,110 @@
+/* --- Variables de diseño --- */
+:root {
+  --nav-link-color-light: #ffffff;
+  --nav-link-color-dark: #333333;
+  --nav-link-hover-color: #A08C63;
+}
+
+/* ======================================================= */
+/* --- ESTILOS BASE DEL COMPONENTE NAV --- */
+/* ======================================================= */
+
 .header {
+  position: sticky; /* ¡CAMBIO CLAVE AQUÍ! */
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 40px;
-  position: relative;
-  z-index: 10;
+  padding: 15px 40px;
+  background-color: transparent;
+  transition: color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .leftNavGroup {
   display: flex;
   align-items: center;
-  gap: 40px;
 }
 
 .logo img {
-  height: 80px;
-  object-fit: contain;
-}
-
-.mainNav ul {
-  list-style: none;
-  display: flex;
-  gap: 40px;
-  margin: 0;
-  padding: 0;
-}
-
-.mainNav ul li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.mainNav ul li a:hover {
-  color: #d3d3d3;
+  height: 70px;
+  width: auto;
+  transition: filter 0.3s ease;
 }
 
 .secondaryNav ul {
   list-style: none;
-  display: flex;
-  gap: 25px;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 30px;
 }
 
-.secondaryNav ul li a {
-  color: #fffbfb;
+.secondaryNav a {
   text-decoration: none;
-  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
   font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   transition: color 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
 }
 
-.secondaryNav ul li a:hover {
-  color: #d3d3d3;
+/* ======================================================= */
+/* --- TEMAS DE COLOR PARA EL CONTENIDO DEL NAV --- */
+/* ======================================================= */
+
+.themeLight a {
+  color: var(--nav-link-color-light);
+}
+
+.themeLight a:hover {
+  color: var(--nav-link-hover-color);
+}
+
+.themeDark a {
+  color: var(--nav-link-color-dark);
+}
+
+.themeDark a:hover {
+  color: var(--nav-link-hover-color);
+}
+
+.themeDark .logo img {
+  filter: invert(0.9) grayscale(1) brightness(0.8);
+}
+
+/* ======================================================= */
+/* --- RESPONSIVE PARA DISPOSITIVOS MÓVILES --- */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo img {
+    height: 90px;
+  }
+  
+  .header a {
+    color: var(--nav-link-color-dark);
+  }
+
+  .header a:hover {
+    color: var(--nav-link-hover-color);
+  }
+
+  .header .logo img {
+    filter: invert(0.9) grayscale(1) brightness(0.8); 
+  }
+
+  .secondaryNav {
+    display: none;
+  }
 }

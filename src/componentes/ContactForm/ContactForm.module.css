@@ -1,67 +1,273 @@
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* --- Importación de fuentes de Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap');
+
+/* --- Variables de color --- */
+:root {
+    --bg-dark: #121212;
+    --text-light: #f0f0f0;
+    --text-accent: #A08C63; /* Dorado/ocre */
+    --input-bg: #2a2a2a;
+    --input-border: #444;
+    --button-bg: #A08C63;
+    --button-text: #121212;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.contactSection {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    padding: 80px 0 0 0; /* Padding superior, footer tendrá su propio padding, quitamos padding horizontal */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Aseguramos que la sección ocupe todo el ancho */
+    box-sizing: border-box; /* Para incluir padding en el ancho si se añade */
+}
+
+.contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px; /* Mantenemos el max-width para el contenido principal */
+    margin: 0 auto 60px auto; /* Centra el contenido y añade margen inferior */
+    padding: 0 40px; /* Añadimos padding horizontal aquí para el contenido */
+    gap: 0px;
+    align-items: center;
+    box-sizing: border-box; /* Para incluir padding en el ancho */
+}
+
+/* --- Columna izquierda: Título --- */
+.leftColumn {
+    flex: 1.2;
+    min-width: 300px;
+    text-align: left;
+}
+
+.preTitle {
+    font-size: 1.2rem;
+    color: var(--text-accent);
+    margin-bottom: 5px;
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
 }
 
-.subtitle {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #666;
+.arrow {
+    font-size: clamp(3rem, 6vw, 4rem);
+    color: var(--text-accent);
+    margin-left: 15px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* --- Columna derecha: Formulario --- */
+.rightColumn {
+    flex: 1.8;
+    min-width: 300px;
+    background-color: var(--input-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
 }
 
-.formGroup {
-  text-align: left;
+.formTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
 }
 
-.label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.input,
-.textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+.inputField,
+.textareaField {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: #3a3a3a;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
-.textarea {
-  resize: vertical;
-  height: 100px;
+.inputField::placeholder,
+.textareaField::placeholder {
+    color: #888;
+}
+
+.inputField:focus,
+.textareaField:focus {
+    outline: none;
+    border-color: var(--text-accent);
+}
+
+.textareaField {
+    resize: vertical;
+    min-height: 150px;
 }
 
 .submitButton {
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .submitButton:hover {
-  background-color: #e65c50;
+    background-color: #8D7B5C;
+    transform: translateY(-2px);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #0d0d0d;
+    padding: 50px 0 30px 0; /* Quitamos el padding horizontal aquí */
+    margin-top: auto;
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.footerContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px; /* Mantenemos el max-width para el contenido del footer */
+    margin: 0 auto 40px auto; /* Centra el contenido y añade margen inferior */
+    padding: 0 40px; /* Añadimos padding horizontal aquí para el contenido */
+    box-sizing: border-box; /* Para incluir padding en el ancho */
+}
+
+.footerColumn {
+    padding-right: 20px;
+}
+
+.footerHeading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--text-accent);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footerList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerList li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.footerList li:hover {
+    color: var(--text-accent);
+    cursor: pointer;
+}
+
+.contactItem {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.socialIcons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.socialIcon {
+    width: 30px;
+    height: 30px;
+    /* Nuevo filtro para que los íconos se vean GRIS */
+    filter: grayscale(100%) brightness(150%); /* Hace el ícono gris y un poco más claro */
+    transition: transform 0.2s ease;
+}
+
+.socialIcon:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+/* --- Media Queries para responsividad --- */
+@media (max-width: 900px) {
+    .contentWrapper {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 20px; /* Mantener padding en móvil para que el contenido no pegue a los bordes */
+    }
+
+    .leftColumn,
+    .rightColumn {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .title {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        text-align: center;
+    }
+
+    .preTitle {
+        text-align: center;
+    }
+
+    .arrow {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .footerContent {
+        padding: 0 20px; /* Mantener padding en móvil para el contenido del footer */
+    }
+}
+
+@media (max-width: 600px) {
+    .footerContent {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footerColumn {
+        padding-right: 0;
+    }
+
+    .footerHeading {
+        margin-bottom: 10px;
+    }
+
+    .socialIcons {
+        justify-content: center;
+    }
 }

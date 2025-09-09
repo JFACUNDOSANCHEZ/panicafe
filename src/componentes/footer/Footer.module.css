@@ -1,0 +1,360 @@
+/* --- Importación de fuentes de Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap');
+
+/* --- Variables de color y sombra para consistencia --- */
+:root {
+    --footer-text-color: #F0F0F0;
+    --footer-heading-color: #FFFFFF;
+    --footer-link-color: #CCCCCC;
+    --footer-link-hover-color: #A08C63;
+    --footer-bg-dark: #121212;
+    --footer-bg-light: #2A2A2A;
+}
+
+/* ======================================================= */
+/* --- ESTILOS PARA EL COMPONENTE FOOTER --- */
+/* ======================================================= */
+
+.mainFooter {
+    width: 100%;
+    background-color: var(--footer-bg-dark);
+    color: var(--footer-text-color);
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    margin-bottom: 0; /* Aseguramos que no haya espacio extra debajo */
+}
+
+/* --- NUEVOS ESTILOS PARA LA SECCIÓN SUPERIOR (FORMULARIO) --- */
+.footerTopSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 40px;
+}
+
+.contactComment {
+    flex: 1;
+    text-align: left;
+}
+
+.contactTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--footer-heading-color);
+    margin-bottom: 15px;
+}
+
+.contactText {
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    line-height: 1.6;
+    color: var(--footer-link-color);
+}
+
+.contactForm {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--footer-bg-light);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formLabel {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--footer-link-color);
+    text-transform: uppercase;
+}
+
+.formInput,
+.formTextarea {
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--footer-text-color);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: var(--footer-link-hover-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.formButton {
+    background-color: var(--footer-link-hover-color);
+    color: var(--footer-heading-color);
+    border: none;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.formButton:hover {
+    background-color: #8D7B5C; /* Tono más oscuro de accent-color */
+}
+
+/* --- ESTILOS PARA LOS ÍCONOS (SIN FILTRO) --- */
+.socialIconsFooter {
+    display: flex;
+    gap: 25px; /* Espacio entre los iconos */
+    margin-bottom: 20px;
+}
+
+.socialIcon {
+    font-size: 2rem; /* Aumentamos el tamaño de los iconos */
+    color: rgba(255, 255, 255, 0.5); /* Color gris/blanco sutil */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.socialIcon:hover {
+    color: var(--footer-heading-color); /* Color blanco puro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de levitación sutil */
+}
+
+/* --- Carrusel de texto superior --- */
+.footerCarousel {
+    background-color: var(--footer-bg-light);
+    padding: 15px 20px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carouselText {
+    display: inline-block;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 500;
+    color: var(--footer-link-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    animation: scrollText 15s linear infinite;
+}
+
+/* Keyframes para el efecto de carrusel */
+@keyframes scrollText {
+    0% { transform: translateX(100%); opacity: 0; }
+    5% { transform: translateX(0%); opacity: 1; }
+    95% { transform: translateX(0%); opacity: 1; }
+    100% { transform: translateX(-100%); opacity: 0; }
+}
+
+/* --- Contenido principal del footer (las columnas de enlaces) --- */
+.footerContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 50px auto;
+    padding: 0 20px;
+    gap: 30px 20px;
+}
+
+.footerColumn {
+    flex: 1;
+    min-width: 180px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.footerColumnTitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: var(--footer-heading-color);
+}
+
+.footerList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerList li {
+    margin-bottom: 10px;
+}
+
+.footerList a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.footerList a:hover {
+    color: var(--footer-link-hover-color);
+}
+
+/* --- Input de email en el footer --- */
+.emailInputContainer {
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.footerEmailInput {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text-color);
+    font-size: 0.9rem;
+}
+
+.footerEmailInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footerEmailInput:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.footerEmailSubmit {
+    background-color: var(--footer-link-hover-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.footerEmailSubmit:hover {
+    background-color: #8D7B5C;
+}
+
+/* --- Sección inferior del footer (logo y copyright) --- */
+.footerBottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 20px;
+}
+
+.footerLogo {
+    flex-shrink: 0;
+}
+
+.panicafeLogo {
+    height: 80px;
+    width: 70px;
+    width: auto;
+    filter: brightness(200%);
+}
+
+.copyrightFooter {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 0;
+    text-align: right;
+    flex-grow: 1;
+}
+
+/* --- Responsive para dispositivos móviles --- */
+@media (max-width: 900px) {
+    /* AJUSTES ESPECÍFICOS PARA LA NUEVA SECCIÓN SUPERIOR */
+    .footerTopSection {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    .contactComment,
+    .contactForm {
+        width: 100%;
+        text-align: center;
+    }
+    .contactTitle {
+        font-size: 2rem;
+    }
+    .contactText {
+        font-size: 1rem;
+    }
+    .contactForm {
+        padding: 15px;
+    }
+
+    /* AJUSTES PARA EL RESTO DEL FOOTER EN MÓVILES */
+    .footerCarousel {
+        padding: 10px 15px;
+    }
+    .socialIconsFooter {
+        justify-content: center;
+    }
+    .socialIcon {
+        font-size: 1.8rem;
+    }
+    .footerContent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+        margin: 40px auto;
+    }
+    .footerColumn {
+        min-width: unset;
+        width: 100%;
+        padding: 0;
+    }
+    .footerColumnTitle {
+        margin-bottom: 15px;
+        font-size: 0.85rem;
+    }
+    .footerList li {
+        margin-bottom: 8px;
+    }
+    .footerList a {
+        font-size: 0.85rem;
+    }
+    .footerBottom {
+        flex-direction: column;
+        text-align: center;
+        margin: 30px auto 0 auto; /* Eliminamos el margin-bottom para que no haya espacio */
+        padding: 15px 20px;
+    }
+    .footerLogo {
+        margin-bottom: 15px;
+    }
+    .panicafeLogo {
+        height: 35px;
+    }
+    .copyrightFooter {
+        text-align: center;
+        font-size: 0.75rem;
+    }
+}

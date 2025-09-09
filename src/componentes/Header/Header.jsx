@@ -22,8 +22,10 @@ const Header = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.mainLogo}>
+          <br />  <br />
           <img src={logo} alt="PANICAFE" />
         </div>
+        <h2>#momentodipiacere</h2>
         <button className={styles.ctaBtn}>
           DISCOVER APOLLONIA'S RECIPES
         </button>
