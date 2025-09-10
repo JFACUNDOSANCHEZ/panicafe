@@ -64,7 +64,7 @@ const InvitationSection = () => {
             {/* Lado izquierdo: Síguenos y Hoja Informativa (AHORA PRIMERO Y FONDO BLANCO) */}
             <div className={styles.contentLeftInfo}> {/* CLASE AJUSTADA */}
                 <motion.div className={styles.followUsSection} variants={textVariants}>
-                    <h2 className={styles.followUsTitle}>CONOCENOS</h2>
+                    <h2 className={styles.followUsTitle}>SEGUINOS</h2>
                     <div className={styles.socialIcons}>
                         <a href="https://www.facebook.com/panicafetexas" target="_blank" rel="noopener noreferrer">
                             <i className={`fab fa-facebook-f ${styles.socialIcon}`}></i>

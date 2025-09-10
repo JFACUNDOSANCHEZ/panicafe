@@ -53,14 +53,12 @@
 /* Contenedor del texto */
 .introTextContent {
     flex: 1;
-    min-width: 300px;
-    padding: 0;
-    text-align: left;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    justify-content: center;
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    padding: 0 40px;
 }
-
 /* El espaciador que empuja el texto hacia abajo */
 .spacer {
     flex-grow: 1;
@@ -69,12 +67,14 @@
 
 .mainTitle {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--text-primary);
+    font-size: 3.5em; /* Tamaño más grande para el título principal */
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    line-height: 1.1;
     text-align: left;
+    white-space: nowrap; /* Evita que el título se rompa en varias líneas */
 }
+
 
 .subTitle {
     font-family: 'Inter', sans-serif;
@@ -85,14 +85,20 @@
     text-align: left;
 }
 
-.introText {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.6;
-    margin: 0;
-    color: var(--text-secondary);
-    text-align: left;
+.subTitleSeparatorLine {
+      width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1); /* Línea gris suave */
+    margin: 30px 0;
 }
-
+.introText {
+   font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: var(--text-color);
+    line-height: 1.6;
+    text-align: left;
+    max-width: 600px;
+}
 /* --- ESTILOS PARA LA LÍNEA SEPARADORA --- */
 .separatorLine {
     width: 90%;
@@ -101,6 +107,16 @@
     background-color: var(--line-color);
     margin: 100px auto;
     border: none;
+}
+.locationsSubtitle {
+    /* Outros estilos como cor, tamanho, etc. */
+    color: #000000;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 0px;
+    
+    /* ADICIONE ESTA LINHA PARA MUDAR A FONTE */
+    font-family: 'Playfair Display', serif;
 }
 
 /* --- Contenedor Principal del Mapa y Ubicaciones --- */
@@ -119,21 +135,24 @@
 
 /* --- Columna del Mapa (AHORA A LA IZQUIERDA) --- */
 .mapWrapper {
-    flex: 1.5; /* El mapa ocupa más espacio */
-    min-width: 500px; /* Ancho mínimo para el mapa */
-    height: 600px; /* Altura fija para el mapa */
-    box-shadow: var(--shadow-light);
+    flex: 2; 
+    max-width: 50%; 
+    height: 600px; /* Mantén la altura para el GIF */
+    background-color: var(--secondary-dark);
     border-radius: 0px;
     overflow: hidden;
-    position: relative; /* Quitar absolute, usar relative */
-    top: auto;
-    right: auto;
-    bottom: auto;
-    width: auto; /* Dejar que flex lo controle */
-    transition: none; /* Eliminar transiciones de hover que ya no aplican */
-    order: 1; /* Asegura que el mapa esté primero en el layout */
+    /* Para el GIF, si quieres que se centre y cubra, puedes añadir: */
+    display: flex; /* Para centrar la imagen dentro si es más pequeña */
+    justify-content: center;
+    align-items: center;
 }
 
+.gifImage {
+    width: 100%;  /* El GIF ocupará el 100% del ancho del contenedor */
+    height: 100%; /* El GIF ocupará el 100% de la altura del contenedor */
+    object-fit: cover; /* Asegura que el GIF cubra todo el espacio sin distorsionarse, recortando si es necesario */
+    border-radius: 0px; /* Si quieres que el GIF también tenga bordes redondeados */
+}
 /* Quitar el hover que ya no aplica al no ser absolute */
 .mapWrapper:hover {
     transform: none; 
@@ -157,27 +176,35 @@
 }
 
 /* --- Subtítulo para las sucursales --- */
-.locationsSubtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    margin: 0 0 10px 0;
-    color: var(--text-primary);
-    text-align: left; /* Alinea el subtítulo a la izquierda */
-    padding: 0;
+.subTitle {
+    font-family: 'Lora', serif;
+    font-size: 1.5em; /* Tamaño para el subtítulo */
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    text-align: left;
+    font-weight: 300;
+}
+
+.sectionHeadingLine {
+    width: 80px; /* Ancho de la línea, ajusta según necesites */
+    height: 2px; /* Grosor de la línea */
+    background-color: var(--primary-dark); /* Color de la línea, puedes usar una variable de color */
+    margin-bottom: 30px; /* Espacio debajo de la línea */
+    /* Puedes añadir un margen a la izquierda si quieres que no toque el borde */
+    /* margin-left: 0; */ 
 }
 
 /* --- Lista de sucursales --- */
 .locationsList {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     text-align: left;
 }
 
 .locationItem {
     background-color: var(--background);
-    padding: 20px;
+    padding: 10px;
     border-radius: 0px;
     box-shadow: var(--shadow-light);
     border-left: 3px solid var(--accent-color);
@@ -224,3 +251,16 @@
     margin: 0 0 15px;
 }
 
+@media (max-width: 1200px) {
+    .mapWrapper {
+        min-width: unset; 
+        width: 100%; 
+        height: 400px; /* Altura más pequeña en responsive */
+    }
+}
+
+@media (max-width: 768px) {
+    .mapWrapper {
+        height: 300px; 
+    }
+}

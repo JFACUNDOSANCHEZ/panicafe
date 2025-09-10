@@ -1,41 +1,38 @@
 import React, { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+// ELIMINAMOS las importaciones de Leaflet que ya no se usarán
+// import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css'; 
+// import L from 'leaflet';
 import styles from './LocationsMap.module.css';
 import Footer from '../footer/Footer';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 import { motion, useInView, useAnimationControls } from 'framer-motion';
 import InvitationSection from '../InvitationSection/InvitationSection';
 
-// Fix para que los marcadores de Leaflet aparezcan correctamente
-delete L.Icon.Default.prototype._getIconUrl;
+// ELIMINAMOS el fix para marcadores de Leaflet que ya no se usarán
+// delete L.Icon.Default.prototype._getIconUrl;
+// L.Icon.Default.mergeOptions({
+//     iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+//     iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+//     shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+// });
 
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-});
-
-const MapInvalidator = () => {
-    const map = useMapEvents({});
-    
-    useEffect(() => {
-        map.invalidateSize();
-    }, [map]);
-    
-    return null;
-};
+// ELIMINAMOS el componente MapInvalidator que ya no se usará
+// const MapInvalidator = () => {
+//     const map = useMapEvents({});
+//     useEffect(() => {
+//         map.invalidateSize();
+//     }, [map]);
+//     return null;
+// };
 
 const LocationsMap = () => {
-    // Ajusta el centro del mapa a Córdoba, Argentina
-    const center = [-31.4167, -64.1833]; // Coordenadas de Córdoba, Argentina
-
+    // Estas ubicaciones ahora solo se usarán para la columna de texto, no para el mapa
     const locations = [
         {
-            name: "PANICAFÉ Spring", // Esto sigue siendo Texas
+            name: "PANICAFÉ Spring",
             address: "24345 Gosling Rd. Suite 120A, Spring, TX",
-            position: [30.1065, -95.5562], // Ubicaciones en Texas
+            position: [30.1065, -95.5562], // Estas coordenadas ya no se usarán para un mapa interactivo
         },
         {
             name: "PANICAFÉ TEA ROOM",
@@ -47,12 +44,6 @@ const LocationsMap = () => {
             address: "859 Pine Market Ave Suite 200, Montgomery, TX",
             position: [30.4079, -95.6322],
         },
-        // Aquí podrías agregar ubicaciones en Córdoba, Argentina si las tienes
-        // {
-        //     name: "PANICAFÉ Centro",
-        //     address: "Av. Vélez Sársfield 123, Córdoba",
-        //     position: [-31.4170, -64.1860],
-        // },
     ];
 
     const ref = useRef(null);
@@ -118,11 +109,14 @@ const LocationsMap = () => {
                 >
                     <h2 className={styles.mainTitle}>PANICAFÉ EN EE.UU</h2>
                     <h2 className={styles.subTitle}>Llevando el sabor argentino a Texas</h2>
+                    {/* *** AQUÍ AGREGAMOS LA LÍNEA SEPARADORA *** */}
+                    <div className={styles.subTitleSeparatorLine}></div> 
+                    {/* **************************************** */}
                     <div className={styles.spacer}></div>
                     <p className={styles.introText}>
                         En 2023, Panicafé cruzó fronteras para conquistar nuevos paladares. Hoy, tres sucursales en Texas comparten nuestra pasión por el café y la pastelería artesanal, manteniendo intacta la esencia que nos vio nacer en Argentina.
                     </p>
-                </motion.div>
+                </motion.div>   
             </motion.div>
             <InvitationSection />
             <motion.div 
@@ -133,33 +127,18 @@ const LocationsMap = () => {
             ></motion.div>
 
             <div className={styles.contentWrapper} ref={ref}>
-                {/* MAPA A LA IZQUIERDA */}
+                {/* AHORA SERÁ UNA IMAGEN GIF EN LUGAR DEL MAPA */}
                 <motion.div 
-                    className={styles.mapWrapper}
+                    className={styles.mapWrapper} // Reutilizamos este wrapper para la imagen
                     variants={itemVariants}
                     initial="hidden"
                     animate={controls}
                 >
-                    <MapContainer
-                        center={center}
-                        zoom={9}
-                        scrollWheelZoom={false}
-                        className={styles.map}
-                    >
-                        <MapInvalidator /> 
-                        <TileLayer
-                            url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
-                            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="http://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-                        />
-                        {locations.map((loc, index) => (
-                            <Marker position={loc.position} key={index}>
-                                <Popup>
-                                    <h3>{loc.name}</h3>
-                                    <p>{loc.address}</p>
-                                </Popup>
-                            </Marker>
-                        ))}
-                    </MapContainer>
+                    <img
+                        src="https://luciapageph.com.ar/wp-content/uploads/2024/10/Panicafe-1.gif" // ¡Aquí está tu GIF!
+                        alt="Mapa de Panicafé en Texas" // Texto alternativo descriptivo
+                        className={styles.gifImage} // Nueva clase CSS para estilizar el GIF
+                    />
                 </motion.div>
 
                 {/* UBICACIONES A LA DERECHA */}
@@ -173,7 +152,9 @@ const LocationsMap = () => {
                         className={styles.locationsSubtitle}
                         variants={itemVariants}
                     >
-                        SUCURSALES TEXAS:
+                      <h2>
+                         SUCURSALES TEXAS:
+                        </h2> 
                     </motion.h2>
                     <div className={styles.locationsList}>
                         {locations.map((location, index) => (
