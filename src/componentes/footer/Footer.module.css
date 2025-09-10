@@ -6,9 +6,13 @@
     --footer-text-color: #F0F0F0;
     --footer-heading-color: #FFFFFF;
     --footer-link-color: #CCCCCC;
-    --footer-link-hover-color: #A08C63;
+    --footer-link-hover-color: #A08C63; /* Color de acento dorado/marrón */
     --footer-bg-dark: #121212;
     --footer-bg-light: #2A2A2A;
+    --form-bg-color: transparent; /* Fondo transparente para el formulario, ya que los inputs serán de línea */
+    --form-border-color: rgba(255, 255, 255, 0.3); /* Borde de inputs en form (línea inferior) */
+    --form-text-color: #fff; /* Texto en inputs del form */
+    --form-placeholder-color: #aaa; /* Placeholder de inputs */
 }
 
 /* ======================================================= */
@@ -25,21 +29,26 @@
     margin-bottom: 0; /* Aseguramos que no haya espacio extra debajo */
 }
 
-/* --- NUEVOS ESTILOS PARA LA SECCIÓN SUPERIOR (FORMULARIO) --- */
+/* --- NUEVOS ESTILOS PARA LA SECCIÓN SUPERIOR (FORMULARIO Y COMENTARIO) --- */
 .footerTopSection {
-    display: flex;
+    display: flex; /* Usar flexbox */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Alineación al inicio para que no se estiren */
     max-width: 1440px;
     margin: 0 auto;
     padding: 60px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    gap: 40px;
+    gap: 40px; /* Espacio entre el formulario y el comentario */
+    background-color: var(--footer-bg-dark); /* Fondo de la sección superior para que el form sea transparente */
 }
 
+/* Estilos para el comentario (lado derecho) */
 .contactComment {
-    flex: 1;
-    text-align: left;
+    flex: 1; /* Ocupa el espacio restante */
+    min-width: 350px; /* Ajustamos el ancho mínimo */
+    text-align: left; /* Alineación del texto */
+    padding-left: 20px; /* Espacio con el formulario */
 }
 
 .contactTitle {
@@ -56,67 +65,82 @@
     color: var(--footer-link-color);
 }
 
+/* Estilos para el formulario (lado izquierdo) - APLICANDO EL ESTILO DE LÍNEA INFERIOR */
 .contactForm {
-    flex: 1.2;
+    flex: 1.2; /* Ocupa un poco más de espacio que el comentario */
+    min-width: 450px; /* Ajustamos el ancho mínimo para que los inputs queden bien */
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    background-color: var(--footer-bg-light);
-    border-radius: 8px;
+    gap: 30px; /* Más espacio entre los formGroup */
+    padding: 30px; 
+    background-color: var(--footer-bg-dark); /* Fondo transparente para el form en sí */
+    border-radius: 0px; 
     box-sizing: border-box;
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); */ /* Eliminamos la sombra si queremos un look más plano */
 }
 
 .formGroup {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px; /* Más espacio entre label y input para este estilo */
+    border-bottom: 1px solid var(--form-border-color); /* Línea inferior para el grupo */
+    padding-bottom: 10px; /* Espacio entre input y la línea */
+    transition: border-color 0.3s ease;
+}
+
+.formGroup:focus-within {
+    border-bottom-color: var(--footer-link-hover-color); /* Color de acento al enfocar */
 }
 
 .formLabel {
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.9rem; /* Un poco más grande para mejor legibilidad */
+    font-weight: 600; /* Más peso */
     color: var(--footer-link-color);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .formInput,
 .formTextarea {
-    padding: 10px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--footer-text-color);
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-}
-
-.formInput:focus,
-.formTextarea:focus {
-    outline: none;
-    border-color: var(--footer-link-hover-color);
-    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding: 0; /* Elimina padding vertical */
+    border: none; /* Elimina todos los bordes */
+    background-color: transparent; /* Fondo transparente para el input */
+    color: var(--form-text-color);
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    font-family: 'Inter', sans-serif;
+    outline: none; /* Elimina el outline al enfocar */
 }
 
 .formInput::placeholder,
 .formTextarea::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--form-placeholder-color); /* Placeholder más visible */
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 60px; /* Reducimos la altura mínima para que la línea no quede tan abajo */
+    padding-top: 5px; /* Un poco de padding superior para el texto */
 }
 
 .formButton {
     background-color: var(--footer-link-hover-color);
     color: var(--footer-heading-color);
     border: none;
-    padding: 12px 20px;
+    padding: 15px 30px; /* Más padding para el botón */
     font-weight: 700;
-    font-size: 1rem;
-    border-radius: 4px;
+    font-size: 1.1rem; /* Botón más grande y legible */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px; /* Botón redondeado, estilo más moderno */
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px; /* Más margen superior para separarlo del último input */
 }
 
 .formButton:hover {
     background-color: #8D7B5C; /* Tono más oscuro de accent-color */
+    transform: translateY(-2px); /* Efecto sutil al pasar el ratón */
 }
 
 /* --- ESTILOS PARA LOS ÍCONOS (SIN FILTRO) --- */
@@ -124,6 +148,7 @@
     display: flex;
     gap: 25px; /* Espacio entre los iconos */
     margin-bottom: 20px;
+    justify-content: flex-start; /* Alinea a la izquierda en desktop */
 }
 
 .socialIcon {
@@ -145,6 +170,7 @@
     overflow: hidden;
     white-space: nowrap;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0; /* Asegurarse de que no haya margen superior indeseado */
 }
 
 .carouselText {
@@ -214,44 +240,56 @@
     color: var(--footer-link-hover-color);
 }
 
-/* --- Input de email en el footer --- */
+/* --- Input de email en el footer (columna de Síguenos y Email) --- */
 .emailInputContainer {
     display: flex;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
+    align-items: center; /* Alinea verticalmente el input y el botón */
+    border: none; /* Elimina el borde del contenedor */
+    border-bottom: 1px solid var(--form-border-color); /* Solo borde inferior, usando la variable */
+    border-radius: 0; /* Elimina border-radius */
     overflow: hidden;
+    padding-bottom: 5px; /* Espacio entre el input y la línea inferior */
+    background-color: transparent; /* Fondo transparente para el contenedor */
+    transition: border-color 0.3s ease;
+}
+
+.emailInputContainer:focus-within {
+    border-bottom-color: var(--footer-link-hover-color); /* Color de acento al enfocar */
 }
 
 .footerEmailInput {
     flex-grow: 1;
-    padding: 8px 12px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 0; /* Ajusta el padding, cero horizontal para la línea */
+    border: none; /* Elimina el borde del input */
+    background-color: transparent; /* Fondo transparente para el input */
     color: var(--footer-text-color);
     font-size: 0.9rem;
+    outline: none; /* Elimina el outline al enfocar */
 }
 
 .footerEmailInput::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--form-placeholder-color); /* Mantener el placeholder visible */
 }
 
 .footerEmailInput:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: transparent; /* Asegura que el fondo no cambie */
 }
 
 .footerEmailSubmit {
-    background-color: var(--footer-link-hover-color);
-    color: #FFFFFF;
-    border: none;
-    padding: 8px 15px;
+    background-color: transparent; /* Fondo transparente para el botón */
+    color: var(--footer-heading-color); /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 8px 0; /* Ajusta el padding del botón */
     cursor: pointer;
     font-weight: 600;
-    transition: background-color 0.2s ease;
+    transition: color 0.2s ease; /* Transición solo para el color del texto */
+    font-size: 0.9rem; /* Ajusta el tamaño de la fuente para que coincida */
+    margin-left: 10px; /* Pequeño margen para separar el texto del input */
 }
 
 .footerEmailSubmit:hover {
-    background-color: #8D7B5C;
+    color: var(--footer-link-hover-color); /* Cambia el color del texto al pasar el ratón */
+    background-color: transparent; /* Asegura que no haya cambio de fondo */
 }
 
 /* --- Sección inferior del footer (logo y copyright) --- */
@@ -273,8 +311,7 @@
 
 .panicafeLogo {
     height: 80px;
-    width: 70px;
-    width: auto;
+    width: auto; /* Asegura que la relación de aspecto sea correcta */
     filter: brightness(200%);
 }
 
@@ -290,14 +327,21 @@
 @media (max-width: 900px) {
     /* AJUSTES ESPECÍFICOS PARA LA NUEVA SECCIÓN SUPERIOR */
     .footerTopSection {
-        flex-direction: column;
+        flex-direction: column; /* Apila en móvil */
         text-align: center;
         padding: 40px 20px;
+        gap: 30px; /* Reduce un poco el espacio */
     }
-    .contactComment,
+    .contactComment {
+        order: 1; /* Comentario primero */
+        padding-left: 0; /* Elimina padding extra en móvil */
+    }
     .contactForm {
+        order: 2; /* Formulario debajo del comentario en móvil */
         width: 100%;
-        text-align: center;
+        text-align: left; /* Alinea el texto a la izquierda en móvil */
+        padding: 20px 0; /* Ajusta padding en móvil */
+        min-width: unset; /* Elimina min-width para que se ajuste */
     }
     .contactTitle {
         font-size: 2rem;
@@ -305,16 +349,24 @@
     .contactText {
         font-size: 1rem;
     }
-    .contactForm {
-        padding: 15px;
+    .formGroup {
+        gap: 5px; /* Menos espacio en móvil */
+        padding-bottom: 8px; /* Ajusta padding para la línea */
     }
-
-    /* AJUSTES PARA EL RESTO DEL FOOTER EN MÓVILES */
-    .footerCarousel {
-        padding: 10px 15px;
+    .formLabel {
+        text-align: left; /* Alinea los labels a la izquierda en móvil */
+    }
+    .formInput,
+    .formTextarea {
+        font-size: 0.95rem;
+    }
+    .formButton {
+        padding: 12px 25px;
+        font-size: 1rem;
+        border-radius: 4px; /* Un poco menos redondeado en móvil */
     }
     .socialIconsFooter {
-        justify-content: center;
+        justify-content: center; /* Centra los iconos en móvil */
     }
     .socialIcon {
         font-size: 1.8rem;
@@ -344,7 +396,7 @@
     .footerBottom {
         flex-direction: column;
         text-align: center;
-        margin: 30px auto 0 auto; /* Eliminamos el margin-bottom para que no haya espacio */
+        margin: 30px auto 0 auto;
         padding: 15px 20px;
     }
     .footerLogo {
@@ -356,5 +408,11 @@
     .copyrightFooter {
         text-align: center;
         font-size: 0.75rem;
+    }
+
+    /* Ajustes específicos para el input de email en móvil */
+    .emailInputContainer {
+        border-bottom-width: 1px; /* Asegura el borde inferior */
+        padding-bottom: 5px;
     }
 }

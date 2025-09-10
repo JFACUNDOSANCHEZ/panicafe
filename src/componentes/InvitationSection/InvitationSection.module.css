@@ -1,0 +1,236 @@
+/* --- Variables (ajusta si es necesario para tu tema global) --- */
+:root {
+    --text-primary-dark: #333333;
+    --text-light: #FFFFFF; /* Ya no se usará tanto, pero se mantiene */
+    --background-dark-red: #C53B3C; /* Ya no se usará para el fondo principal, pero se mantiene */
+    --accent-color: #A08C63; /* Color dorado/marrón de tu paleta */
+    --shadow-subtle: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --background-white: #FFFFFF; /* Nueva variable para el fondo blanco */
+    --text-on-white: #333333; /* Texto oscuro sobre fondo blanco */
+}
+
+/* --- Contenedor principal de la sección de invitación --- */
+.invitationContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; /* Predeterminado: info a la izquierda, imágenes a la derecha */
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1440px;
+    margin: 100px auto;
+    /* box-shadow: var(--shadow-subtle); */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* --- Lado Izquierdo: Síguenos y Hoja Informativa (AHORA CON FONDO BLANCO) --- */
+.contentLeftInfo {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 400px;
+    background-color: var(--background-white); /* ¡Fondo blanco! */
+    color: var(--text-on-white); /* ¡Texto oscuro! */
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    order: 1; /* Asegura que esté primero */
+}
+
+.followUsSection {
+    margin-bottom: 40px;
+}
+
+.followUsTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-on-white); /* Título oscuro */
+}
+
+.socialIcons {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-start;
+}
+
+.socialIcon {
+    font-size: 2.5rem;
+    color: var(--text-primary-dark); /* Color oscuro para los íconos */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socialIcon:hover {
+    transform: translateY(-3px) scale(1.05);
+    color: var(--accent-color);
+}
+
+.separatorLineSolid {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1); /* Línea gris suave */
+    margin: 40px 0;
+}
+
+.newsletterSection {
+    margin-top: 40px;
+}
+
+.newsletterTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-on-white); /* Título oscuro */
+}
+
+.newsletterSubtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-primary-dark); /* Texto oscuro */
+    margin-bottom: 25px;
+}
+
+.emailForm {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid var(--text-primary-dark); /* Línea oscura */
+    padding-bottom: 5px;
+}
+
+.newsletterInput {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary-dark); /* Texto oscuro */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 5px 0;
+}
+
+.newsletterInput::placeholder {
+    color: rgba(0, 0, 0, 0.6); /* Placeholder oscuro */
+}
+
+.newsletterButton {
+    background: none;
+    border: none;
+    color: var(--text-primary-dark); /* Texto oscuro */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+}
+
+.newsletterButton:hover {
+    color: var(--accent-color);
+}
+
+
+/* --- Lado Derecho: Cuadrícula de Instagram (AHORA ES EL LADO DERECHO) --- */
+.contentRightImages {
+    flex: 1.5; /* Más espacio para las imágenes */
+    min-width: 450px;
+    background-color: var(--background-white); /* Fondo blanco */
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    order: 2; /* Asegura que esté segundo */
+}
+
+.instagramTitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 500;
+    color: var(--text-primary-dark);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.instagramGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para 4 imágenes */
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.gridImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gridImage:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Responsive para pantallas más pequeñas --- */
+@media (max-width: 992px) {
+    .invitationContainer {
+        flex-direction: column; /* Apila en móvil */
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .contentLeftInfo, /* Ambos se comportan igual en móvil */
+    .contentRightImages {
+        min-width: unset;
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 0;
+    }
+
+    .instagramTitle,
+    .followUsTitle,
+    .newsletterTitle {
+        text-align: center;
+    }
+    
+    .socialIcons {
+        justify-content: center;
+    }
+
+    .emailForm {
+        flex-direction: column;
+        border-bottom: none;
+        gap: 15px;
+        padding-bottom: 0;
+    }
+    .newsletterInput {
+        border-bottom: 1px solid var(--text-primary-dark); /* Línea oscura */
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    .newsletterButton {
+        padding: 12px 25px;
+        background-color: var(--background-dark-red); /* Botón de color rojo para destacar */
+        color: var(--text-light); /* Texto blanco en el botón rojo */
+        border-radius: 5px;
+        font-weight: 700;
+    }
+    .newsletterButton:hover {
+        background-color: darken(var(--background-dark-red), 10%);
+    }
+
+    .instagramGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .gridImage {
+        height: 150px;
+    }
+}

@@ -7,7 +7,7 @@ const carouselTexts = [
     "ENVÍOS A DOMICILIO",
     "RETIRO EN SUCURSAL",
     "PAGO SEGURO",
-    "DELIVERY EN CÓRDOBA",
+    "DELIVERY EN CÓRDOBA", // Ajustado para reflejar la ubicación actual
     "PEDIDOS ESPECIALES",
     "FRESCO Y ARTESANAL"
 ];
@@ -55,11 +55,6 @@ const Footer = () => {
 </div>
 
             {/* Carrusel de texto superior (ahora debajo del formulario) */}
-            {/* <div className={styles.footerCarousel}>
-                <span className={styles.carouselText}>
-                    {carouselTexts[currentCarouselIndex]}
-                </span>
-            </div> */}
 
             {/* Contenido principal del footer con columnas */}
             <div className={styles.footerContent}>

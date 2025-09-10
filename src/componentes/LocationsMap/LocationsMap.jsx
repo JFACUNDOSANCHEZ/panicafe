@@ -6,6 +6,7 @@ import styles from './LocationsMap.module.css';
 import Footer from '../footer/Footer';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 import { motion, useInView, useAnimationControls } from 'framer-motion';
+import InvitationSection from '../InvitationSection/InvitationSection';
 
 // Fix para que los marcadores de Leaflet aparezcan correctamente
 delete L.Icon.Default.prototype._getIconUrl;
@@ -27,13 +28,14 @@ const MapInvalidator = () => {
 };
 
 const LocationsMap = () => {
-    const center = [30.1578, -95.5348]; // Centro del mapa en Texas
+    // Ajusta el centro del mapa a Córdoba, Argentina
+    const center = [-31.4167, -64.1833]; // Coordenadas de Córdoba, Argentina
 
     const locations = [
         {
-            name: "PANICAFÉ Spring",
+            name: "PANICAFÉ Spring", // Esto sigue siendo Texas
             address: "24345 Gosling Rd. Suite 120A, Spring, TX",
-            position: [30.1065, -95.5562],
+            position: [30.1065, -95.5562], // Ubicaciones en Texas
         },
         {
             name: "PANICAFÉ TEA ROOM",
@@ -45,6 +47,12 @@ const LocationsMap = () => {
             address: "859 Pine Market Ave Suite 200, Montgomery, TX",
             position: [30.4079, -95.6322],
         },
+        // Aquí podrías agregar ubicaciones en Córdoba, Argentina si las tienes
+        // {
+        //     name: "PANICAFÉ Centro",
+        //     address: "Av. Vélez Sársfield 123, Córdoba",
+        //     position: [-31.4170, -64.1860],
+        // },
     ];
 
     const ref = useRef(null);
@@ -58,10 +66,10 @@ const LocationsMap = () => {
     }, [controls, isInView]);
 
     const containerVariants = {
-        hidden: { opacity: 0, x: -50 },
+        hidden: { opacity: 0, y: 50 },
         visible: { 
             opacity: 1, 
-            x: 0,
+            y: 0,
             transition: {
                 type: "spring",
                 stiffness: 80,
@@ -116,7 +124,7 @@ const LocationsMap = () => {
                     </p>
                 </motion.div>
             </motion.div>
-
+            <InvitationSection />
             <motion.div 
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
@@ -125,32 +133,7 @@ const LocationsMap = () => {
             ></motion.div>
 
             <div className={styles.contentWrapper} ref={ref}>
-                <motion.div 
-                    className={styles.locationsColumn}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={controls}
-                >
-                    <motion.h2 
-                        className={styles.locationsSubtitle}
-                        variants={itemVariants}
-                    >
-                        Conoce nuestras sucursales en EE.UU.
-                    </motion.h2>
-                    <div className={styles.locationsList}>
-                        {locations.map((location, index) => (
-                            <motion.div 
-                                key={index} 
-                                className={styles.locationItem}
-                                variants={itemVariants}
-                            >
-                                <h3 className={styles.locationName}>{location.name}</h3>
-                                <p className={styles.locationAddress}>{location.address}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-
+                {/* MAPA A LA IZQUIERDA */}
                 <motion.div 
                     className={styles.mapWrapper}
                     variants={itemVariants}
@@ -164,7 +147,6 @@ const LocationsMap = () => {
                         className={styles.map}
                     >
                         <MapInvalidator /> 
-                        {/* CAMBIO AQUÍ: Nuevo TileLayer para un estilo más suave */}
                         <TileLayer
                             url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
                             attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="http://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -178,6 +160,33 @@ const LocationsMap = () => {
                             </Marker>
                         ))}
                     </MapContainer>
+                </motion.div>
+
+                {/* UBICACIONES A LA DERECHA */}
+                <motion.div 
+                    className={styles.locationsColumn}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={controls}
+                >
+                    <motion.h2 
+                        className={styles.locationsSubtitle}
+                        variants={itemVariants}
+                    >
+                        SUCURSALES TEXAS:
+                    </motion.h2>
+                    <div className={styles.locationsList}>
+                        {locations.map((location, index) => (
+                            <motion.div 
+                                key={index} 
+                                className={styles.locationItem}
+                                variants={itemVariants}
+                            >
+                                <h3 className={styles.locationName}>{location.name}</h3>
+                                <p className={styles.locationAddress}>{location.address}</p>
+                            </motion.div>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
             <Footer />

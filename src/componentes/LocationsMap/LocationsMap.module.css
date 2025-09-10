@@ -3,417 +3,224 @@
 
 /* --- Variables de color y sombra para consistencia --- */
 :root {
-  --text-primary: #121212;
-  --text-secondary: #5C5C5C;
-  --background: #FFFFFF;
-  --map-background: #1a1a1a;
-  --accent-color: #A08C63;
-  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
-  --line-color: #E0E0E0;
+    --text-primary: #121212;
+    --text-secondary: #5C5C5C;
+    --background: #FFFFFF;
+    --map-background: #1a1a1a;
+    --accent-color: #A08C63;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --line-color: #E0E0E0;
 }
 
 /* --- Contenedor principal de la sección --- */
 .container {
-  width: 100%;
-  padding: 0;
-  background-color: var(--background);
-  font-family: 'Inter', sans-serif;
-  color: var(--text-primary);
-  text-align: center;
-  overflow-x: hidden;
+    width: 100%;
+    padding: 0;
+    background-color: var(--background);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    text-align: center;
+    overflow-x: hidden;
 }
 
 /* --- Sección introductoria con imagen y texto --- */
 .introSection {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1440px;
-  margin: 80px auto 50px auto;
-  padding: 0 20px;
-  gap: 40px;
-  align-items: flex-start;
-  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: 80px auto 50px auto;
+    padding: 0 20px;
+    gap: 40px;
+    align-items: flex-start;
+    position: relative;
 }
 
 .introImageContainer {
-  flex: 1.2;
-  min-width: 400px;
-  box-shadow: var(--shadow-light);
-  border-radius: 0px;
-  overflow: hidden;
+    flex: 1.2;
+    min-width: 400px;
+    box-shadow: var(--shadow-light);
+    border-radius: 0px;
+    overflow: hidden;
 }
 
 .introImage {
-  width: 100%;
-  height: auto;
-  max-height: 550px;
-  object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
 }
 
 /* Contenedor del texto */
 .introTextContent {
-  flex: 1;
-  min-width: 300px;
-  padding: 0;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    flex: 1;
+    min-width: 300px;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 /* El espaciador que empuja el texto hacia abajo */
 .spacer {
-  flex-grow: 1;
-  min-height: 50px;
+    flex-grow: 1;
+    min-height: 50px;
 }
 
 .mainTitle {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
-  margin-bottom: 5px;
-  color: var(--text-primary);
-  text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+    text-align: left;
 }
 
 .subTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  font-weight: 500;
-  color: var(--text-secondary);
-  margin-bottom: 20%;
-  text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 5%;
+    text-align: left;
 }
 
 .introText {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.6;
-  margin: 0;
-  color: var(--text-secondary);
-  text-align: left;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    margin: 0;
+    color: var(--text-secondary);
+    text-align: left;
 }
 
 /* --- ESTILOS PARA LA LÍNEA SEPARADORA --- */
 .separatorLine {
-  width: 90%;
-  max-width: 1400px;
-  height: 1px;
-  background-color: var(--line-color);
-  margin: 100px auto;
-  border: none;
+    width: 90%;
+    max-width: 1400px;
+    height: 1px;
+    background-color: var(--line-color);
+    margin: 100px auto;
+    border: none;
 }
 
-/* Contenedor para el título de las sucursales y la lista */
+/* --- Contenedor Principal del Mapa y Ubicaciones --- */
+.contentWrapper {
+    display: flex; /* Habilitar Flexbox */
+    flex-wrap: wrap; /* Permitir que las columnas se envuelvan */
+    max-width: 1440px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+    align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+    justify-content: space-between; /* Espacio entre el mapa y las ubicaciones */
+    gap: 40px; /* Espacio entre las columnas */
+    position: relative; /* Para que el contenido pueda posicionarse dentro */
+    overflow: hidden;
+}
+
+/* --- Columna del Mapa (AHORA A LA IZQUIERDA) --- */
+.mapWrapper {
+    flex: 1.5; /* El mapa ocupa más espacio */
+    min-width: 500px; /* Ancho mínimo para el mapa */
+    height: 600px; /* Altura fija para el mapa */
+    box-shadow: var(--shadow-light);
+    border-radius: 0px;
+    overflow: hidden;
+    position: relative; /* Quitar absolute, usar relative */
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: auto; /* Dejar que flex lo controle */
+    transition: none; /* Eliminar transiciones de hover que ya no aplican */
+    order: 1; /* Asegura que el mapa esté primero en el layout */
+}
+
+/* Quitar el hover que ya no aplica al no ser absolute */
+.mapWrapper:hover {
+    transform: none; 
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Columna de Ubicaciones (AHORA A LA DERECHA) --- */
 .locationsColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex-basis: 40%;
-  min-width: 300px;
-  padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1; /* Las ubicaciones ocupan el espacio restante */
+    min-width: 300px;
+    padding-right: 0; /* No necesitamos padding a la derecha si no hay nada más */
+    padding-left: 20px; /* Añade un poco de espacio si lo necesitas */
+    order: 2; /* Asegura que las ubicaciones estén segundas */
 }
 
 /* --- Subtítulo para las sucursales --- */
 .locationsSubtitle {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  color: var(--text-primary);
-  text-align: right;
-  padding: 0;
-}
-
-/* Contenido dentro del container que debe centrarse */
-.contentWrapper {
-  display: flex;
-  max-width: 1440px;
-  margin: 0 auto 80px auto;
-  padding: 0 20px;
-  align-items: flex-start;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--text-primary);
+    text-align: left; /* Alinea el subtítulo a la izquierda */
+    padding: 0;
 }
 
 /* --- Lista de sucursales --- */
 .locationsList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
 }
 
 .locationItem {
-  background-color: var(--background);
-  padding: 20px;
-  border-radius: 0px;
-  box-shadow: var(--shadow-light);
-  border-left: 3px solid var(--accent-color);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: var(--background);
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: var(--shadow-light);
+    border-left: 3px solid var(--accent-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .locationItem:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .locationName {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 5px;
 }
 
 .locationAddress {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
-/* --- Datos de contacto --- */
+/* --- Datos de contacto (si los usas, asegúrate de que estén en un lugar lógico) --- */
 .contactInfo {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .contactTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0 0 5px;
-  color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 5px;
+    color: var(--text-primary);
 }
 
 .contactDetail {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin: 0 0 15px;
-}
-
-/* --- Mapa --- */
-.mapWrapper {
-  position: absolute;
-  right: 0;
-  top: 10;
-  bottom: 0;
-  width: 50%;
-  height: 90%;
-  border-radius: 0px;
-  overflow: hidden;
-  box-shadow: var(--shadow-light);
-  transition: transform 0.3s ease-in-out;
-}
-
-.mapWrapper:hover {
-  transform: none;
-}
-
-.map {
-  width: 100%;
-  height: 100%;
-}
-
-/* --- Footer con formulario y redes sociales --- */
-.footer {
-  width: 100%;
-  padding: 40px 20px;
-  background-color: var(--map-background);
-  color: #f0f0f0;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.contactFormSection {
-  max-width: 800px;
-  margin: 0 auto 50px;
-  background-color: #2a2a2a;
-  padding: 30px;
-  border-radius: 0px;
-}
-
-.formTitle {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 5px;
-  color: var(--accent-color);
-}
-
-.formSubtitle {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 30px;
-}
-
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.formInput,
-.formTextarea {
-  width: 100%;
-  padding: 15px 20px;
-  border: 1px solid #555;
-  border-radius: 0px;
-  font-size: 1rem;
-  font-family: 'Inter', sans-serif;
-  background-color: #333;
-  color: #fff;
-  transition: border-color 0.3s ease;
-}
-
-.formInput::placeholder,
-.formTextarea::placeholder {
-  color: #aaa;
-}
-
-.formInput:focus,
-.formTextarea:focus {
-  outline: none;
-  border-color: var(--accent-color);
-}
-
-.formTextarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-.formButton {
-  background-color: var(--accent-color);
-  color: var(--background);
-  border: none;
-  padding: 15px 30px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-}
-
-.formButton:hover {
-  background-color: #8D7B5C;
-}
-
-.socialFooter {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 40px;
-}
-
-.footerText {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: #ccc;
-}
-
-.socialIcons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 20px;
-}
-
-.socialIcon {
-  width: 40px;
-  height: 40px;
-  filter: none;
-  transition: transform 0.2s ease;
-}
-
-.socialIcon:hover {
-  transform: scale(1.1);
-}
-
-.copyright {
-  font-size: 0.8rem;
-  color: #777;
-}
-
-/* --- Responsive para dispositivos móviles --- */
-@media (max-width: 900px) {
-  .introSection {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 40px;
-  }
-
-  .introImageContainer {
-    order: 1;
-    flex: auto;
-    min-width: auto;
-    width: 100%;
-  }
-
-  .introTextContent {
-    order: 0;
-    flex: auto;
-    min-width: auto;
-    width: 100%;
-    padding: 0;
-    text-align: center;
-    height: auto;
-  }
-
-  .mainTitle,
-  .subTitle,
-  .introText {
-    text-align: center;
-  }
-
-  .mainTitle {
-    font-size: 2.2rem;
-  }
-
-  .subTitle {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-  }
-
-  .spacer {
-    min-height: 20px;
-    flex-grow: 0;
-  }
-
-  .introText {
     font-size: 0.9rem;
-  }
-
-  .separatorLine {
-    width: 80%;
-    margin: 50px auto;
-  }
-
-  .locationsSubtitle {
-    font-size: 1.8rem;
-    margin: 0 0 20px 0;
-    text-align: center;
-  }
-
-  .contentWrapper {
-    flex-direction: column;
-    padding: 0 20px;
-    gap: 40px;
-  }
-
-  .locationsColumn {
-    flex-basis: auto;
-    min-width: auto;
-    padding-right: 0;
-    width: 100%;
-  }
-
-  .mapWrapper {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    order: -1;
-  }
+    color: var(--text-secondary);
+    margin: 0 0 15px;
 }
+
