@@ -5,8 +5,8 @@ import Footer from '../footer/Footer';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 import { motion } from 'framer-motion';
 import InvitationSection from '../InvitationSection/InvitationSection';
-import porta from '../../assets/gale/1.jpg';
-import porta2 from '../../assets/gale/6.jpg';
+import porta from '../../assets/gale/6.jpg';
+import porta2 from '../../assets/gale/1.jpg';
 import Gallery from '../gallery/Gallery.jsx';
 import Nav from '../Nav/Nav';
 
