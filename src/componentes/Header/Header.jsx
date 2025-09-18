@@ -5,6 +5,7 @@ import logo from "../../assets/LogoPani.png";
 import Nav from "../Nav/Nav";
 import Producto from "../producto/Producto";
 
+
 const Header = () => {
   return (
     <>

@@ -1,3 +1,4 @@
+/* --- Estilos del header --- */
 .header {
   position: relative;
   width: 100%;
@@ -6,11 +7,11 @@
 .imageSection {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: flex-start;  /* Cambiado para que todo el contenido se alinee a la izquierda */
 }
 
 .imageBackground {
@@ -19,10 +20,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/B33BHDL35VAWFI5BELKJ2XNI5E.png');
-  background-size: cover;
-  background-position: center;
-  z-index: 1; 
+  object-fit: cover;
+  z-index: 1;
 }
 
 .overlay {
@@ -31,20 +30,31 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(rgba(0, 0, 0, 0.711)); /* Mantener el overlay oscuro */
   z-index: 2;
 }
 
-.logoContainer {
+/* Contenedor para el logo y subtítulo a la izquierda */
+.leftContent {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 3;
+  top: 50%;
+  left: 20px; /* Ajusta la distancia del logo al borde izquierdo */
+  transform: translateY(-50%);
+  z-index: 4;
+  color: white;
+  text-align: left;
 }
 
 .mainLogo {
-  height: 120px;
+  height: 120px; /* Ajusta el tamaño del logo */
   object-fit: contain;
+}
+
+.subTitle {
+  margin-top: 10px; /* Espacio entre el logo y el subtítulo */
+  font-size: 1.2rem; /* Ajusta el tamaño del texto */
+  font-weight: 300;
+  color: white;
 }
 
 .navContainer {
@@ -52,5 +62,49 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 3;
+}
+
+.centerContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   z-index: 4;
+}
+
+.mainText {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+.whiteOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 3; /* por encima de la imagen y por debajo del texto */
+  pointer-events: none;
+}
+.mainTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em; /* Tamaño más grande para el título principal */
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    line-height: 1.1;
+    text-align: left;
+    white-space: nowrap; /* Evita que el título se rompa en varias líneas */
+}
+
+
+.subTitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    font-weight: 500;
+    color: white;
+    margin-bottom: 5%;
+    text-align: left;
 }

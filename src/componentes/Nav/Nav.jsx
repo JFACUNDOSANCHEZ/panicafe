@@ -8,23 +8,24 @@ import { motion } from "framer-motion"; // Importamos motion
 const Nav = () => {
   const location = useLocation();
   
-  const isHomePage = location.pathname === '/' || location.pathname === '/franquicias';
+  const isHomePage = location.pathname === '/' || location.pathname === '/';
   
   const navContentThemeClass = isHomePage ? styles.themeLight : styles.themeDark;
-  
+  const navBackgroundClass = isHomePage ? styles.themeLight : styles.themeDark; // Esto controla el fondo
+
   const currentLogo = isHomePage ? logoNavWhite : logoNavBlack;
 
   // Variantes para la animación del contenedor principal de la navegación
   const navVariants = {
-    hidden: { opacity: 0, y: -50 }, // Inicia 50px por encima de su posición
+    hidden: { opacity: 0, y: -50 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 100, // Rigidez del muelle, para un movimiento elástico
-        damping: 20,   // Amortiguación, para suavizar el rebote
-        staggerChildren: 0.1 // Retraso entre la animación de cada hijo
+        stiffness: 100,
+        damping: 20,
+        staggerChildren: 0.1
       }
     },
   };
@@ -36,9 +37,8 @@ const Nav = () => {
   };
 
   return (
-    // Usamos motion.div para aplicar la animación al contenedor principal
     <motion.div 
-      className={`${styles.header} ${navContentThemeClass}`}
+      className={`${styles.header} ${navContentThemeClass} ${navBackgroundClass}`} // Añadimos la clase de fondo aquí
       variants={navVariants}
       initial="hidden"
       animate="visible"
@@ -52,7 +52,6 @@ const Nav = () => {
       </motion.div>
       <motion.nav className={styles.secondaryNav} variants={itemVariants}>
         <ul>
-          {/* Se anima cada elemento de la lista por separado */}
           <motion.li variants={itemVariants}><Link to="/">HOME</Link></motion.li>
           <motion.li variants={itemVariants}><Link to="/carta">QUIÉNES SOMOS</Link></motion.li>
           <motion.li variants={itemVariants}><Link to="/franquicias">PANICAFÉ EN EE.UU.</Link></motion.li>

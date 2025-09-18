@@ -7,6 +7,7 @@ import Nav from './componentes/Nav/Nav'; // La barra de navegación
 import Producto from './componentes/producto/Producto'; // Un componente de página
 import FranchisePage from './componentes/FranchisePage/FranchisePage'; // Otro componente de página
 import LocationsMap from './componentes/LocationsMap/LocationsMap';
+import QuienesSomos from './componentes/QuienesSomos/QuienesSomos';
 import './App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" element={<Header />} />
         <Route path="/franquicias" element={<LocationsMap />} />
         <Route path="/nosotros" element={<LocationsMap />} />
+        <Route path="/carta" element={<QuienesSomos />} />
       </Routes>
     </>
   );

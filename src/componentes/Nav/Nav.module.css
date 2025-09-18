@@ -10,7 +10,7 @@
 /* ======================================================= */
 
 .header {
-  position: sticky; /* ¡CAMBIO CLAVE AQUÍ! */
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -18,9 +18,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  background-color: transparent;
-  transition: color 0.3s ease;
+  padding: 5px 40px;
+  background-color: transparent;  /* Fondo transparente por defecto */
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Agregar transición de color de fondo */
   box-sizing: border-box;
 }
 
@@ -65,7 +65,16 @@
   color: var(--nav-link-hover-color);
 }
 
+.header.themeDark {
+  background-color: white; /* Fondo blanco cuando el tema es oscuro (no en la home) */
+}
+
+.header.themeLight {
+  background-color: transparent; /* Fondo transparente cuando es la home */
+}
+
 .themeDark a {
+  
   color: var(--nav-link-color-dark);
 }
 

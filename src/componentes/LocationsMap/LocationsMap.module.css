@@ -38,13 +38,13 @@
 .introImageContainer {
     flex: 1.2;
     min-width: 400px;
-    box-shadow: var(--shadow-light);
     border-radius: 0px;
     overflow: hidden;
 }
 
 .introImage {
-    width: 100%;
+    box-shadow: var(--shadow-light);
+    width: 90%;
     height: auto;
     max-height: 550px;
     object-fit: cover;
@@ -148,7 +148,9 @@
 }
 
 .gifImage {
-    width: 100%;  /* El GIF ocupará el 100% del ancho del contenedor */
+    box-shadow: var(--shadow-light);
+
+    width: 90%;  /* El GIF ocupará el 100% del ancho del contenedor */
     height: 100%; /* El GIF ocupará el 100% de la altura del contenedor */
     object-fit: cover; /* Asegura que el GIF cubra todo el espacio sin distorsionarse, recortando si es necesario */
     border-radius: 0px; /* Si quieres que el GIF también tenga bordes redondeados */

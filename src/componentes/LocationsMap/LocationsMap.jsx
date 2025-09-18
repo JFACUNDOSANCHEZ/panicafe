@@ -1,38 +1,20 @@
-import React, { useEffect, useRef } from 'react';
-// ELIMINAMOS las importaciones de Leaflet que ya no se usarán
-// import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import React from 'react';
 import 'leaflet/dist/leaflet.css'; 
-// import L from 'leaflet';
 import styles from './LocationsMap.module.css';
 import Footer from '../footer/Footer';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
-import { motion, useInView, useAnimationControls } from 'framer-motion';
+import { motion } from 'framer-motion';
 import InvitationSection from '../InvitationSection/InvitationSection';
-
-// ELIMINAMOS el fix para marcadores de Leaflet que ya no se usarán
-// delete L.Icon.Default.prototype._getIconUrl;
-// L.Icon.Default.mergeOptions({
-//     iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-//     iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-//     shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-// });
-
-// ELIMINAMOS el componente MapInvalidator que ya no se usará
-// const MapInvalidator = () => {
-//     const map = useMapEvents({});
-//     useEffect(() => {
-//         map.invalidateSize();
-//     }, [map]);
-//     return null;
-// };
+import porta from '../../assets/gale/1.jpg';
+import porta2 from '../../assets/gale/6.jpg';
+import Gallery from '../gallery/Gallery.jsx';
 
 const LocationsMap = () => {
-    // Estas ubicaciones ahora solo se usarán para la columna de texto, no para el mapa
     const locations = [
         {
             name: "PANICAFÉ Spring",
             address: "24345 Gosling Rd. Suite 120A, Spring, TX",
-            position: [30.1065, -95.5562], // Estas coordenadas ya no se usarán para un mapa interactivo
+            position: [30.1065, -95.5562],
         },
         {
             name: "PANICAFÉ TEA ROOM",
@@ -46,122 +28,106 @@ const LocationsMap = () => {
         },
     ];
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-    const controls = useAnimationControls();
-
-    useEffect(() => {
-        if (isInView) {
-            controls.start('visible');
-        }
-    }, [controls, isInView]);
-
-    const containerVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: {
-                type: "spring",
-                stiffness: 80,
-                damping: 20,
-                staggerChildren: 0.15,
-            }
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, x: -20 },
-        visible: { 
-            opacity: 1, 
-            x: 0,
-            transition: {
-                type: "spring",
-                stiffness: 80,
-                damping: 20
-            } 
-        },
-    };
-
     return (
         <div className={styles.container}>
-            <FranchiseHeader />
+            <FranchiseHeader 
+                backgroundImage="https://images.pexels.com/photos/30918887/pexels-photo-30918887.jpeg"
+                title="PANICAFÉ EN EE.UU"
+                subtitle="Llevando el sabor argentino a Texas"
+            />
 
+            {/* Sección Intro */}
             <motion.div 
                 className={styles.introSection}
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
             >
                 <motion.div 
                     className={styles.introImageContainer}
-                    variants={itemVariants}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
                 >
                     <img
-                        src="https://www.woodlandsonline.com/images/newsimage/80467/Panicafe_1.jpg"
+                        src={porta}
                         alt="Panicafé en Texas"
                         className={styles.introImage}
                     />
                 </motion.div>
                 <motion.div 
                     className={styles.introTextContent}
-                    variants={itemVariants}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    viewport={{ once: true, amount: 0.3 }}
                 >
                     <h2 className={styles.mainTitle}>PANICAFÉ EN EE.UU</h2>
                     <h2 className={styles.subTitle}>Llevando el sabor argentino a Texas</h2>
-                    {/* *** AQUÍ AGREGAMOS LA LÍNEA SEPARADORA *** */}
                     <div className={styles.subTitleSeparatorLine}></div> 
-                    {/* **************************************** */}
                     <div className={styles.spacer}></div>
                     <p className={styles.introText}>
                         En 2023, Panicafé cruzó fronteras para conquistar nuevos paladares. Hoy, tres sucursales en Texas comparten nuestra pasión por el café y la pastelería artesanal, manteniendo intacta la esencia que nos vio nacer en Argentina.
                     </p>
                 </motion.div>   
             </motion.div>
-            <InvitationSection />
+
+
+            {/* Línea separadora */}
             <motion.div 
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 1 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
             ></motion.div>
 
-            <div className={styles.contentWrapper} ref={ref}>
-                {/* AHORA SERÁ UNA IMAGEN GIF EN LUGAR DEL MAPA */}
+            {/* Mapa + Ubicaciones */}
+                <InvitationSection />
+
+                  <motion.div 
+                className={styles.separatorLine}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+            ></motion.div>
+            <div className={styles.contentWrapper}>
+                {/* Imagen tipo mapa */}
+
+                {/* Lista de Sucursales */}
                 <motion.div 
-                    className={styles.mapWrapper} // Reutilizamos este wrapper para la imagen
-                    variants={itemVariants}
-                    initial="hidden"
-                    animate={controls}
+                    className={styles.mapWrapper}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
                 >
                     <img
-                        src="https://luciapageph.com.ar/wp-content/uploads/2024/10/Panicafe-1.gif" // ¡Aquí está tu GIF!
-                        alt="Mapa de Panicafé en Texas" // Texto alternativo descriptivo
-                        className={styles.gifImage} // Nueva clase CSS para estilizar el GIF
+                        src={porta2}
+                        alt="Mapa de Panicafé en Texas"
+                        className={styles.gifImage}
                     />
                 </motion.div>
-
-                {/* UBICACIONES A LA DERECHA */}
                 <motion.div 
                     className={styles.locationsColumn}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={controls}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    viewport={{ once: true, amount: 0.3 }}
                 >
-                    <motion.h2 
-                        className={styles.locationsSubtitle}
-                        variants={itemVariants}
-                    >
-                      <h2>
-                         SUCURSALES TEXAS:
-                        </h2> 
-                    </motion.h2>
+                    <h2 className={styles.locationsSubtitle}>SUCURSALES TEXAS:</h2>
                     <div className={styles.locationsList}>
                         {locations.map((location, index) => (
                             <motion.div 
-                                key={index} 
-                                className={styles.locationItem}
-                                variants={itemVariants}
+                            key={index} 
+                            className={styles.locationItem}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 * index }}
+                            viewport={{ once: true, amount: 0.3 }}
                             >
                                 <h3 className={styles.locationName}>{location.name}</h3>
                                 <p className={styles.locationAddress}>{location.address}</p>
@@ -170,6 +136,18 @@ const LocationsMap = () => {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Línea separadora final */}
+            <motion.div 
+                className={styles.separatorLine}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+            ></motion.div>
+
+            <Gallery />
+            <br /><br /><br /><br />
             <Footer />
         </div>
     );
