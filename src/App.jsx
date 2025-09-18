@@ -9,6 +9,7 @@ import FranchisePage from './componentes/FranchisePage/FranchisePage'; // Otro c
 import LocationsMap from './componentes/LocationsMap/LocationsMap';
 import QuienesSomos from './componentes/QuienesSomos/QuienesSomos';
 import './App.css';
+import Contact from './componentes/Contact/Contact';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/franquicias" element={<LocationsMap />} />
         <Route path="/nosotros" element={<LocationsMap />} />
         <Route path="/carta" element={<QuienesSomos />} />
+        <Route path="/contacto" element={<Contact />} />
       </Routes>
     </>
   );

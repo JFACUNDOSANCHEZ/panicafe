@@ -56,8 +56,8 @@
 /* Columna derecha */
 .right {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
   flex: 1;
 }
 
@@ -70,6 +70,11 @@
   height: 350px;
   object-fit: cover;
   border-radius: 0px;
+  filter: brightness(60%); /* Esto oscurece la imagen */
+  transition: filter 0.3s ease;
+}
+.image:hover {
+  filter: brightness(80%); /* Al pasar el mouse, se aclara un poco */
 }
 
 .caption {

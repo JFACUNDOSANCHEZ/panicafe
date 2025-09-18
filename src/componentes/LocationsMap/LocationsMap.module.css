@@ -121,16 +121,14 @@
 
 /* --- Contenedor Principal del Mapa y Ubicaciones --- */
 .contentWrapper {
-    display: flex; /* Habilitar Flexbox */
-    flex-wrap: wrap; /* Permitir que las columnas se envuelvan */
-    max-width: 1440px;
-    margin: 0 auto 80px auto;
-    padding: 0 20px;
-    align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
-    justify-content: space-between; /* Espacio entre el mapa y las ubicaciones */
-    gap: 40px; /* Espacio entre las columnas */
-    position: relative; /* Para que el contenido pueda posicionarse dentro */
-    overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 /* --- Columna del Mapa (AHORA A LA IZQUIERDA) --- */
@@ -164,7 +162,10 @@
     width: 100%;
     height: 100%;
 }
-
+.invitationContainer {
+  margin-top: 0;
+  padding-top: 0;
+}
 /* --- Columna de Ubicaciones (AHORA A LA DERECHA) --- */
 .locationsColumn {
     display: flex;
@@ -174,7 +175,7 @@
     min-width: 300px;
     padding-right: 0; /* No necesitamos padding a la derecha si no hay nada más */
     padding-left: 20px; /* Añade un poco de espacio si lo necesitas */
-    order: 2; /* Asegura que las ubicaciones estén segundas */
+    /* Asegura que las ubicaciones estén segundas */
 }
 
 /* --- Subtítulo para las sucursales --- */

@@ -12,9 +12,9 @@ const Gallery = () => {
   const isInView = useInView(ref, { once: true }); // La animación se dispara una sola vez
 
   const products = [
-    { src: img1, title: "SOURDOUGH LOAF" },
-    { src: img2, title: "BISCUITS PUNITIONS®" },
-    { src: img3, title: "CUSTARD" },
+    { src: img1, title: "OUTDOOR" },
+    { src: img2, title: "PET FRIENDLY" },
+    { src: img3, title: "TAKE AWAY" },
     { src: img4, title: "APPLE PIE" },
     { src: img5, title: "GRANOLA" },
   ];

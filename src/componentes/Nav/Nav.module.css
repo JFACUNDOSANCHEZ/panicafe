@@ -83,7 +83,7 @@
 }
 
 .themeDark .logo img {
-  filter: invert(0.9) grayscale(1) brightness(0.8);
+color:black;
 }
 
 /* ======================================================= */

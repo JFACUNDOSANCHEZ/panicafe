@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './Footer.module.css';
-import logo from '../../assets/pP3.png'; // Asegúrate de tener el logo en esta ruta
+import logo from '../../assets/pP3.png'; 
 
 // Array de textos para el carrusel superior del footer
 const carouselTexts = [
@@ -14,45 +15,47 @@ const carouselTexts = [
 
 const Footer = () => {
     // Lógica para el carrusel de texto
-    const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+     const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+    const location = useLocation(); // <-- Obtiene la ruta actual
+
+    // Verifica si la ruta actual es '/contacto' (o la que uses)
+    const isContactPage = location.pathname === '/contacto';
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentCarouselIndex(prevIndex => (prevIndex + 1) % carouselTexts.length);
-        }, 3000); // Cambia cada 3 segundos
+        }, 3000);
         return () => clearInterval(interval);
     }, []);
 
-    return (
+   return (
         <footer className={styles.mainFooter}>
-            
-            {/* NUEVA SECCIÓN SUPERIOR: FORMULARIO Y COMENTARIO */}
-           <div className={styles.footerTopSection}>
-    {/* Lado izquierdo: Ahora el formulario */}
-    <form className={styles.contactForm}>
-        <div className={styles.formGroup}>
-            <label htmlFor="name" className={styles.formLabel}>Tu nombre</label>
-            <input type="text" id="name" className={styles.formInput} placeholder="Ingresá tu nombre" required />
-        </div>
-        <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.formLabel}>Tu e-mail</label>
-            <input type="email" id="email" className={styles.formInput} placeholder="Ingresá tu e-mail" required />
-        </div>
-        <div className={styles.formGroup}>
-            <label htmlFor="message" className={styles.formLabel}>Tu mensaje</label>
-            <textarea id="message" className={styles.formTextarea} rows="3" placeholder="Escribí tu mensaje aquí..."></textarea>
-        </div>
-        <button type="submit" className={styles.formButton}>Enviar</button>
-    </form>
-
-    {/* Lado derecho: Ahora el comentario */}
-    <div className={styles.contactComment}>
-        <h2 className={styles.contactTitle}>¿Tenés una consulta?</h2>
-        <p className={styles.contactText}>
-            ¡Estamos para ayudarte! Déjanos un mensaje y nos contactaremos contigo lo antes posible.
-        </p>
-    </div>
-</div>
+            {/* Renderización condicional: si no es la página de contacto, muestra la sección del formulario */}
+            {!isContactPage && (
+                <div className={styles.footerTopSection}>
+                    <form className={styles.contactForm}>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="name" className={styles.formLabel}>Tu nombre</label>
+                            <input type="text" id="name" className={styles.formInput} placeholder="Ingresá tu nombre" required />
+                        </div>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="email" className={styles.formLabel}>Tu e-mail</label>
+                            <input type="email" id="email" className={styles.formInput} placeholder="Ingresá tu e-mail" required />
+                        </div>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="message" className={styles.formLabel}>Tu mensaje</label>
+                            <textarea id="message" className={styles.formTextarea} rows="3" placeholder="Escribí tu mensaje aquí..."></textarea>
+                        </div>
+                        <button type="submit" className={styles.formButton}>Enviar</button>
+                    </form>
+                    <div className={styles.contactComment}>
+                        <h2 className={styles.contactTitle}>¿Tenés una consulta?</h2>
+                        <p className={styles.contactText}>
+                            ¡Estamos para ayudarte! Déjanos un mensaje y nos contactaremos contigo lo antes posible.
+                        </p>
+                    </div>
+                </div>
+            )}
 
             {/* Carrusel de texto superior (ahora debajo del formulario) */}
 
@@ -60,6 +63,7 @@ const Footer = () => {
             <div className={styles.footerContent}>
                 {/* Columna 1: Productos */}
                 <div className={styles.footerColumn}>
+                    
                     <h4 className={styles.footerColumnTitle}>NUESTROS PRODUCTOS</h4>
                     <ul className={styles.footerList}>
                         <li><a href="#link">Panes</a></li>
@@ -90,7 +94,6 @@ const Footer = () => {
                     <ul className={styles.footerList}>
                         <li><a href="#link">Nuestra historia</a></li>
                         <li><a href="#link">Trabaja con nosotros</a></li>
-                        <li><a href="#link">Preguntas Frecuentes</a></li>
                         <li><a href="#link">Contáctanos</a></li>
                     </ul>
                 </div>

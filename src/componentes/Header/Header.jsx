@@ -27,9 +27,9 @@ const Header = () => {
           <img src={logo} alt="PANICAFE" />
         </div>
         {/* <h2>#momentodipiacere</h2> */}
-        <button className={styles.ctaBtn}>
+        {/* <button className={styles.ctaBtn}>
           DISCOVER APOLLONIA'S RECIPES
-        </button>
+        </button> */}
       </div>
 
 

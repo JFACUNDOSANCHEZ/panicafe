@@ -2,58 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './InvitationSection.module.css';
 
-// Importa las imágenes
 import instaImage1 from '../../assets/1.jpeg'; 
 import instaImage2 from '../../assets/2.jpeg';
 import instaImage3 from '../../assets/3.jpeg';
 import instaImage4 from '../../assets/4.jpeg';
 
 const InvitationSection = () => {
-
     return (
-        <section className={styles.invitationContainer}> {/* Cambiado a <section> para simplificar */}
-            {/* Lado izquierdo */}
-            <div className={styles.contentLeftInfo}> 
-                <motion.div 
-                    className={styles.followUsSection} 
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <h2 className={styles.followUsTitle}>SEGUINOS</h2>
-                    <div className={styles.socialIcons}>
-                        <a href="https://www.facebook.com/panicafetexas" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-facebook-f ${styles.socialIcon}`}></i>
-                        </a>
-                        <a href="https://www.instagram.com/panicafetexas/" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-instagram ${styles.socialIcon}`}></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@panicafetexas" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-tiktok ${styles.socialIcon}`}></i>
-                        </a>
-                    </div>
-                </motion.div>
-
-                <div className={styles.separatorLineSolid}></div>
-
-                <motion.div 
-                    className={styles.newsletterSection}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.4 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <p className={styles.newsletterSubtitle}>
-                        ¡Para que no te pierdas nada!
-                        Recibe nuestras nuevas recetas exclusivas, grandes ofertas y todas las novedades sobre Panicafé,
-                        ¡directamente en tu buzón!
-                    </p>
-                </motion.div>
-            </div>
-
-            {/* Lado derecho */}
-            <div className={styles.contentRightImages}> 
+        <section className={styles.invitationContainer}>
+            {/* Imágenes a la izquierda */}
+            <div className={styles.contentImages}>
                 <motion.h2 
                     className={styles.instagramTitle}
                     initial={{ opacity: 0, y: 50 }}
@@ -101,6 +59,46 @@ const InvitationSection = () => {
                         viewport={{ once: true, amount: 0.3 }}
                     />
                 </div>
+            </div>
+
+            {/* Texto a la derecha */}
+            <div className={styles.contentText}>
+                <motion.div 
+                    className={styles.followUsSection} 
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <h2 className={styles.followUsTitle}>SEGUINOS</h2>
+                    <div className={styles.socialIcons}>
+                        <a href="https://www.facebook.com/panicafetexas" target="_blank" rel="noopener noreferrer">
+                            <i className={`fab fa-facebook-f ${styles.socialIcon}`}></i>
+                        </a>
+                        <a href="https://www.instagram.com/panicafetexas/" target="_blank" rel="noopener noreferrer">
+                            <i className={`fab fa-instagram ${styles.socialIcon}`}></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@panicafetexas" target="_blank" rel="noopener noreferrer">
+                            <i className={`fab fa-tiktok ${styles.socialIcon}`}></i>
+                        </a>
+                    </div>
+                </motion.div>
+
+                <div className={styles.separatorLineSolid}></div>
+
+                <motion.div 
+                    className={styles.newsletterSection}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <p className={styles.newsletterSubtitle}>
+                        ¡Para que no te pierdas nada!
+                        Recibe nuestras nuevas recetas exclusivas, grandes ofertas y todas las novedades sobre Panicafé,
+                        ¡directamente en tu buzón!
+                    </p>
+                </motion.div>
             </div>
         </section>
     );

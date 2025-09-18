@@ -10,8 +10,8 @@
   height: 100vh;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;  /* Cambiado para que todo el contenido se alinee a la izquierda */
+  align-items: center;
+  justify-content: center ;  /* Cambiado para que todo el contenido se alinee a la izquierda */
 }
 
 .imageBackground {
@@ -37,14 +37,22 @@
 /* Contenedor para el logo y subtítulo a la izquierda */
 .leftContent {
   position: absolute;
-  top: 50%;
-  left: 20px; /* Ajusta la distancia del logo al borde izquierdo */
-  transform: translateY(-50%);
+  top: 46%;
+  left: 30%; /* Cambiado para centrar horizontalmente */
+  transform: translate(-50%, -50%); /* Centrado perfecto horizontal y vertical */
   z-index: 4;
   color: white;
-  text-align: left;
+  text-align: center; /* Centra el texto dentro de la caja */
 }
-
+/* --- Logo en la esquina inferior derecha --- */
+.bottomRightLogo {
+  position: absolute;
+  bottom: 20px; /* Ajusta la distancia desde el borde inferior */
+  right: 20px; /* Ajusta la distancia desde el borde derecho */
+  width: 150px; /* Define el tamaño del logo */
+  height: auto;
+  z-index: 5; /* Asegura que esté por encima de otros elementos */
+}
 .mainLogo {
   height: 120px; /* Ajusta el tamaño del logo */
   object-fit: contain;
@@ -95,7 +103,7 @@
     color: var(--primary-dark);
     margin-bottom: 10px;
     line-height: 1.1;
-    text-align: left;
+    text-align: center;
     white-space: nowrap; /* Evita que el título se rompa en varias líneas */
 }
 
@@ -106,5 +114,5 @@
     font-weight: 500;
     color: white;
     margin-bottom: 5%;
-    text-align: left;
+    text-align: center;
 }

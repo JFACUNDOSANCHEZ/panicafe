@@ -75,17 +75,9 @@ const LocationsMap = () => {
             </motion.div>
 
 
-            {/* Línea separadora */}
-            <motion.div 
-                className={styles.separatorLine}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-            ></motion.div>
+       
 
             {/* Mapa + Ubicaciones */}
-                <InvitationSection />
 
                   <motion.div 
                 className={styles.separatorLine}
@@ -98,19 +90,6 @@ const LocationsMap = () => {
                 {/* Imagen tipo mapa */}
 
                 {/* Lista de Sucursales */}
-                <motion.div 
-                    className={styles.mapWrapper}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <img
-                        src={porta2}
-                        alt="Mapa de Panicafé en Texas"
-                        className={styles.gifImage}
-                    />
-                </motion.div>
                 <motion.div 
                     className={styles.locationsColumn}
                     initial={{ opacity: 0, y: 50 }}
@@ -135,10 +114,31 @@ const LocationsMap = () => {
                         ))}
                     </div>
                 </motion.div>
+                <motion.div 
+                    className={styles.mapWrapper}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <img
+                        src={porta2}
+                        alt="Mapa de Panicafé en Texas"
+                        className={styles.gifImage}
+                    />
+                </motion.div>
             </div>
 
             {/* Línea separadora final */}
             <motion.div 
+                className={styles.separatorLine}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+            ></motion.div>
+                        <InvitationSection />
+                        <motion.div 
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

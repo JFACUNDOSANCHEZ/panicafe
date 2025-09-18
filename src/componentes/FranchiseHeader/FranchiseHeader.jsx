@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./FranchiseHeader.module.css";
 import Nav from "../Nav/Nav";
 import { motion } from "framer-motion";
+import logo from '../../assets/LogoPani.png'; // Asegúrate de que esta ruta sea correcta
+
 
 const FranchiseHeader = ({ 
   backgroundImage, 
@@ -46,6 +48,14 @@ const FranchiseHeader = ({
           <h2 className={styles.mainTitle}>{title}</h2>
           <h2 className={styles.subTitle}>{subtitle}</h2>
         </motion.div>
+          <motion.img
+          className={styles.bottomRightLogo}
+          src={logo}
+          alt="Panicafé Logo"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1 }} // Retrasa la animación del logo para que aparezca después del texto
+        />
       </div>
     </header>
   );
