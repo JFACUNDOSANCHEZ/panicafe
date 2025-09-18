@@ -29,7 +29,7 @@ const QuienesSomos = () => {
 
   return (
     <div>
-{/* <Nav></Nav> */}
+<Nav></Nav>
 <FranchiseHeader backgroundImage="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?_gl=1*1r1hd3a*_ga*MTUzODg0MDg5NS4xNzUyMDkyOTQ0*_ga_8JE65Q40S6*czE3NTgxNTY3MzgkbzM3JGcxJHQxNzU4MTU5OTg2JGoxNiRsMCRoMA.." title="QUIÉNES SOMOS" subtitle="Una historia que se sirve en cada taza" />
         <section className={styles.section}>
 {data.map((item, index) => (

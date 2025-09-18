@@ -15,7 +15,7 @@ const FranchiseHeader = ({
     <header className={styles.header}>
       {showNav && (
         <div className={styles.navContainer}>
-          <Nav />
+       
         </div>
       )}
 

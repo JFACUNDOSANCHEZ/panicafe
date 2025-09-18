@@ -9,11 +9,25 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 const Nav = () => {
   const location = useLocation();
   const [activeItem, setActiveItem] = useState(null);
+  const [isHoveringNav, setIsHoveringNav] = useState(false); // NUEVO ESTADO PARA CONTROLAR HOVER GENERAL DEL NAV
 
   const isHomePage = location.pathname === "/";
-  const navContentThemeClass = isHomePage ? styles.themeLight : styles.themeDark;
-  const navBackgroundClass = isHomePage ? styles.themeLight : styles.themeDark;
-  const currentLogo = isHomePage ? logoNavWhite : logoNavBlack;
+
+  // Determinar la clase de fondo del header
+  let headerBackgroundClass = "";
+  if (isHomePage) {
+    // En Home: Transparente por defecto, blanco si hay hover
+    headerBackgroundClass = isHoveringNav ? styles.headerWhiteBackground : styles.headerTransparentBackground;
+  } else {
+    // En otras páginas: Siempre blanco
+    headerBackgroundClass = styles.headerWhiteBackground;
+  }
+
+  // Determinar el tema del texto (blanco para transparente, negro para blanco)
+  // El logo también cambiará según si el fondo es transparente (logo blanco) o blanco (logo negro)
+  const navContentThemeClass = (isHomePage && !isHoveringNav) ? styles.themeLight : styles.themeDark;
+  const currentLogo = (isHomePage && !isHoveringNav) ? logoNavWhite : logoNavBlack;
+
 
   const navVariants = {
     hidden: { opacity: 0, y: -50 },
@@ -29,7 +43,6 @@ const Nav = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  // Textos personalizados para cada opción
   const menuContent = {
     home: "Bienvenido a Panicafé, donde cada taza cuenta una historia.",
     carta: "Conocé nuestra historia y la pasión detrás de cada grano.",
@@ -41,11 +54,15 @@ const Nav = () => {
   return (
     <motion.div
       className={styles.navWrapper}
-      onMouseLeave={() => setActiveItem(null)} // se cierra al salir del nav
+      onMouseEnter={() => setIsHoveringNav(true)} // Activa el hover del nav
+      onMouseLeave={() => {
+        setIsHoveringNav(false); // Desactiva el hover del nav
+        setActiveItem(null); // Y cierra el contenido desplegable
+      }}
     >
       {/* Header fijo */}
       <motion.div
-        className={`${styles.header} ${navContentThemeClass} ${navBackgroundClass}`}
+        className={`${styles.header} ${headerBackgroundClass} ${navContentThemeClass}`}
         variants={navVariants}
         initial="hidden"
         animate="visible"
@@ -104,7 +121,6 @@ const Nav = () => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
-            {/* Agregamos el efecto de fade-in en el texto */}
             <motion.p
               className={styles.hoverText}
               initial={{ opacity: 0 }}

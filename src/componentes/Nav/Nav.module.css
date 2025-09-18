@@ -1,8 +1,8 @@
 /* --- Variables de diseño --- */
 :root {
-  --nav-link-color-light: #ffffff;
-  --nav-link-color-dark: #333333;
-  --nav-link-hover-color: #A08C63;
+  --nav-link-color-light: #ffffff; /* Texto blanco para fondo oscuro/transparente */
+  --nav-link-color-dark: #333333; /* Texto oscuro para fondo blanco */
+  --nav-link-hover-color: #A08C63; /* Color de acento al pasar el mouse */
 }
 
 /* ======================================================= */
@@ -23,7 +23,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px 40px;
-  background-color: transparent;
+  /* Eliminamos background-color aquí, ahora se define por clases específicas */
   transition: background-color 0.3s ease, color 0.3s ease;
   box-sizing: border-box;
 }
@@ -36,7 +36,7 @@
 .logo img {
   height: 70px;
   width: auto;
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease; /* Transición para el cambio de color del logo */
 }
 
 .secondaryNav ul {
@@ -69,6 +69,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el contenido desplegable */
 }
 
 .hoverText {
@@ -95,8 +96,21 @@
 }
 
 /* ======================================================= */
-/* --- TEMAS DE COLOR --- */
+/* --- TEMAS DE COLOR Y FONDO DEL HEADER --- */
 /* ======================================================= */
+
+/* Fondo transparente (para Home sin hover) */
+.headerTransparentBackground {
+  background-color: transparent;
+}
+
+/* Fondo blanco (para Home con hover y para otras páginas) */
+.headerWhiteBackground {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil cuando el fondo es blanco */
+}
+
+/* Color del texto: blanco para fondos transparentes/oscuros */
 .themeLight a {
   color: var(--nav-link-color-light);
 }
@@ -105,14 +119,7 @@
   color: var(--nav-link-hover-color);
 }
 
-.header.themeDark {
-  background-color: white;
-}
-
-.header.themeLight {
-  background-color: transparent;
-}
-
+/* Color del texto: oscuro para fondos blancos */
 .themeDark a {
   color: var(--nav-link-color-dark);
 }
@@ -121,9 +128,13 @@
   color: var(--nav-link-hover-color);
 }
 
-.themeDark .logo img {
-  color: black;
-}
+/* Ajuste del logo: en themeLight (fondo transparente) el logo blanco se ve normal */
+/* En themeDark (fondo blanco), necesitamos el logo oscuro */
+/* Esto se maneja en el JS con currentLogo, si tu logo 'white' es en realidad un PNG blanco. */
+/* Si tu logo 'black' es un PNG negro, el JS ya lo cambiará. */
+/* Si necesitas forzar un cambio de color con CSS para un SVG o si los logos son el mismo, aquí iría: */
+/* .themeDark .logo img { filter: invert(0); } /* Ejemplo para forzar color */
+
 
 /* ======================================================= */
 /* --- RESPONSIVE --- */
@@ -131,7 +142,7 @@
 @media (max-width: 768px) {
   .header {
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.95); /* Siempre blanco con algo de opacidad en móvil */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
@@ -139,6 +150,7 @@
     height: 90px;
   }
 
+  /* En móvil, el texto siempre será oscuro */
   .header a {
     color: var(--nav-link-color-dark);
   }
@@ -147,15 +159,16 @@
     color: var(--nav-link-hover-color);
   }
 
-  .header .logo img {
+  /* Si tu logo blanco necesita invertirse para ser oscuro en móvil */
+  /* .header .logo img {
     filter: invert(0.9) grayscale(1) brightness(0.8);
-  }
-
+  } */
+  
   .secondaryNav {
     display: none;
   }
 
-  /* 🔒 Ocultar hoverContent en mobile */
+  /* Ocultar hoverContent en mobile */
   .hoverContent {
     display: none !important;
   }

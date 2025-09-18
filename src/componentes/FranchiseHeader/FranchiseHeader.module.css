@@ -38,7 +38,7 @@
 .leftContent {
   position: absolute;
   top: 46%;
-  left: 30%; /* Cambiado para centrar horizontalmente */
+  left: 32%; /* Cambiado para centrar horizontalmente */
   transform: translate(-50%, -50%); /* Centrado perfecto horizontal y vertical */
   z-index: 4;
   color: white;

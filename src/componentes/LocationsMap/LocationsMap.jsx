@@ -8,6 +8,7 @@ import InvitationSection from '../InvitationSection/InvitationSection';
 import porta from '../../assets/gale/1.jpg';
 import porta2 from '../../assets/gale/6.jpg';
 import Gallery from '../gallery/Gallery.jsx';
+import Nav from '../Nav/Nav';
 
 const LocationsMap = () => {
     const locations = [
@@ -30,6 +31,7 @@ const LocationsMap = () => {
 
     return (
         <div className={styles.container}>
+            <Nav></Nav>
             <FranchiseHeader 
                 backgroundImage="https://images.pexels.com/photos/30918887/pexels-photo-30918887.jpeg"
                 title="PANICAFÉ EN EE.UU"
