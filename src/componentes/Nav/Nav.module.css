@@ -6,21 +6,25 @@
 }
 
 /* ======================================================= */
-/* --- ESTILOS BASE DEL COMPONENTE NAV --- */
+/* --- NAV WRAPPER GENERAL --- */
 /* ======================================================= */
-
-.header {
+.navWrapper {
   position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 1000;
+}
+
+/* ======================================================= */
+/* --- HEADER PRINCIPAL --- */
+/* ======================================================= */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 40px;
-  background-color: transparent;  /* Fondo transparente por defecto */
-  transition: background-color 0.3s ease, color 0.3s ease;  /* Agregar transición de color de fondo */
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
   box-sizing: border-box;
 }
 
@@ -54,9 +58,45 @@
 }
 
 /* ======================================================= */
-/* --- TEMAS DE COLOR PARA EL CONTENIDO DEL NAV --- */
+/* --- HOVER CONTENT (MEGA DROPDOWN) --- */
 /* ======================================================= */
+.hoverContent {
+  width: 100%;
+  background: #f8f8f8;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.hoverText {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+
+.socialIcons a {
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialIcons a:hover {
+  color: var(--nav-link-hover-color);
+  transform: scale(1.2);
+}
+
+/* ======================================================= */
+/* --- TEMAS DE COLOR --- */
+/* ======================================================= */
 .themeLight a {
   color: var(--nav-link-color-light);
 }
@@ -66,15 +106,14 @@
 }
 
 .header.themeDark {
-  background-color: white; /* Fondo blanco cuando el tema es oscuro (no en la home) */
+  background-color: white;
 }
 
 .header.themeLight {
-  background-color: transparent; /* Fondo transparente cuando es la home */
+  background-color: transparent;
 }
 
 .themeDark a {
-  
   color: var(--nav-link-color-dark);
 }
 
@@ -83,24 +122,23 @@
 }
 
 .themeDark .logo img {
-color:black;
+  color: black;
 }
 
 /* ======================================================= */
-/* --- RESPONSIVE PARA DISPOSITIVOS MÓVILES --- */
+/* --- RESPONSIVE --- */
 /* ======================================================= */
-
 @media (max-width: 768px) {
   .header {
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
+
   .logo img {
     height: 90px;
   }
-  
+
   .header a {
     color: var(--nav-link-color-dark);
   }
@@ -110,10 +148,15 @@ color:black;
   }
 
   .header .logo img {
-    filter: invert(0.9) grayscale(1) brightness(0.8); 
+    filter: invert(0.9) grayscale(1) brightness(0.8);
   }
 
   .secondaryNav {
     display: none;
+  }
+
+  /* 🔒 Ocultar hoverContent en mobile */
+  .hoverContent {
+    display: none !important;
   }
 }
