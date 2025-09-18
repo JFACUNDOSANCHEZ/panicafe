@@ -62,7 +62,7 @@
 /* ======================================================= */
 .hoverContent {
   width: 100%;
-  background: #f8f8f8;
+  background: #ffffff;
   text-align: center;
   overflow: hidden;
   display: flex;
@@ -74,7 +74,7 @@
 .hoverText {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: #333;
+  color: #141414;
   margin: 10px 0;
 }
 
