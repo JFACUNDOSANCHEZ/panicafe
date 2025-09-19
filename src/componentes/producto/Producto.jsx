@@ -3,7 +3,7 @@ import styles from "./Producto.module.css";
 import img from "../../assets/2.jpeg";
 import img2 from "../../assets/F5.jpeg";
 import img4 from "../../assets/f12.jpeg";
-import img3 from "../../assets/f11.jpeg";
+import img3 from "../../assets/F11.jpeg";
 import { useEffect } from "react";
 
 // Datos de ejemplo (puedes reemplazar con props o data desde API)
