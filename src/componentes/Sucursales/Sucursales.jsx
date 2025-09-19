@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Sucursales.module.css';
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+import Footer from '../footer/Footer';
 import img from '../../assets/f2.jpeg';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 const Sucursales = () => {
