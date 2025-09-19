@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import styles from './Sucursales.module.css';
 import Nav from '../Nav/Nav';
 import Footer from '../footer/Footer';
+import React, { useEffect } from "react";
 import img from '../../assets/F2.jpeg';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 const Sucursales = () => {
@@ -55,7 +56,10 @@ const Sucursales = () => {
             whatsappUrl: 'https://wa.me/5493518547070'
         },
     ];
-
+useEffect(() => {
+    // Al cargar el componente, desplaza la ventana a la parte superior
+    window.scrollTo(0, 0);
+  }, []);
     return (
         <>
         <Nav></Nav>

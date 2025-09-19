@@ -16,7 +16,6 @@ import Sucursales from './componentes/Sucursales/Sucursales';
 const App = () => {
   return (
     <>
-      
 
       <Routes>
         {/* Aquí defines las rutas y qué componente se muestra en cada una */}

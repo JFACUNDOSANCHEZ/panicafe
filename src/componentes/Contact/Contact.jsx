@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { motion } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaTiktok, FaPinterestP } from 'react-icons/fa';
 import styles from './Contact.module.css';
@@ -6,9 +6,14 @@ import Nav from '../Nav/Nav';
 import Footer from '../footer/Footer';
 
 const Contact = () => {
+  useEffect(() => {
+      // Al cargar el componente, desplaza la ventana a la parte superior
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <>
-      <Nav></Nav>
+      <Nav></Nav> 
+      <br /><br /><br />
       <motion.section
         className={styles.contactSection}
         initial={{ opacity: 0, y: 50 }}
