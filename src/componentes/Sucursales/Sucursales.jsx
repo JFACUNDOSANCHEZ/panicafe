@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import styles from './Sucursales.module.css';
 import Nav from '../Nav/Nav';
 import Footer from '../footer/Footer';
-import img from '../../assets/f2.jpeg';
+import img from '../../assets/F2.jpeg';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 const Sucursales = () => {
     const sucursales = [
