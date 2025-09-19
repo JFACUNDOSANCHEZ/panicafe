@@ -205,7 +205,7 @@ body {
   height: auto;
   max-height: 550px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0px;
 }
 
 .introTextContent {
@@ -373,7 +373,7 @@ body {
 .bottomImage {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0px;
   box-shadow: var(--shadow-subtle);
 }
 
