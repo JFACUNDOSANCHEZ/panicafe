@@ -69,8 +69,8 @@
 
 .overlay button {
   padding: 14px 28px;
-  background-color: #8b4513;
-  color: white;
+  background-color: #f3f3f3;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 40px;
   font-size: 1.1rem;
@@ -83,7 +83,7 @@
 }
 
 .overlay button:hover {
-  background-color: #a0522d;
+  background-color: #d2d2d2;
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
@@ -154,11 +154,11 @@
 }
 @media (max-width: 992px) {
   .carousel {
-    margin-top: 160px; /* un poco más de margen */
+    margin-top: 180px; /* un poco más de margen */
   }
 }
 @media (max-width: 576px) {
   .carousel {
-    margin-top: 200px; /* suficiente para que no lo tape nunca */
+    margin-top: 220px; /* suficiente para que no lo tape nunca */
   }
 }
