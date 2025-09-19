@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import styles from "./QuienesSomos.module.css";
-import img1 from "../../assets/q1.jpeg"; 
-import img2 from "../../assets/q2.jpeg";
-import img3 from "../../assets/q3.jpeg";
+import img1 from "../../assets/p12.JPG"; 
+import img3 from "../../assets/p13.JPG";
+import img2 from "../../assets/p9.jpeg";
 import Nav from "../Nav/Nav";
 import { motion } from "framer-motion";
 
@@ -11,7 +11,7 @@ import FranchiseHeader from "../FranchiseHeader/FranchiseHeader";
 const QuienesSomos = () => {
  const data = [
     {
-      image: img1,
+      image: img3,
       title: "NUESTRA ESENCIA",
       text: "Nacimos en Córdoba con un sueño simple: ofrecer un café que invite a quedarse y sabores que se conviertan en recuerdos. Con el tiempo, Panicafé se transformó en mucho más que una cafetería: somos un punto de encuentro, un ritual diario y una experiencia para todos los sentidos..",
     },
@@ -21,7 +21,7 @@ const QuienesSomos = () => {
       text: "Creemos en la calidad desde el origen. Seleccionamos cuidadosamente nuestros granos, elaboramos cada producto con ingredientes frescos y diseñamos espacios que combinan calidez y estilo. Hoy contamos con sucursales en diferentes puntos de  Córdoba Capital y en Texas, llevando un pedacito de nuestra esencia a cada rincón donde abrimos nuestras puertas..",
     },
     {
-      image: img3,
+      image: img1,
       title: "NUESTRA PASIÓN",
       text: "Hoy contamos con sucursales en diferentes puntos de  Córdoba Capital y en Texas, llevando un pedacito de nuestra esencia a cada rincón donde abrimos nuestras puertas..",
     },
