@@ -3,6 +3,7 @@ import styles from "./QuienesSomos.module.css";
 import img1 from "../../assets/p12.JPG"; 
 import img3 from "../../assets/p13.JPG";
 import img2 from "../../assets/p9.jpeg";
+import img4 from "../../assets/p3.jpeg";
 import Nav from "../Nav/Nav";
 import { motion } from "framer-motion";
 
@@ -34,7 +35,7 @@ useEffect(() => {
     
     <div>
 <Nav></Nav>
-<FranchiseHeader backgroundImage={img3} title="QUIÉNES SOMOS" subtitle="Una historia que se sirve en cada taza" />
+<FranchiseHeader backgroundImage={img4} title="QUIÉNES SOMOS" subtitle="Una historia que se sirve en cada taza" />
         <section className={styles.section}>
 {data.map((item, index) => (
   <div
