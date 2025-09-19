@@ -4,6 +4,7 @@ import img1 from "../../assets/p12.JPG";
 import img3 from "../../assets/p13.JPG";
 import img2 from "../../assets/p9.jpeg";
 import img4 from "../../assets/p3.jpeg";
+import img12 from "../../assets/p15.jpeg";
 import Nav from "../Nav/Nav";
 import { motion } from "framer-motion";
 
@@ -22,7 +23,7 @@ const QuienesSomos = () => {
       text: "Creemos en la calidad desde el origen. Seleccionamos cuidadosamente nuestros granos, elaboramos cada producto con ingredientes frescos y diseñamos espacios que combinan calidez y estilo. Hoy contamos con sucursales en diferentes puntos de  Córdoba Capital y en Texas, llevando un pedacito de nuestra esencia a cada rincón donde abrimos nuestras puertas..",
     },
     {
-      image: img1,
+      image: img12,
       title: "NUESTRA PASIÓN",
       text: "Hoy contamos con sucursales en diferentes puntos de  Córdoba Capital y en Texas, llevando un pedacito de nuestra esencia a cada rincón donde abrimos nuestras puertas..",
     },
