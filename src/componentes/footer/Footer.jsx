@@ -19,7 +19,7 @@ const Footer = () => {
     const location = useLocation(); // <-- Obtiene la ruta actual
 
     // Verifica si la ruta actual es '/contacto' (o la que uses)
-    const isContactPage = location.pathname === '/contacto';
+    const isContactPage = location.pathname === '/contacto'|| location.pathname === '/11';
 
     useEffect(() => {
         const interval = setInterval(() => {

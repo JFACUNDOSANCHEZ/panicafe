@@ -1,98 +1,116 @@
-/* --- Contenedor Principal --- */
+/* Estilos para el componente Contact */
+
+/* --- VARIABLES Y FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #8b4513;
+  --accent-color: #A08C63;
+  --text-color-dark: #333333;
+  --text-color-light: #666666;
+  --background: #FFFFFF;
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* --- SECCIÓN PRINCIPAL DE CONTACTO --- */
 .contactSection {
-  padding: 80px 20px;
-  background-color: var(--background, #f5f5f5);
+  margin-top: 10px  ;
+  width: 100%;
+  max-width: 1440px;
+  margin: 100px auto;
+  padding: 0 20px;
   font-family: 'Inter', sans-serif;
-  color: var(--text-primary, #2b2b2b);
+  color: var(--text-color-dark);
 }
 
 .contactContent {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
-  gap: 60px;
-  flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 50px;
 }
 
-/* --- Títulos y Subtítulos --- */
+/* --- ESTILOS COMPARTIDOS PARA AMBOS CONTENEDORES --- */
+.formContainer,
+.socialsContainer {
+  flex: 1;
+  min-width: 300px;
+  background-color: #f9f9f9;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+}
+
 .title {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  color: var(--text-color-dark);
   margin-bottom: 10px;
-  color: var(--text-primary, #2b2b2b);
-  text-align: left;
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.1em;
+  color: var(--text-color-light);
   line-height: 1.6;
-  color: var(--text-secondary, #5a5a5a);
-  margin-bottom: 30px;
-  max-width: 500px;
-  text-align: left;
+  margin-bottom: 40px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* --- Contenedor del Formulario --- */
-.formContainer {
-  flex: 1;
-  min-width: 300px;
-  max-width: 600px;
-}
-
+/* --- ESTILOS DEL FORMULARIO --- */
 .contactForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .inputField,
 .textareaField {
   width: 100%;
-  padding: 15px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
 }
 
 .inputField:focus,
 .textareaField:focus {
   outline: none;
-  border-color: var(--accent-color, #a08c63);
-  box-shadow: 0 0 5px rgba(160, 140, 99, 0.5);
+  border-color: var(--accent-color);
+}
+
+.textareaField {
+  resize: vertical;
 }
 
 .submitButton {
-  padding: 15px 30px;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #fff;
-  background-color: var(--accent-color, #a08c63);
+  background-color: var(--primary-color);
+  color: white;
   border: none;
-  border-radius: 4px;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-top: 15px;
 }
 
 .submitButton:hover {
-  background-color: #8c7a52;
+  background-color: var(--accent-color);
   transform: translateY(-2px);
 }
 
-/* --- Contenedor de Redes Sociales --- */
+/* --- ESTILOS DE REDES SOCIALES --- */
 .socialsContainer {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .socialIcons {
@@ -102,29 +120,23 @@
 }
 
 .socialIcon {
-  font-size: 1.8rem;
-  color: var(--text-primary, #2b2b2b);
+  font-size: 2em;
+  color: var(--text-color-light);
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .socialIcon:hover {
-  color: var(--accent-color, #a08c63);
+  color: var(--primary-color);
   transform: scale(1.1);
 }
 
-/* --- Responsive Design --- */
+/* --- MEDIA QUERIES --- */
 @media (max-width: 768px) {
   .contactContent {
     flex-direction: column;
-    gap: 40px;
   }
-  .formContainer, .socialsContainer {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-  .title, .subtitle {
-    text-align: center;
-    max-width: 100%;
+  .formContainer,
+  .socialsContainer {
+    padding: 30px;
   }
 }

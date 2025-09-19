@@ -1,143 +1,69 @@
-import React, { useState } from "react";
-import styles from "./Nav.module.css";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logoNavWhite from "../../assets/pP3.png";
-import logoNavBlack from "../../assets/LogoPanicafe.png";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import styles from "./Nav.module.css";
+import logoNavWhite from "../../assets/pP3.png";
+import logoNavBlack from "../../assets/pb8.png";
 
 const Nav = () => {
   const location = useLocation();
-  const [activeItem, setActiveItem] = useState(null);
-  const [isHoveringNav, setIsHoveringNav] = useState(false); // NUEVO ESTADO PARA CONTROLAR HOVER GENERAL DEL NAV
+  const [scrolled, setScrolled] = useState(false);
 
-  const isHomePage = location.pathname === "/";
+  useEffect(() => {
+    const handleScroll = () => {
+      // Si el usuario se ha desplazado más de 50px, activamos el estado de 'scrolled'
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-  // Determinar la clase de fondo del header
-  let headerBackgroundClass = "";
-  if (isHomePage) {
-    // En Home: Transparente por defecto, blanco si hay hover
-    headerBackgroundClass = isHoveringNav ? styles.headerWhiteBackground : styles.headerTransparentBackground;
-  } else {
-    // En otras páginas: Siempre blanco
-    headerBackgroundClass = styles.headerWhiteBackground;
-  }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  // Determinar el tema del texto (blanco para transparente, negro para blanco)
-  // El logo también cambiará según si el fondo es transparente (logo blanco) o blanco (logo negro)
-  const navContentThemeClass = (isHomePage && !isHoveringNav) ? styles.themeLight : styles.themeDark;
-  const currentLogo = (isHomePage && !isHoveringNav) ? logoNavWhite : logoNavBlack;
-
-
-  const navVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 20 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const menuContent = {
-    home: "Bienvenido a Panicafé, donde cada taza cuenta una historia.",
-    carta: "Conocé nuestra historia y la pasión detrás de cada grano.",
-    franquicias: "Panicafé cruza fronteras: conoce nuestra expansión en EE.UU.",
-    sucursales: "Encontrá tu sucursal más cercana y viví la experiencia Panicafé.",
-    contacto: "¿Dudas o sugerencias? Estamos acá para escucharte.",
-  };
+  // La lógica del fondo y los logos ahora se basa completamente en el scroll
+  const currentLogo = scrolled ? logoNavBlack : logoNavBlack; // El logo siempre será el negro
+  const headerBackgroundClass = scrolled
+    ? styles.headerScrolledBackground
+    : styles.headerWhiteBackground;
 
   return (
-    <motion.div
-      className={styles.navWrapper}
-      onMouseEnter={() => setIsHoveringNav(true)} // Activa el hover del nav
-      onMouseLeave={() => {
-        setIsHoveringNav(false); // Desactiva el hover del nav
-        setActiveItem(null); // Y cierra el contenido desplegable
-      }}
-    >
-      {/* Header fijo */}
+    <motion.div className={`${styles.navWrapper} ${scrolled ? styles.navScrolled : ""}`}>
+      {/* La preNav se oculta con una transición */}
+      <div className={`${styles.preNav} ${scrolled ? styles.preNavHidden : ""}`}>
+          <div className={`${styles.preNav} ${scrolled ? styles.preNavHidden : ""}`}>
+        <div className={styles.socialIcons}>
+          <a href="https://www.facebook.com/panicafe" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
+          <a href="https://www.instagram.com/panicafe" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+          <a href="https://twitter.com/panicafe" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+        </div>
+      </div>
+      </div>
       <motion.div
-        className={`${styles.header} ${headerBackgroundClass} ${navContentThemeClass}`}
-        variants={navVariants}
-        initial="hidden"
-        animate="visible"
+        className={`${styles.header} ${headerBackgroundClass} ${styles.themeDark}`}
       >
-        <motion.div className={styles.leftNavGroup} variants={itemVariants}>
-          <div className={styles.logo}>
-            <Link to="/">
-              <img src={currentLogo} alt="Logo" />
-            </Link>
-          </div>
-        </motion.div>
-
-        <motion.nav className={styles.secondaryNav} variants={itemVariants}>
-          <ul>
-            <motion.li
-              variants={itemVariants}
-              onMouseEnter={() => setActiveItem("home")}
-            >
-              <Link to="/">HOME</Link>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              onMouseEnter={() => setActiveItem("carta")}
-            >
-              <Link to="/carta">QUIÉNES SOMOS</Link>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              onMouseEnter={() => setActiveItem("franquicias")}
-            >
-              <Link to="/franquicias">PANICAFÉ EN EE.UU.</Link>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              onMouseEnter={() => setActiveItem("sucursales")}
-            >
-              <Link to="/nosotros">SUCURSALES</Link>
-            </motion.li>
-            <motion.li
-              variants={itemVariants}
-              onMouseEnter={() => setActiveItem("contacto")}
-            >
-              <Link to="/contacto">CONTACTO</Link>
-            </motion.li>
+        <nav className={styles.centeredNav}>
+          <ul className={styles.leftLinks}>
+            <li><Link to="/somospanicafe">QUIÉNES SOMOS</Link></li>
+            <li><Link to="/sucursales">SUCURSALES</Link></li>
           </ul>
-        </motion.nav>
+          <div className={`${styles.logo} ${scrolled ? styles.logoScrolled : ""}`}>
+            <Link to="/"><img src={currentLogo} alt="Logo Panicafé" /></Link>
+          </div>
+          <ul className={styles.rightLinks}>
+            <li><Link to="/eeuu">PANICAFÉ EN EE.UU.</Link></li>
+            <li><Link to="/contacto">CONTACTO</Link></li>
+          </ul>
+        </nav>
+        <div className={styles.franquiciasBtnWrapper}>
+          <Link to="/franquicias" className={styles.franquiciasBtn}>
+            <span>FRANQUICIAS</span>
+          </Link>
+        </div>
       </motion.div>
-
-      {/* Contenido desplegable debajo del header */}
-      <AnimatePresence>
-        {activeItem && (
-          <motion.div
-            className={styles.hoverContent}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "150px", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-          >
-            <motion.p
-              className={styles.hoverText}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {menuContent[activeItem]}
-            </motion.p>
-            <div className={styles.socialIcons}>
-              <a href="#"><FaFacebook /></a>
-              <a href="#"><FaInstagram /></a>
-              <a href="#"><FaTwitter /></a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 };

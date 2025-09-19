@@ -19,7 +19,14 @@ const InvitationSection = () => {
                     transition={{ duration: 1, delay: 0.6 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    INSTAGRAM @PANICAFETEXAS 
+                    {/* El enlace se añade aquí dentro del h2 */}
+                    <a 
+                        href="https://www.instagram.com/panicafetexas/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        INSTAGRAM @PANICAFETEXAS
+                    </a>
                 </motion.h2>
                 <div className={styles.instagramGrid}>
                     <motion.img 

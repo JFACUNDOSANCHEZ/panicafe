@@ -1,175 +1,232 @@
-/* --- Variables de diseño --- */
 :root {
-  --nav-link-color-light: #ffffff; /* Texto blanco para fondo oscuro/transparente */
-  --nav-link-color-dark: #333333; /* Texto oscuro para fondo blanco */
-  --nav-link-hover-color: #A08C63; /* Color de acento al pasar el mouse */
+  --nav-link-color-light: #ffffff;
+  --nav-link-color-dark: #333333;
+  --nav-link-hover-color: #a0522d;
+  --primary-color: #8b4513;
 }
 
-/* ======================================================= */
-/* --- NAV WRAPPER GENERAL --- */
-/* ======================================================= */
 .navWrapper {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
+  font-family: "Georgia", serif;
+  transition: all 0.3s ease;
 }
 
-/* ======================================================= */
-/* --- HEADER PRINCIPAL --- */
-/* ======================================================= */
-.header {
+/* * Estado inicial del nav 
+ * La pre-navegación visible con un fondo blanco
+ */
+.preNav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 5px 40px;
-  /* Eliminamos background-color aquí, ahora se define por clases específicas */
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-sizing: border-box;
-}
-
-.leftNavGroup {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 70px;
-  width: auto;
-  transition: filter 0.3s ease; /* Transición para el cambio de color del logo */
-}
-
-.secondaryNav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 30px;
-}
-
-.secondaryNav a {
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-/* ======================================================= */
-/* --- HOVER CONTENT (MEGA DROPDOWN) --- */
-/* ======================================================= */
-.hoverContent {
-  width: 100%;
-  background: #ffffff;
-  text-align: center;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  height: 22px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el contenido desplegable */
-}
-
-.hoverText {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: #141414;
-  margin: 10px 0;
 }
 
 .socialIcons {
   display: flex;
-  gap: 20px;
-  font-size: 1.5rem;
+  gap: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .socialIcons a {
-  color: #333;
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: #5a5a5a;
+  transition: color 0.3s ease;
 }
 
 .socialIcons a:hover {
+  color: var(--primary-color);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  z-index: 10;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Contenedor principal de la navegación centrada */
+.centeredNav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.leftLinks, .rightLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.logo img {
+  height: 100px; /* Tamaño del logo inicial */
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+/* Estilos para el botón "Franquicias" */
+.franquiciasBtnWrapper {
+  position: absolute;
+  right: 2rem;
+}
+
+.franquiciasBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: #8b4513;
+  border-radius: 40px;
+  color: white !important;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+
+.franquiciasBtn:hover {
+  background-color: #a0522d;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* * ESTADO AL HACER SCROLL
+ * Las siguientes clases se activan cuando el usuario se desplaza
+ */
+.navScrolled .preNav {
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.navScrolled .header {
+  padding: 0.8rem 2rem; /* padding más pequeño para achicar el nav */
+}
+
+.navScrolled .logo img {
+  height: 70px; /* Tamaño del logo reducido */
+}
+
+/* * ESTILO DE HOVER EN LOS LINKS
+ * La línea que crece debajo de cada enlace
+ */
+.centeredNav a {
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.centeredNav a:hover {
   color: var(--nav-link-hover-color);
-  transform: scale(1.2);
 }
 
-/* ======================================================= */
-/* --- TEMAS DE COLOR Y FONDO DEL HEADER --- */
-/* ======================================================= */
-
-/* Fondo transparente (para Home sin hover) */
-.headerTransparentBackground {
-  background-color: transparent;
+.centeredNav a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: var(--nav-link-hover-color);
+  transition: width 0.3s ease;
 }
 
-/* Fondo blanco (para Home con hover y para otras páginas) */
-.headerWhiteBackground {
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil cuando el fondo es blanco */
+.centeredNav a:hover::after {
+  width: 100%;
 }
 
-/* Color del texto: blanco para fondos transparentes/oscuros */
-.themeLight a {
+/* * MANEJO DE TEMAS (claro y oscuro)
+ * Ya que el nav siempre tendrá fondo blanco, el tema oscuro es el principal.
+ * Se incluyen las reglas para el tema claro en caso de ser necesario en otras páginas.
+ */
+.themeLight .centeredNav a {
   color: var(--nav-link-color-light);
 }
-
-.themeLight a:hover {
-  color: var(--nav-link-hover-color);
+.themeLight .centeredNav a::after {
+  background-color: var(--nav-link-color-light);
+}
+.themeLight .franquiciasBtn {
+  background-color: #8b4513;
+}
+.themeLight .franquiciasBtn:hover {
+  background-color: #a0522d;
 }
 
-/* Color del texto: oscuro para fondos blancos */
-.themeDark a {
+.themeDark .centeredNav a {
   color: var(--nav-link-color-dark);
 }
-
-.themeDark a:hover {
-  color: var(--nav-link-hover-color);
+.themeDark .centeredNav a::after {
+  background-color: var(--nav-link-color-dark);
+}
+.themeDark .franquiciasBtn {
+  background-color: #8b4513;
+}
+.themeDark .franquiciasBtn:hover {
+  background-color: #a0522d;
 }
 
-/* Ajuste del logo: en themeLight (fondo transparente) el logo blanco se ve normal */
-/* En themeDark (fondo blanco), necesitamos el logo oscuro */
-/* Esto se maneja en el JS con currentLogo, si tu logo 'white' es en realidad un PNG blanco. */
-/* Si tu logo 'black' es un PNG negro, el JS ya lo cambiará. */
-/* Si necesitas forzar un cambio de color con CSS para un SVG o si los logos son el mismo, aquí iría: */
-/* .themeDark .logo img { filter: invert(0); } /* Ejemplo para forzar color */
-
-
-/* ======================================================= */
-/* --- RESPONSIVE --- */
-/* ======================================================= */
-@media (max-width: 768px) {
+/* * ESTILOS RESPONSIVOS
+ * Asegura que el nav se vea bien en dispositivos móviles
+ */
+@media (max-width: 1024px) {
   .header {
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.95); /* Siempre blanco con algo de opacidad en móvil */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    padding: 1.5rem;
   }
-
-  .logo img {
-    height: 90px;
+  .centeredNav {
+    flex-grow: 1;
+    justify-content: flex-start;
+    gap: 20px;
   }
-
-  /* En móvil, el texto siempre será oscuro */
-  .header a {
-    color: var(--nav-link-color-dark);
+  .leftLinks {
+    flex-grow: 1;
+    justify-content: flex-start;
   }
-
-  .header a:hover {
-    color: var(--nav-link-hover-color);
+  .rightLinks {
+    flex-grow: 1;
+    justify-content: flex-end;
   }
-
-  /* Si tu logo blanco necesita invertirse para ser oscuro en móvil */
-  /* .header .logo img {
-    filter: invert(0.9) grayscale(1) brightness(0.8);
-  } */
-  
-  .secondaryNav {
-    display: none;
+}
+@media (max-width: 768px) {
+  .preNav {
+    justify-content: center;
   }
-
-  /* Ocultar hoverContent en mobile */
-  .hoverContent {
-    display: none !important;
+  .header {
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+  }
+  .centeredNav {
+    flex-direction: column;
+  }
+  .leftLinks, .rightLinks {
+    flex-direction: column;
+    align-items: center;
+  }
+  .franquiciasBtnWrapper {
+    position: static;
+    margin-top: 1rem;
+    right: auto;
   }
 }

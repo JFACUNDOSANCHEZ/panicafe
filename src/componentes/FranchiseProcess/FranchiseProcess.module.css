@@ -1,9 +1,13 @@
 .container {
   text-align: center;
+  max-width: 1200px; /* Un ancho máximo más grande para un mejor diseño */
+  margin: 0 auto; /* Centra el componente horizontalmente */
+  padding: 0 20px; /* Agrega un padding para que no se pegue a los bordes */
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Un tamaño de fuente más grande */
+  font-family: 'Playfair Display', serif; /* Mantén la coherencia con otros componentes */
   margin-bottom: 3rem;
   color: #333;
 }
@@ -12,7 +16,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 40px; /* Más espacio entre los elementos */
 }
 
 .step {
@@ -21,27 +25,35 @@
   padding: 20px;
 }
 
-.stepNumber {
-  width: 50px;
-  height: 50px;
+.stepIcon { /* Nueva clase para el icono */
+  width: 60px; /* Icono un poco más grande */
+  height: 60px;
   border-radius: 50%;
-  background-color: #ff6f61; /* Color de tu marca */
+  background-color: #A08C63; /* Usa tu color de marca, por ejemplo, el acento del otro componente */
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0 auto 1rem;
+  font-size: 2rem; /* Tamaño del icono dentro del círculo */
+  margin: 0 auto 1.5rem; /* Más espacio debajo del icono */
 }
 
 .stepTitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem; /* Un poco más grande para destacar */
+  font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #555;
+  color: #2b2b2b; /* Usa el color de títulos de tu marca */
 }
 
 .stepDescription {
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 1rem; /* Un poco más grande para una mejor lectura */
+  color: #5C5C5C;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .stepsGrid {
+    flex-direction: column;
+    align-items: center;
+  }
 }

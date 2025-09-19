@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./QuienesSomos.module.css";
 import img1 from "../../assets/q1.jpeg"; 
 import img2 from "../../assets/q2.jpeg";
@@ -12,25 +12,29 @@ const QuienesSomos = () => {
  const data = [
     {
       image: img1,
-      title: "OUR BAKERIES",
+      title: "NUESTRA ESENCIA",
       text: "Nacimos en Córdoba con un sueño simple: ofrecer un café que invite a quedarse y sabores que se conviertan en recuerdos. Con el tiempo, Panicafé se transformó en mucho más que una cafetería: somos un punto de encuentro, un ritual diario y una experiencia para todos los sentidos..",
     },
     {
       image: img2,
-      title: "OUR TRADITION",
+      title: "NUESTRA TRADICIÓN",
       text: "Creemos en la calidad desde el origen. Seleccionamos cuidadosamente nuestros granos, elaboramos cada producto con ingredientes frescos y diseñamos espacios que combinan calidez y estilo. Hoy contamos con sucursales en diferentes puntos de  Córdoba Capital y en Texas, llevando un pedacito de nuestra esencia a cada rincón donde abrimos nuestras puertas..",
     },
     {
       image: img3,
-      title: "OUR PASSION",
+      title: "NUESTRA PASIÓN",
       text: "Hoy contamos con sucursales en diferentes puntos de  Córdoba Capital y en Texas, llevando un pedacito de nuestra esencia a cada rincón donde abrimos nuestras puertas..",
     },
   ];
-
+useEffect(() => {
+    // Al cargar el componente, desplaza la ventana a la parte superior
+    window.scrollTo(0, 0);
+  }, []);
   return (
+    
     <div>
 <Nav></Nav>
-<FranchiseHeader backgroundImage="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?_gl=1*1r1hd3a*_ga*MTUzODg0MDg5NS4xNzUyMDkyOTQ0*_ga_8JE65Q40S6*czE3NTgxNTY3MzgkbzM3JGcxJHQxNzU4MTU5OTg2JGoxNiRsMCRoMA.." title="QUIÉNES SOMOS" subtitle="Una historia que se sirve en cada taza" />
+<FranchiseHeader backgroundImage={img3} title="QUIÉNES SOMOS" subtitle="Una historia que se sirve en cada taza" />
         <section className={styles.section}>
 {data.map((item, index) => (
   <div

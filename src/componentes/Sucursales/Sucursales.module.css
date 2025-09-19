@@ -1,0 +1,156 @@
+/* --- VARIABLES Y FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap');
+
+:root {
+  --text-primary: #121212;
+  --text-secondary: #5C5C5C;
+  --background: #FFFFFF;
+  --accent-color: #A08C63;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --line-color: #E0E0E0;
+  --primary-dark: #2b2b2b;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.sucursalesContainer {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+/* --- ENCABEZADO Y TÍTULO --- */
+.header {
+  margin-bottom: 60px;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+.subTitleSeparatorLine {
+  width: 100px; /* Ancho más pequeño para el separador */
+  height: 2px;
+  background-color: var(--accent-color);
+  margin: 20px auto 30px; /* Centrado y con más espacio */
+}
+
+.description {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- CUADRÍCULA DE SUCURSALES --- */
+.sucursalesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* --- TARJETA DE SUCURSAL --- */
+.card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 30px 20px;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6em;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+}
+
+.cardInfo {
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+.cardActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.whatsappButton,
+.howToGetButton {
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.whatsappButton {
+  background-color: #25D366;
+  color: white;
+}
+
+.whatsappButton:hover {
+  background-color: #128C7E;
+}
+
+.howToGetButton {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.howToGetButton:hover {
+  background-color: #8c7d5c;
+}
+
+/* --- BOTÓN DE ESTADOS UNIDOS --- */
+.usaButtonWrapper {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.usaButton {
+  background-color: var(--primary-dark);
+  color: white;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.usaButton:hover {
+  background-color: #444;
+  transform: translateY(-2px);
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5em;
+  }
+
+  .sucursalesGrid {
+    gap: 20px;
+  }
+}

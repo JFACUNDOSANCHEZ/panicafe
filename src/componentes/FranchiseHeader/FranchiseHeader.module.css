@@ -1,19 +1,24 @@
-/* --- Estilos del header --- */
+/* --- Contenedor general del header --- */
 .header {
   position: relative;
   width: 100%;
+  margin-top: 140px;
 }
 
+/* --- Sección de imagen de fondo --- */
 .imageSection {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center ;  /* Cambiado para que todo el contenido se alinee a la izquierda */
+  justify-content: center;
+  text-align: center;
 }
 
+/* Imagen de fondo */
 .imageBackground {
   position: absolute;
   top: 0;
@@ -24,69 +29,23 @@
   z-index: 1;
 }
 
+/* Gradiente oscuro sobre la imagen (como en el carrusel) */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.711)); /* Mantener el overlay oscuro */
+  background: linear-gradient(
+    to right,
+    rgba(40, 26, 13, 0.85) 0%,
+    rgba(40, 26, 13, 0.65) 40%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
   z-index: 2;
 }
 
-/* Contenedor para el logo y subtítulo a la izquierda */
-.leftContent {
-  position: absolute;
-  top: 46%;
-  left: 32%; /* Cambiado para centrar horizontalmente */
-  transform: translate(-50%, -50%); /* Centrado perfecto horizontal y vertical */
-  z-index: 4;
-  color: white;
-  text-align: center; /* Centra el texto dentro de la caja */
-}
-/* --- Logo en la esquina inferior derecha --- */
-.bottomRightLogo {
-  position: absolute;
-  bottom: 20px; /* Ajusta la distancia desde el borde inferior */
-  right: 20px; /* Ajusta la distancia desde el borde derecho */
-  width: 150px; /* Define el tamaño del logo */
-  height: auto;
-  z-index: 5; /* Asegura que esté por encima de otros elementos */
-}
-.mainLogo {
-  height: 120px; /* Ajusta el tamaño del logo */
-  object-fit: contain;
-}
-
-.subTitle {
-  margin-top: 10px; /* Espacio entre el logo y el subtítulo */
-  font-size: 1.2rem; /* Ajusta el tamaño del texto */
-  font-weight: 300;
-  color: white;
-}
-
-.navContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 3;
-}
-
-.centerContent {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 4;
-}
-
-.mainText {
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
-}
+/* Capa blanca animada (entrada tipo flash) */
 .whiteOverlay {
   position: absolute;
   top: 0;
@@ -94,25 +53,79 @@
   width: 100%;
   height: 100%;
   background: white;
-  z-index: 3; /* por encima de la imagen y por debajo del texto */
+  z-index: 3;
   pointer-events: none;
 }
-.mainTitle {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5em; /* Tamaño más grande para el título principal */
-    color: var(--primary-dark);
-    margin-bottom: 10px;
-    line-height: 1.1;
-    text-align: center;
-    white-space: nowrap; /* Evita que el título se rompa en varias líneas */
+
+/* --- Contenido centrado (texto) --- */
+.leftContent {
+  position: relative;
+  z-index: 4;
+  color: #f5f5dc;
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
+/* Título principal */
+.mainTitle {
+  font-family: "Georgia", serif;
+  font-size: 3rem;
+  color: #f5deb3;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  animation: fadeInSlideUp 1s ease-out forwards;
+}
 
+/* Subtítulo */
 .subTitle {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-    font-weight: 500;
-    color: white;
-    margin-bottom: 5%;
-    text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 1.3rem;
+  color: #f0e6d2;
+  line-height: 1.6;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeInSlideUp 1s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+/* Logo abajo a la derecha */
+.bottomRightLogo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: clamp(100px, 10vw, 150px);
+  height: auto;
+  z-index: 5;
+}
+
+/* --- Animación para el fade-in --- */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsivo --- */
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+
+  .subTitle {
+    font-size: 1rem;
+  }
+
+  .bottomRightLogo {
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+  }
 }

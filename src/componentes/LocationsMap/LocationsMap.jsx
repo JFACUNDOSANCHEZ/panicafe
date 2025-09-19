@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import 'leaflet/dist/leaflet.css'; 
 import styles from './LocationsMap.module.css';
 import Footer from '../footer/Footer';
@@ -11,6 +11,10 @@ import Gallery from '../gallery/Gallery.jsx';
 import Nav from '../Nav/Nav';
 
 const LocationsMap = () => {
+      useEffect(() => {
+    // Al cargar el componente, desplaza la ventana a la parte superior
+    window.scrollTo(0, 0);
+  }, []);
     const locations = [
         {
             name: "PANICAFÉ Spring",
@@ -33,7 +37,7 @@ const LocationsMap = () => {
         <div className={styles.container}>
             <Nav></Nav>
             <FranchiseHeader 
-                backgroundImage="https://images.pexels.com/photos/30918887/pexels-photo-30918887.jpeg"
+                backgroundImage={porta2}
                 title="PANICAFÉ EN EE.UU"
                 subtitle="Llevando el sabor argentino a Texas"
             />

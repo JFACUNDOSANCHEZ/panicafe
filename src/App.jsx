@@ -10,18 +10,22 @@ import LocationsMap from './componentes/LocationsMap/LocationsMap';
 import QuienesSomos from './componentes/QuienesSomos/QuienesSomos';
 import './App.css';
 import Contact from './componentes/Contact/Contact';
+import Franquicias from './componentes/Franquicias/Franquicias';
+import Sucursales from './componentes/Sucursales/Sucursales';
 
 const App = () => {
   return (
     <>
+      
 
       <Routes>
         {/* Aquí defines las rutas y qué componente se muestra en cada una */}
         <Route path="/" element={<Header />} />
-        <Route path="/franquicias" element={<LocationsMap />} />
-        <Route path="/nosotros" element={<LocationsMap />} />
-        <Route path="/carta" element={<QuienesSomos />} />
+        <Route path="/franquicias" element={<Franquicias />} />
+        <Route path="/eeuu" element={<LocationsMap />} />
+        <Route path="/somospanicafe" element={<QuienesSomos />} />
         <Route path="/contacto" element={<Contact />} />
+        <Route path="/sucursales" element={<Sucursales />} />
       </Routes>
     </>
   );

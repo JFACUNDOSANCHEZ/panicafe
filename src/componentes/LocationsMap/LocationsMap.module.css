@@ -10,6 +10,7 @@
     --accent-color: #A08C63;
     --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
     --line-color: #E0E0E0;
+    --primary-dark: #2b2b2b;
 }
 
 /* --- Contenedor principal de la sección --- */
@@ -56,10 +57,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: flex-start;
     padding: 0 40px;
 }
-/* El espaciador que empuja el texto hacia abajo */
+
 .spacer {
     flex-grow: 1;
     min-height: 50px;
@@ -67,12 +68,12 @@
 
 .mainTitle {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5em; /* Tamaño más grande para el título principal */
+    font-size: 3.5em;
     color: var(--primary-dark);
     margin-bottom: 10px;
     line-height: 1.1;
     text-align: left;
-    white-space: nowrap; /* Evita que el título se rompa en varias líneas */
+    white-space: nowrap;
 }
 
 
@@ -86,19 +87,21 @@
 }
 
 .subTitleSeparatorLine {
-      width: 100%;
+    width: 100%;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.1); /* Línea gris suave */
+    background-color: rgba(0, 0, 0, 0.1);
     margin: 30px 0;
 }
+
 .introText {
-   font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1.1em;
     color: var(--text-color);
     line-height: 1.6;
     text-align: left;
     max-width: 600px;
 }
+
 /* --- ESTILOS PARA LA LÍNEA SEPARADORA --- */
 .separatorLine {
     width: 90%;
@@ -108,101 +111,72 @@
     margin: 100px auto;
     border: none;
 }
+
 .locationsSubtitle {
-    /* Outros estilos como cor, tamanho, etc. */
     color: #000000;
     font-size: 2em;
     font-weight: 700;
     margin-bottom: 0px;
-    
-    /* ADICIONE ESTA LINHA PARA MUDAR A FONTE */
     font-family: 'Playfair Display', serif;
 }
 
-/* --- Contenedor Principal del Mapa y Ubicaciones --- */
+/* --- Contenedor Principal de la Imagen y Ubicaciones (REUTILIZADO) --- */
 .contentWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1440px;
-  margin: 0 auto 80px auto;
-  padding: 0 20px;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-/* --- Columna del Mapa (AHORA A LA IZQUIERDA) --- */
+/* --- Columna de la Imagen --- */
 .mapWrapper {
-    flex: 2; 
-    max-width: 50%; 
-    height: 600px; /* Mantén la altura para el GIF */
-    background-color: var(--secondary-dark);
+    flex: 2;
+    max-width: 50%;
+    height: 600px;
+    background-color: var(--background);
     border-radius: 0px;
     overflow: hidden;
-    /* Para el GIF, si quieres que se centre y cubra, puedes añadir: */
-    display: flex; /* Para centrar la imagen dentro si es más pequeña */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .gifImage {
     box-shadow: var(--shadow-light);
-
-    width: 90%;  /* El GIF ocupará el 100% del ancho del contenedor */
-    height: 100%; /* El GIF ocupará el 100% de la altura del contenedor */
-    object-fit: cover; /* Asegura que el GIF cubra todo el espacio sin distorsionarse, recortando si es necesario */
-    border-radius: 0px; /* Si quieres que el GIF también tenga bordes redondeados */
+    width: 90%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
 }
-/* Quitar el hover que ya no aplica al no ser absolute */
+
 .mapWrapper:hover {
-    transform: none; 
+    transform: none;
 }
 
 .map {
     width: 100%;
     height: 100%;
 }
+
 .invitationContainer {
-  margin-top: 0;
-  padding-top: 0;
+    margin-top: 0;
+    padding-top: 0;
 }
-/* --- Columna de Ubicaciones (AHORA A LA DERECHA) --- */
+
+/* --- Columna de Ubicaciones --- */
 .locationsColumn {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    flex: 1; /* Las ubicaciones ocupan el espacio restante */
+    flex: 1;
     min-width: 300px;
-    padding-right: 0; /* No necesitamos padding a la derecha si no hay nada más */
-    padding-left: 20px; /* Añade un poco de espacio si lo necesitas */
-    /* Asegura que las ubicaciones estén segundas */
-}
-
-/* --- Subtítulo para las sucursales --- */
-.subTitle {
-    font-family: 'Lora', serif;
-    font-size: 1.5em; /* Tamaño para el subtítulo */
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    text-align: left;
-    font-weight: 300;
-}
-
-.sectionHeadingLine {
-    width: 80px; /* Ancho de la línea, ajusta según necesites */
-    height: 2px; /* Grosor de la línea */
-    background-color: var(--primary-dark); /* Color de la línea, puedes usar una variable de color */
-    margin-bottom: 30px; /* Espacio debajo de la línea */
-    /* Puedes añadir un margen a la izquierda si quieres que no toque el borde */
-    /* margin-left: 0; */ 
-}
-
-/* --- Lista de sucursales --- */
-.locationsList {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: left;
+    padding-right: 0;
+    padding-left: 20px;
 }
 
 .locationItem {
@@ -233,7 +207,7 @@
     line-height: 1.5;
 }
 
-/* --- Datos de contacto (si los usas, asegúrate de que estén en un lugar lógico) --- */
+/* --- Datos de contacto --- */
 .contactInfo {
     margin-top: 20px;
 }
@@ -256,14 +230,26 @@
 
 @media (max-width: 1200px) {
     .mapWrapper {
-        min-width: unset; 
-        width: 100%; 
-        height: 400px; /* Altura más pequeña en responsive */
+        min-width: unset;
+        width: 100%;
+        height: 400px;
     }
 }
 
 @media (max-width: 768px) {
     .mapWrapper {
-        height: 300px; 
+        height: 300px;
+    }
+
+    .introImageContainer {
+        min-width: unset;
+    }
+
+    .contentWrapper {
+        flex-direction: column;
+    }
+    
+    .mapWrapper {
+      max-width: 100%;
     }
 }
