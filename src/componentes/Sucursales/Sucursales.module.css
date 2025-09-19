@@ -105,16 +105,16 @@
 }
 
 .whatsappButton {
-  background-color: #25D366;
+  background-color: #000000;
   color: white;
 }
 
 .whatsappButton:hover {
-  background-color: #128C7E;
+ background-color: #8c7d5c;
 }
 
 .howToGetButton {
-  background-color: var(--accent-color);
+  background-color:#000000;
   color: white;
 }
 
