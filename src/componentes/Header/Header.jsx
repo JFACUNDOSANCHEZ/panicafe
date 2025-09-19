@@ -4,7 +4,7 @@ import Nav from "../Nav/Nav";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import Footer from "../Footer/Footer";
+import Footer from "../footer/Footer";
 import styles from "./Header.module.css";
 import Producto from "../producto/Producto";
 import img1 from "../../assets/F7.jpeg";
