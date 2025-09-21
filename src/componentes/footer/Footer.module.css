@@ -76,19 +76,24 @@
 }
 
 .formButton {
-  padding: 1rem 2rem;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  color: rgb(0, 0, 0) !important;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
   font-weight: bold;
+  text-decoration: none;
   text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
 }
 
 .formButton:hover {
-  background-color: var(--nav-link-hover-color);
+  background-color: rgb(170, 168, 168);
 }
 
 .contactComment {

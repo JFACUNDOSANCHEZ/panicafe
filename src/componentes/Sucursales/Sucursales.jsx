@@ -4,7 +4,11 @@ import Nav from '../Nav/Nav';
 import Footer from '../footer/Footer';
 import React, { useEffect } from "react";
 import img from '../../assets/F2.jpeg';
+import Carousel from '../Carousel/Carousel';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
+import img1 from "../../assets/F4.jpeg";
+import img2 from "../../assets/q11.jpeg";
+import img3 from "../../assets/F6.jpeg";
 const Sucursales = () => {
     const sucursales = [
         {
@@ -60,14 +64,42 @@ useEffect(() => {
     // Al cargar el componente, desplaza la ventana a la parte superior
     window.scrollTo(0, 0);
   }, []);
+
+const slides = [
+  {
+    image: img2,
+    title: "Cerro de las Rosas",
+    // description: "Descubrí una oportunidad de negocio exitosa con Panicafé.",
+    // button: "Más información",
+    link: "/franquicias",
+  },
+  {
+    image: img3,
+    title: "Martinolli",
+    // description: "Ahora también en EE.UU.",
+    // button: "Ver más",
+    link: "/eeuu",
+  },
+  {
+    image: img1,
+    title: "Nueva Córdoba",
+    // description: "Encuentra productos únicos para todos los gustos",
+    // button: "Ver Carta",
+    link: "/menu",
+  },
+];
+
+
     return (
         <>
         <Nav></Nav>
-        <FranchiseHeader 
+                <Carousel slides={slides} /> 
+
+        {/* <FranchiseHeader 
                 backgroundImage={img}
                 title="NUESTRAS SUCURSALES"
                 subtitle="Encontranos cerca tuyo"
-            />
+            /> */}
         
         <motion.div
             className={styles.sucursalesContainer}

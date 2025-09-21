@@ -1,8 +1,8 @@
 :root {
   --nav-link-color-light: #ffffff;
   --nav-link-color-dark: #333333;
-  --nav-link-hover-color: #a0522d;
-  --primary-color: #8b4513;
+  --nav-link-hover-color: #000000;
+  --primary-color: #15110f;
 }
 
 .navWrapper {
@@ -88,7 +88,7 @@
   align-items: center;
   justify-content: center;
   padding: 12px 24px;
-  background-color: #8b4513;
+  background-color: #0e0d0c;
   border-radius: 40px;
   color: white !important;
   font-family: "Georgia", serif;
@@ -101,7 +101,7 @@
 }
 
 .franquiciasBtn:hover {
-  background-color: #a0522d;
+  background-color: #23201f;
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
@@ -168,10 +168,10 @@
   background-color: var(--nav-link-color-light);
 }
 .themeLight .franquiciasBtn {
-  background-color: #8b4513;
+  background-color: #000000;
 }
 .themeLight .franquiciasBtn:hover {
-  background-color: #a0522d;
+  background-color: #070707;
 }
 
 .themeDark .centeredNav a {
@@ -181,10 +181,10 @@
   background-color: var(--nav-link-color-dark);
 }
 .themeDark .franquiciasBtn {
-  background-color: #8b4513;
+  background-color: #000000;
 }
 .themeDark .franquiciasBtn:hover {
-  background-color: #a0522d;
+  background-color: #4d4a48;
 }
 
 /* * ESTILOS RESPONSIVOS

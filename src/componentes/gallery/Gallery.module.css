@@ -55,19 +55,24 @@
 }
 
 .button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 24px;
-  background-color: var(--primary-color);
-  color: white;
-  text-decoration: none;
+  background-color: #0e0d0c;
+  border-radius: 40px;
+  color: white !important;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
   font-weight: bold;
+  text-decoration: none;
   text-transform: uppercase;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
 }
 
 .button:hover {
-  background-color: var(--nav-link-hover-color);
+  background-color: rgb(64, 62, 62);
 }
 
 /* Estilos para el carrusel */

@@ -33,16 +33,9 @@ const Gallery = () => {
             rel="noopener noreferrer"
             className={styles.button}
           >
-            SEE PANICA
+            SEE PANICAFE
           </a>
-          <a
-            href="https://lamadeleine.com/franchise"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.button}
-          >
-            SEE LA MADELEINE
-          </a>
+         
         </div>
       </div>
 

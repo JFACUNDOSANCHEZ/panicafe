@@ -3,8 +3,9 @@ import styles from "./QuienesSomos.module.css";
 import img1 from "../../assets/p12.JPG"; 
 import img3 from "../../assets/p13.JPG";
 import img2 from "../../assets/p9.jpeg";
-import img4 from "../../assets/p3.jpeg";
+import img4 from "../../assets/q11.jpeg";
 import img12 from "../../assets/p15.jpeg";
+import carousel from "../Carousel/Carousel";
 import Nav from "../Nav/Nav";
 import { motion } from "framer-motion";
 
@@ -28,6 +29,34 @@ const QuienesSomos = () => {
       text: "Hoy contamos con sucursales en diferentes puntos de  Córdoba Capital y en Texas, llevando un pedacito de nuestra esencia a cada rincón donde abrimos nuestras puertas..",
     },
   ];
+
+
+const slides = [
+  {
+    image: img2,
+    title: "Invertí en tu futuro",
+    description: "Descubrí una oportunidad de negocio exitosa con Panicafé.",
+    button: "Más información",
+    link: "/franquicias",
+  },
+  {
+    image: img3,
+    title: "Sabor que cruza fronteras",
+    description: "Ahora también en EE.UU.",
+    button: "Ver más",
+    link: "/eeuu",
+  },
+  {
+    image: img1,
+    title: "Descubre nuestra variedad",
+    description: "Encuentra productos únicos para todos los gustos",
+    button: "Ver Carta",
+    link: "/menu",
+  },
+];
+
+
+
 useEffect(() => {
     // Al cargar el componente, desplaza la ventana a la parte superior
     window.scrollTo(0, 0);
