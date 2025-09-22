@@ -9,10 +9,18 @@ import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 import img1 from "../../assets/81.jpeg";
 import img2 from "../../assets/82.jpeg";
 import img3 from "../../assets/83.jpeg";
-import img4 from "../../assets/84.JPG";
-import img5 from "../../assets/85.jpeg";
+import img4 from "../../assets/87.jpeg";
+import img5 from "../../assets/84.JPG";
 const Sucursales = () => {
     const sucursales = [
+        {
+            nombre: 'Martinolli',
+            direccion: '📍Martinolli 6191',
+            horarios: 'Lunes a Domingo: 8:00 - 21:00',
+            telefono: '+54 9 3518547070',
+            mapaUrl: 'https://maps.app.goo.gl/P2xV5z1e4r7y9u0o7',
+            whatsappUrl: 'https://wa.me/5493518547070'
+        },
         {
             nombre: 'Cerro de las Rosas',
             direccion: '📍Rafael Núñez 4385',
@@ -53,39 +61,39 @@ const Sucursales = () => {
             mapaUrl: 'https://maps.app.goo.gl/R5wX3T6r8s5f7b4c6',
             whatsappUrl: 'https://wa.me/5493518044980'
         },
-        {
-            nombre: 'Martinolli',
-            direccion: '📍Martinolli 6191',
-            horarios: 'Lunes a Domingo: 8:00 - 21:00',
-            telefono: '+54 9 3518547070',
-            mapaUrl: 'https://maps.app.goo.gl/P2xV5z1e4r7y9u0o7',
-            whatsappUrl: 'https://wa.me/5493518547070'
-        },
     ];
 useEffect(() => {
     // Al cargar el componente, desplaza la ventana a la parte superior
     window.scrollTo(0, 0);
   }, []);
 
-const slides = [
-  {
-    image: img2,
-    title: "Sucursal cerro de las Rosas",
-    description: "Rafael Núñez 4385",
-    // button: "Más información",
-    link: "/franquicias",
-  },
+  const slides = [
+      
+      {
+          image: img4,
+          //   title:  "Sucursal Nueva Córdoba",
+          //   description: "H. Yrigoyen 189",
+          // button: "Ver Carta",
+          link: "/menu",
+        },
+        {
+          image: img5,
+         //  title: "Sucursal cerro de las Rosas",
+         //  description: "Rafael Núñez 4385",
+          // button: "Más información",
+          link: "/franquicias",
+        },
   {
     image: img3,
-    title: "Sucursal Martinolli",
-    description: "Martinolli 6191",
+    // title: "Sucursal Martinolli",
+    // description: "Martinolli 6191",
     // button: "Ver más",
     link: "/eeuu",
   },
   {
     image: img1,
-    title:  "Sucursal Nueva Córdoba",
-    description: "H. Yrigoyen 189",
+    // title:  "Sucursal Nueva Córdoba",
+    // description: "H. Yrigoyen 189",
     // button: "Ver Carta",
     link: "/menu",
   },
