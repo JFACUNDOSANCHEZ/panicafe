@@ -350,15 +350,20 @@ body {
 }
 
 .downloadLink {
+    display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 24px;
-  background-color: var(--primary-color);
-  color: white;
-  text-decoration: none;
+  background-color: #0e0d0c;
+  border-radius: 40px;
+  color: white !important;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
   font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  font-family: 'Inter', sans-serif;
-  box-shadow: var(--shadow-subtle);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
 }
 
 .downloadLink:hover {
@@ -423,17 +428,20 @@ body {
 }
 
 .ctaButton {
-  background-color: #6a3d1c;
-  color: #fff;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  border-radius: 35px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: #0e0d0c;
+  border-radius: 40px;
+  color: white !important;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
   text-transform: uppercase;
-  text-decoration: none; /* Asegura que el enlace no tenga subrayado */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: none; /* Asegura que el enlace no tenga subrayado */
 }
 
 .ctaButton:hover {
