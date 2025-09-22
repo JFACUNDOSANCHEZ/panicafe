@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './InvitationSection.module.css';
 
-import instaImage1 from '../../assets/1.jpeg'; 
-import instaImage2 from '../../assets/2.jpeg';
-import instaImage3 from '../../assets/3.jpeg';
-import instaImage4 from '../../assets/4.jpeg';
+import instaImage1 from '../../assets/31.jpeg'; 
+import instaImage2 from '../../assets/32.jpeg';
+import instaImage3 from '../../assets/33.jpeg';
+import instaImage4 from '../../assets/34.jpeg';
 
 const InvitationSection = () => {
     return (
