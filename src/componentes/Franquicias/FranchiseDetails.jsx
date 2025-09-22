@@ -71,12 +71,12 @@ Email: <a href="mailto:latam@panicafe.com" className={styles.contactLink}>latam@
 </li>
 {/* Contacto para Europa */}
 <li>
-<h3 className={styles.locationName}>Europa</h3>
+{/* <h3 className={styles.locationName}>Europa</h3>
 <p className={styles.locationDetail}>
 Contacto: <span className={styles.contactName}>Isabella García</span><br />
 Tel: <a href="tel:+34915558877" className={styles.contactLink}>(91) 555-8877</a><br />
 Email: <a href="mailto:europe@panicafe.com" className={styles.contactLink}>europe@panicafe.com</a>
-</p>
+</p> */}
 </li>
 </ul>
 </div>

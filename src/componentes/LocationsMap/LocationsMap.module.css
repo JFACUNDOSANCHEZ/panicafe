@@ -35,7 +35,7 @@
 
 .introImageContainer {
   flex: 1.2;
-  min-width: 400px;
+  /* Se elimina min-width: 400px; para evitar desbordamiento en móviles */
   border-radius: 0px;
   overflow: hidden;
 }
@@ -170,7 +170,7 @@
   flex-direction: column;
   gap: 20px;
   flex: 1;
-  min-width: 300px;
+  /* Se elimina min-width: 300px; para evitar desbordamiento */
   padding-right: 0;
   padding-left: 20px;
 }
@@ -375,47 +375,44 @@
 }
 
 /* --- MEDIA QUERIES --- */
-@media (max-width: 1200px) {
-  .mapWrapper {
-    min-width: unset;
-    width: 100%;
-    height: 400px;
-  }
+@media (max-width: 992px) {
   .introSection {
-    margin: 60px auto 30px auto;
+    flex-direction: column;
+    margin: 40px auto 30px auto;
     padding: 0 10px;
     gap: 20px;
   }
   .introImageContainer {
-    min-width: unset;
+    width: 100%;
+  }
+  .introTextContent {
+    padding: 0 20px;
+    text-align: center;
+    align-items: center;
+  }
+  .mainTitle, .subTitle {
+    text-align: center;
+    white-space: normal;
+  }
+  .introText {
+    text-align: center;
   }
   .contentWrapper {
     flex-direction: column;
     align-items: center;
   }
   .locationsColumn {
-    padding-left: 10px;
+    padding-left: 0;
+  }
+  .mapWrapper {
+    width: 100%;
+    height: 400px;
   }
 }
 
 @media (max-width: 768px) {
   .mapWrapper {
     height: 300px;
-  }
-  .introImageContainer {
-    min-width: unset;
-  }
-  .contentWrapper {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-  .locationsColumn {
-    padding-left: 20px;
-  }
-  .sucursalesContainer {
-    padding: 0 10px;
-    margin: 40px auto;
   }
 }
 
@@ -433,14 +430,10 @@
 
 @media (max-width: 380px) {
   .introSection {
-    padding: 0 5px;
-    margin: 50px auto 30px auto;
+    margin: 30px auto 20px auto;
   }
   .mapWrapper {
     height: 200px;
-  }
-  .locationsColumn {
-    padding-left: 10px;
   }
   .gifImage {
     height: auto;

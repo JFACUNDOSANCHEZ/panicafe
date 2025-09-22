@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import styles from "./QuienesSomos.module.css";
-import img1 from "../../assets/p12.JPG"; 
+import img1 from "../../assets/p12.JPG";
 import img3 from "../../assets/p13.JPG";
 import img2 from "../../assets/p9.jpeg";
 import img4 from "../../assets/q11.jpeg";
 import img12 from "../../assets/p15.jpeg";
-import carousel from "../Carousel/Carousel";
-import Nav from "../Nav/Nav";
 import { motion } from "framer-motion";
 
+import Nav from "../Nav/Nav";
 import Footer from "../footer/Footer";
 import FranchiseHeader from "../FranchiseHeader/FranchiseHeader";
+
 const QuienesSomos = () => {
- const data = [
+  const data = [
     {
       image: img3,
       title: "NUESTRA ESENCIA",
@@ -30,75 +30,46 @@ const QuienesSomos = () => {
     },
   ];
 
-
-const slides = [
-  {
-    image: img2,
-    title: "Invertí en tu futuro",
-    description: "Descubrí una oportunidad de negocio exitosa con Panicafé.",
-    button: "Más información",
-    link: "/franquicias",
-  },
-  {
-    image: img3,
-    title: "Sabor que cruza fronteras",
-    description: "Ahora también en EE.UU.",
-    button: "Ver más",
-    link: "/eeuu",
-  },
-  {
-    image: img1,
-    title: "Descubre nuestra variedad",
-    description: "Encuentra productos únicos para todos los gustos",
-    button: "Ver Carta",
-    link: "/menu",
-  },
-];
-
-
-
-useEffect(() => {
-    // Al cargar el componente, desplaza la ventana a la parte superior
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
-    
     <div>
-<Nav></Nav>
-<FranchiseHeader backgroundImage={img4} title="QUIÉNES SOMOS" subtitle="Una historia que se sirve en cada taza" />
-        <section className={styles.section}>
-{data.map((item, index) => (
-  <div
-    key={index}
-    className={`${styles.row} ${index % 2 === 1 ? styles.reverse : ""}`}
-  >
-    <motion.div
-      className={styles.imageWrapper}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <img src={item.image} alt={item.title} className={styles.image} />
-    </motion.div>
+      <Nav />
+      <FranchiseHeader backgroundImage={img4} title="QUIÉNES SOMOS" subtitle="Una historia que se sirve en cada taza" />
+      <section className={styles.section}>
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className={`${styles.row} ${index % 2 === 1 ? styles.reverse : ""}`}
+          >
+            {/* Imagen con animación de entrada lateral */}
+            <motion.div
+              className={styles.imageWrapper}
+              initial={{ opacity: 0, x: index % 2 === 1 ? 100 : -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <img src={item.image} alt={item.title} className={styles.image} />
+            </motion.div>
 
- <motion.div
-  className={styles.textWrapper}
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1, delay: 0.2 }}
-  viewport={{ once: true, amount: 0.3 }}
->
-  <h2 className={styles.title}>{item.title}</h2>
-  {/* <p className={styles.subTitle}>VALUES AND COMMITMENTS</p> */}
-  <p className={styles.text}>{item.text}</p>
-</motion.div>
-  </div>
-))}
-
-
-    </section>
-    <Footer></Footer>
+            {/* Texto con animación de entrada lateral */}
+            <motion.div
+              className={styles.textWrapper}
+              initial={{ opacity: 0, x: index % 2 === 1 ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h2 className={styles.title}>{item.title}</h2>
+              <p className={styles.text}>{item.text}</p>
+            </motion.div>
+          </div>
+        ))}
+      </section>
+      <Footer />
     </div>
   );
 };
