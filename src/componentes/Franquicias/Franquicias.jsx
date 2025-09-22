@@ -8,6 +8,7 @@ import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 import FranchiseProcess from '../FranchiseProcess/FranchiseProcess';
 import FranchiseGallery from './FranchiseGallery';
 import FranchiseDetails from './FranchiseDetails';
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const Franquicias = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const Franquicias = () => {
   return (
     <div>
       <Nav></Nav>
+      <scrollToTop />
       <FranchiseHeader backgroundImage={img1} title="Franquicias" subtitle="Expande tu negocio con Panicafé" />
       <div className={styles.container}>
         {/* Secciones existentes */}
