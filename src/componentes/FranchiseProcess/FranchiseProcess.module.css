@@ -29,7 +29,7 @@
   width: 60px; /* Icono un poco más grande */
   height: 60px;
   border-radius: 50%;
-  background-color: #A08C63; /* Usa tu color de marca, por ejemplo, el acento del otro componente */
+  background-color: #000000; /* Usa tu color de marca, por ejemplo, el acento del otro componente */
   color: white;
   display: flex;
   justify-content: center;
