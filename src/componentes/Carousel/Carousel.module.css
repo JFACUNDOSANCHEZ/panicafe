@@ -12,7 +12,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centra el contenido */
+  justify-content: center;
 }
 
 .slide::before {
@@ -32,19 +32,10 @@
   position: relative;
   z-index: 2;
   color: #f5f5dc;
-  text-align: center; /* Centra el texto */
+  text-align: center;
   padding: 2rem;
   max-width: 600px;
   margin: 0 auto;
-}
-
-.logoContainer {
-  margin-bottom: 2rem; /* Espacio entre el logo y el texto */
-}
-
-.logo {
-  max-width: 150px; /* Ajusta el tamaño del logo según lo necesites */
-  margin-bottom: 1rem;
 }
 
 .overlay h2 {
@@ -114,11 +105,22 @@
 
 /* Responsivo */
 @media (max-width: 992px) {
+  .carousel {
+    margin-top: 160px; /* Ajusta el margen superior para pantallas medianas */
+    min-height: 75vh; /* Reduce la altura en pantallas medianas */
+  }
+
   .overlay h2 {
     font-size: 2.4rem;
   }
+
   .overlay p {
     font-size: 1.1rem;
+  }
+
+  .overlay button {
+    padding: 12px 22px;
+    font-size: 1rem;
   }
 }
 
@@ -126,39 +128,54 @@
   .overlay {
     max-width: 90%;
   }
+
   .overlay h2 {
     font-size: 2rem;
   }
+
   .overlay p {
     font-size: 1rem;
   }
+
   .overlay button {
     padding: 12px 22px;
     font-size: 1rem;
   }
+
+  /* Mejorar el espacio entre las palabras y los bordes en móviles */
+  .carousel {
+    height: 70vh; /* Menos altura para que sea más cómodo */
+  }
+
+  .slide {
+    min-height: 70vh;
+  }
 }
 
 @media (max-width: 576px) {
+  .carousel {
+    margin-top: 200px; /* Mayor espacio en pantallas pequeñas */
+  }
+
   .overlay {
     padding: 1rem;
   }
+
   .overlay h2 {
     font-size: 1.6rem;
   }
+
   .overlay p {
     font-size: 0.9rem;
   }
+
   .overlay button {
     width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
   }
-}
-@media (max-width: 992px) {
+
   .carousel {
-    margin-top: 180px; /* un poco más de margen */
-  }
-}
-@media (max-width: 576px) {
-  .carousel {
-    margin-top: 220px; /* suficiente para que no lo tape nunca */
+    min-height: 65vh; /* Menor altura */
   }
 }

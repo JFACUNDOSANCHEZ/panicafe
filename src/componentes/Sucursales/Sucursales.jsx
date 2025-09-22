@@ -6,9 +6,11 @@ import React, { useEffect } from "react";
 import img from '../../assets/F2.jpeg';
 import Carousel from '../Carousel/Carousel';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
-import img1 from "../../assets/F4.jpeg";
-import img2 from "../../assets/q11.jpeg";
-import img3 from "../../assets/F6.jpeg";
+import img1 from "../../assets/81.jpeg";
+import img2 from "../../assets/82.jpeg";
+import img3 from "../../assets/83.jpeg";
+import img4 from "../../assets/84.JPG";
+import img5 from "../../assets/85.jpeg";
 const Sucursales = () => {
     const sucursales = [
         {
@@ -68,22 +70,22 @@ useEffect(() => {
 const slides = [
   {
     image: img2,
-    title: "Cerro de las Rosas",
-    // description: "Descubrí una oportunidad de negocio exitosa con Panicafé.",
+    title: "Sucursal cerro de las Rosas",
+    description: "Rafael Núñez 4385",
     // button: "Más información",
     link: "/franquicias",
   },
   {
     image: img3,
-    title: "Martinolli",
-    // description: "Ahora también en EE.UU.",
+    title: "Sucursal Martinolli",
+    description: "Martinolli 6191",
     // button: "Ver más",
     link: "/eeuu",
   },
   {
     image: img1,
-    title: "Nueva Córdoba",
-    // description: "Encuentra productos únicos para todos los gustos",
+    title:  "Sucursal Nueva Córdoba",
+    description: "H. Yrigoyen 189",
     // button: "Ver Carta",
     link: "/menu",
   },

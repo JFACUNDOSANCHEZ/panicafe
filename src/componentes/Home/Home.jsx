@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Home.module.css";
 import img1 from "../../assets/F7.jpeg";
 import img2 from "../../assets/F8.jpeg";
-import img3 from "../../assets/F6.jpeg";
+import img3 from "../../assets/86.jpeg";
 import { motion } from "framer-motion";
 
 const highlights = [
