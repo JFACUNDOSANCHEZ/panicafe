@@ -4,6 +4,8 @@ import styles from './LocationsMap.module.css';
 import Footer from '../footer/Footer';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
 import { motion } from 'framer-motion';
+import { useLocation } from "react-router-dom";
+
 import InvitationSection from '../InvitationSection/InvitationSection';
 import porta from '../../assets/gale/6.jpg';
 import porta2 from '../../assets/gale/1.jpg';
@@ -11,10 +13,11 @@ import Gallery from '../gallery/Gallery.jsx';
 import Nav from '../Nav/Nav';
 
 const LocationsMap = () => {
+     const { pathname } = useLocation();
       useEffect(() => {
     // Al cargar el componente, desplaza la ventana a la parte superior
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
     const locations = [
         {
             name: "PANICAFÉ Spring",

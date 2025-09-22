@@ -7,7 +7,8 @@ import img1 from "../../assets/F7.jpeg";
 import img2 from "../../assets/F8.jpeg";
 import img3 from "../../assets/F6.jpeg";
 import Home from "../Home/Home";
-import Carousel from "../Carousel/Carousel"; // Importa el nuevo componente
+import React, { useState, useEffect } from 'react';
+import Carousel from "../Carousel/Carousel";
 
 const slides = [
   {
@@ -34,15 +35,33 @@ const slides = [
 ];
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scaleValue, setScaleValue] = useState(1); // <- Declaração do estado 'scaleValue'
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+
+      const scrollPosition = window.scrollY;
+      const newScale = 1 + scrollPosition / 2000;
+      setScaleValue(newScale);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Funçao de limpeza para remover o event listener quando o componente for desmontado
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <Nav />
+      <Nav isScrolled={isScrolled} /> {/* Passa o estado para o Nav */}
       <div className={styles.mainContainer}>
-        <Carousel slides={slides} /> 
-        <Producto></Producto>
+        <Carousel slides={slides} />
+        <Producto />
         <Home />
       </div>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }
