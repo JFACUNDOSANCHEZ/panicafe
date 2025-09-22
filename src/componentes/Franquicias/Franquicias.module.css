@@ -156,8 +156,6 @@ body {
 }
 /* Estilo final Franquicias Detail */
 
-/* --- VARIABLES Y FUENTES --- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap');
 
 :root {
   --primary-color: #8b4513; /* Marrón cálido para acentos */
