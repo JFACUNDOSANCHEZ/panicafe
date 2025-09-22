@@ -58,7 +58,7 @@ export default function Header() {
       <Nav isScrolled={isScrolled} /> {/* Passa o estado para o Nav */}
       <div className={styles.mainContainer}>
         <Carousel slides={slides} />
-        <Producto />
+        {/* <Producto /> */}
         <Home />
       </div>
       <Footer />

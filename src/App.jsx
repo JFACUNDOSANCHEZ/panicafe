@@ -15,7 +15,7 @@ const App = () => {
   return (
     <>
       {/* Remova o <BrowserRouter> daqui! */}
-      <ScrollToTop />
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Header />} />
         <Route path="/franquicias" element={<Franquicias />} />
@@ -27,5 +27,6 @@ const App = () => {
     </>
   );
 };
+
 
 export default App;
