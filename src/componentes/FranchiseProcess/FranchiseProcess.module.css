@@ -26,8 +26,8 @@
 }
 
 .stepIcon { /* Nueva clase para el icono */
-  width: 60px; /* Icono un poco más grande */
-  height: 60px;
+  width: 70px; /* Icono un poco más grande */
+  height: 70px;
   border-radius: 50%;
   background-color: #000000; /* Usa tu color de marca, por ejemplo, el acento del otro componente */
   color: white;
