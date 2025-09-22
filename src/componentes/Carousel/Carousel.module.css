@@ -1,7 +1,9 @@
 .carousel {
   margin-top: 140px;
   height: 90vh;
-  width: 100%;
+  width: 100vw; /* Asegura el 100% del viewport */
+  min-width: 100vw;
+  overflow: hidden;
   font-family: "Georgia", serif;
 }
 
@@ -9,6 +11,8 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
+  width: 100vw;
+
   position: relative;
   display: flex;
   align-items: center;
@@ -176,6 +180,7 @@
   }
 
   .carousel {
+      width: 100%;
     min-height: 65vh; /* Menor altura */
   }
 }

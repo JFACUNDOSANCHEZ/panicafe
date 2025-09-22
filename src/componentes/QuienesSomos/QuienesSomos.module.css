@@ -1,89 +1,130 @@
 .section {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 4rem 2rem;
 }
 
 .imageContainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .whiteOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    z-index: 2;
-    pointer-events: none;
-    border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 4px;
 }
 
 .image {
-    width: 100%;
-    height: auto;
-    display: block;
-    z-index: 1;
-    position: relative;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+  position: relative;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  border-radius: 0px;
 }
 
 .row {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .reverse {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .imageWrapper {
-    flex: 1;
-}
-
-.image {
-    width: 100%;
-    height: auto;
-    border-radius: 0px;
-    object-fit: cover;
+  flex: 1;
 }
 
 .textWrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    /* Alinha o conteúdo ao topo */
-    justify-content: flex-start;
-    align-items: center;
-    padding: 2rem 0;
-    text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 0;
+  text-align: center;
 }
 
 .title {
-    font-size: 3rem;
-    font-weight: 700;
-    font-family: 'Playfair Display', serif;
-    color: #2b2b2b;
-    margin-bottom: 0.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: #2b2b2b;
+  margin-bottom: 0.5rem;
 }
 
 .subTitle {
-    font-size: 1.3rem;
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 2rem;
-    color: #5a5a5a;
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 2rem;
+  color: #5a5a5a;
 }
 
 .text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-    max-width: 90%;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 90%;
+}
+
+/* ========== RESPONSIVE: CELULARES Y TABLETS ========== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse {
+    flex-direction: column;
+  }
+
+  .textWrapper {
+    padding: 1rem 0;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subTitle {
+    font-size: 1.1rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .imageWrapper {
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
 }
