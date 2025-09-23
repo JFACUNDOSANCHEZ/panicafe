@@ -61,7 +61,7 @@
 .leftContent {
   position: relative;
   z-index: 4;
-  color: #f5f5dc;
+  color: #fbfbfb;
   text-align: center;
   padding: 2rem;
   max-width: 700px;
@@ -72,7 +72,7 @@
 .mainTitle {
   font-family: "Georgia", serif;
   font-size: 3rem;
-  color: #f5deb3;
+  color: #ffffff;
   font-weight: bold;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   opacity: 0;
@@ -83,7 +83,7 @@
 .subTitle {
   font-size: 1.3rem;
   margin-bottom: 2rem;
-  color: #f0e6d2;
+  color: #ffffff;
    font-family: "Georgia", serif;
   line-height: 1.6;
   opacity: 0;

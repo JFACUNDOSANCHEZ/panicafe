@@ -72,7 +72,7 @@ const Sucursales = () => {
     }, []);
 
     const slides = [
-        { image: img4, link: "/menu" },
+        { image: img4,title:"SUCURSALES", link: "/menu" },
         { image: img5, link: "/franquicias" },
         { image: img3, link: "/eeuu" },
         { image: img1, link: "/menu" },
