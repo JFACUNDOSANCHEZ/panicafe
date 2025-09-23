@@ -8,18 +8,15 @@ const carouselTexts = [
     "ENVÍOS A DOMICILIO",
     "RETIRO EN SUCURSAL",
     "PAGO SEGURO",
-    "DELIVERY EN CÓRDOBA", // Ajustado para reflejar la ubicación actual
+    "DELIVERY EN CÓRDOBA",
     "PEDIDOS ESPECIALES",
     "FRESCO Y ARTESANAL"
 ];
 
 const Footer = () => {
-    // Lógica para el carrusel de texto
-     const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
-    const location = useLocation(); // <-- Obtiene la ruta actual
-
-    // Verifica si la ruta actual es '/contacto' (o la que uses)
-    const isContactPage = location.pathname === '/contacto'|| location.pathname === '/11';
+    const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+    const location = useLocation();
+    const isContactPage = location.pathname === '/contacto' || location.pathname === '/11';
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -28,25 +25,39 @@ const Footer = () => {
         return () => clearInterval(interval);
     }, []);
 
-   return (
+    // 👉 Manejo de WhatsApp en el footer
+    const handleWhatsApp = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const message = e.target.message.value;
+
+        const phoneNumber = "5491123456789"; // Cambialo por tu número
+        const text = `Hola, soy ${name} (${email}).%0D%0A%0D%0A${message}`;
+        const url = `https://wa.me/${phoneNumber}?text=${text}`;
+
+        window.open(url, "_blank");
+    };
+
+    return (
         <footer className={styles.mainFooter}>
-            {/* Renderización condicional: si no es la página de contacto, muestra la sección del formulario */}
+            {/* Si no es la página de contacto, muestra el formulario */}
             {!isContactPage && (
                 <div className={styles.footerTopSection}>
-                    <form className={styles.contactForm}>
+                    <form className={styles.contactForm} onSubmit={handleWhatsApp}>
                         <div className={styles.formGroup}>
                             <label htmlFor="name" className={styles.formLabel}>Tu nombre</label>
-                            <input type="text" id="name" className={styles.formInput} placeholder="Ingresá tu nombre" required />
+                            <input type="text" id="name" name="name" className={styles.formInput} placeholder="Ingresá tu nombre" required />
                         </div>
                         <div className={styles.formGroup}>
                             <label htmlFor="email" className={styles.formLabel}>Tu e-mail</label>
-                            <input type="email" id="email" className={styles.formInput} placeholder="Ingresá tu e-mail" required />
+                            <input type="email" id="email" name="email" className={styles.formInput} placeholder="Ingresá tu e-mail" required />
                         </div>
                         <div className={styles.formGroup}>
                             <label htmlFor="message" className={styles.formLabel}>Tu mensaje</label>
-                            <textarea id="message" className={styles.formTextarea} rows="3" placeholder="Escribí tu mensaje aquí..."></textarea>
+                            <textarea id="message" name="message" className={styles.formTextarea} rows="3" placeholder="Escribí tu mensaje aquí..." required></textarea>
                         </div>
-                        <button type="submit" className={styles.formButton}>Enviar</button>
+                        <button type="submit" className={styles.formButton}>Enviar por WhatsApp</button>
                     </form>
                     <div className={styles.contactComment}>
                         <h2 className={styles.contactTitle}>¿Tenés una consulta?</h2>
@@ -57,13 +68,10 @@ const Footer = () => {
                 </div>
             )}
 
-            {/* Carrusel de texto superior (ahora debajo del formulario) */}
-
-            {/* Contenido principal del footer con columnas */}
+            {/* Resto del contenido del footer */}
             <div className={styles.footerContent}>
-                {/* Columna 1: Productos */}
+                {/* Columna 1 */}
                 <div className={styles.footerColumn}>
-                    
                     <h4 className={styles.footerColumnTitle}>NUESTROS PRODUCTOS</h4>
                     <ul className={styles.footerList}>
                         <li><a href="#link">Panes</a></li>
@@ -76,7 +84,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Columna 2: Nuestras Direcciones */}
+                {/* Columna 2 */}
                 <div className={styles.footerColumn}>
                     <h4 className={styles.footerColumnTitle}>NUESTRAS DIRECCIONES</h4>
                     <ul className={styles.footerList}>
@@ -88,7 +96,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Columna 3: Contacto */}
+                {/* Columna 3 */}
                 <div className={styles.footerColumn}>
                     <h4 className={styles.footerColumnTitle}>CONTACTO</h4>
                     <ul className={styles.footerList}>
@@ -98,7 +106,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Columna 4: Información Útil */}
+                {/* Columna 4 */}
                 <div className={styles.footerColumn}>
                     <h4 className={styles.footerColumnTitle}>INFORMACIÓN ÚTIL</h4>
                     <ul className={styles.footerList}>
@@ -108,10 +116,9 @@ const Footer = () => {
                         <li><a href="#link">Mapa del sitio</a></li>
                     </ul>
                 </div>
-
             </div>
 
-            {/* Sección inferior del footer: Logo y Copyright */}
+            {/* Sección inferior */}
             <div className={styles.footerBottom}>
                 <div className={styles.footerLogo}>
                     <img src={logo} alt="Panicafé Logo" className={styles.panicafeLogo} />
