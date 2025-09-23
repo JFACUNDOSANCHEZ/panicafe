@@ -26,6 +26,7 @@ const Gallery = () => {
     <section className={styles.section}>
       <div className={styles.left}>
         <h2 className={styles.title}>VISITA NUESTRAS WEB</h2>
+      <br /><br /><br />
         <div className={styles.buttons}>
           <a
             href="https://www.panicafetx.com/franchise/"

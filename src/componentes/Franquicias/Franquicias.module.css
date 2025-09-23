@@ -5,6 +5,8 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+    font-family: 'Inter', sans-serif;
+
   gap: 5rem;
   padding: 4rem 2rem;
   width: 100%;
@@ -26,19 +28,21 @@ body {
 .title {
   font-size: 3rem;
   font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
+
   color: #2b2b2b;
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
 .text {
-  font-size: 1.5rem;
   line-height: 1.6;
   color: #333;
   max-width: 90%;
   margin: 0 auto;
   text-align: center;
+    font-family: 'Inter', sans-serif;
+  font-size: 1.1em;
 }
 
 .subTitle {
@@ -156,11 +160,9 @@ body {
 }
 /* Estilo final Franquicias Detail */
 
-/* --- VARIABLES Y FUENTES --- */
-
 :root {
-  --primary-color: #2f2e2e; /* Marrón cálido para acentos */
-  --accent-color: #A08C63; /* Marrón claro para destacar */
+  --primary-color: #000000; /* Marrón cálido para acentos */
+  --accent-color: #000000; /* Marrón claro para destacar */
   --text-color-dark: #333333; /* Color oscuro para títulos */
   --text-color-light: #666666; /* Color para texto secundario */
   --background: #FFFFFF;
@@ -206,7 +208,11 @@ body {
   object-fit: cover;
   border-radius: 0px;
 }
-
+@media (max-width: 768px) {
+  .introImageContainer {
+    display: none; /* Ocultar la imagen */
+  }
+}
 .introTextContent {
   flex: 1;
   display: flex;
@@ -349,12 +355,12 @@ body {
 }
 
 .downloadLink {
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 24px;
-  background-color: #0e0d0c;
-  border-radius: 40px;
+  background-color: #221e1b;
+  border-radius: 140px;
   color: white !important;
   font-family: "Georgia", serif;
   font-size: 1rem;
@@ -366,9 +372,7 @@ body {
 }
 
 .downloadLink:hover {
-   background-color: #23201f;
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background-color: black;
 }
 
 .bottomImageContainer {
@@ -446,7 +450,129 @@ body {
 }
 
 .ctaButton:hover {
-  background-color: #23201f;
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background-color: #3a3632;
+  transform: translateY(-2px);
+}
+/* --- ESTILOS PARA LA SECCIÓN DE DETALLES --- */
+.detailsContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.detailsTitle {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+}
+
+.detailsText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: #555;
+}
+
+.detailsSubTitle {
+  font-size: 1.8rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.logoSection {
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6a3d1c;
+}
+
+.territoriesSection,
+.downloadsSection,
+.testimonialsSection {
+  margin-top: 4rem;
+}
+
+.territoriesList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.territoriesList h4 {
+  font-size: 1.5rem;
+  color: #6a3d1c;
+  margin-bottom: 0.5rem;
+}
+
+.territoriesList p {
+  max-width: 300px;
+  color: #777;
+}
+
+.downloadLinks {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.downloadLink {
+display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: #0e0d0c;
+  border-radius: 40px;
+  color: white !important;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: none; 
+}
+
+.downloadLink:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.testimonial {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 1.5rem auto;
+  max-width: 700px;
+  text-align: left;
+  border-left: 4px solid #a37f5b;
+}
+
+.testimonial p {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #888;
+  font-size: 0.9rem;
 }

@@ -64,13 +64,11 @@
 }
 
 .mainTitle {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5em, 5vw, 3.5em);
-  color: var(--primary-dark);
-  margin-bottom: 10px;
-  line-height: 1.1;
-  text-align: left;
-  white-space: nowrap;
+   font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 0;
+    color: black;
 }
 
 .subTitle {
@@ -90,7 +88,7 @@
 }
 
 .introText {
-  font-family: 'Playfair Display', serif;
+  font-size: 1.1em;
   font-size: clamp(1rem, 1.5vw, 1.1em);
   color: var(--text-color);
   line-height: 1.6;
@@ -109,11 +107,11 @@
 }
 
 .locationsSubtitle {
-  color: #000000;
-  font-size: clamp(1.6em, 3vw, 2em);
-  font-weight: 700;
-  margin-bottom: 0px;
-  font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 0;
+    color: black;
 }
 
 /* --- Contenedor Principal de la Imagen y Ubicaciones --- */

@@ -34,10 +34,11 @@
 }
 
 .title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--text-color-dark);
-  margin-bottom: 2rem;
+   font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 0;
+    color: black;
 }
 
 .buttons {
