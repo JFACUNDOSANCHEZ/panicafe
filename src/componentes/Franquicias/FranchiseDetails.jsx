@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Franquicias.module.css';
 import logo from '../../assets/LogoPanicafe.png';
-import franchiseImage from '../../assets/F4.jpeg';
+import franchiseImage from '../../assets/83.jpeg';
 import bottomImage from '../../assets/F2.jpeg'; 
 
 const FranchiseDetails = () => {

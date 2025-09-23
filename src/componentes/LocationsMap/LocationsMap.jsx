@@ -42,7 +42,7 @@ const LocationsMap = () => {
             <FranchiseHeader 
                 backgroundImage={porta2}
                 title="PANICAFÉ EN EE.UU"
-                subtitle="Llevando el sabor argentino a Texas"
+                subtitle="El sabor argentino que conquistó Texas"
             />
 
             {/* Sección Intro */}

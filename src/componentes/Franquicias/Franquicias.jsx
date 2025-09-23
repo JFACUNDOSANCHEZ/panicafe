@@ -18,7 +18,7 @@ const Franquicias = () => {
     <div className={styles.mainWrapper}> {/* Nuevo contenedor principal */}
       <Nav />
       <ScrollToTop />
-      <FranchiseHeader backgroundImage={img1} title="Franquicias" subtitle="Expande tu negocio con Panicafé" />
+      <FranchiseHeader backgroundImage={img1} title="Franquicias" subtitle="Llevá Panicafé a tu ciudad" />
 
       <div className={styles.contentSections}> {/* Contenedor para las secciones */}
         <motion.div

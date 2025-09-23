@@ -169,7 +169,7 @@
 }
 
 .footerList a:hover {
-  color: var(--primary-color);
+  color: white;
 }
 
 /* Estilos de la sección "Síguenos" */
@@ -215,14 +215,14 @@
   background-color: white;
   color: #000000;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 100px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .footerEmailSubmit:hover {
-  background-color: var(--nav-link-hover-color);
+  background-color: white;
 }
 
 /* Sección inferior (logo y copyright) */

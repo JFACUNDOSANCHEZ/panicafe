@@ -109,27 +109,6 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Columna 5: Síguenos y Email */}
-                <div className={styles.footerColumn}>
-                    <h4 className={styles.footerColumnTitle}>SÍGUENOS</h4>
-                    <div className={styles.socialIconsFooter}>
-                        {/* Nuevos iconos usando Font Awesome */}
-                        <a href="https://www.instagram.com/panicafetexas/" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-instagram ${styles.socialIcon}`}></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@panicafetexas" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-tiktok ${styles.socialIcon}`}></i>
-                        </a>
-                        <a href="https://www.facebook.com/panicafetexas" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-facebook-f ${styles.socialIcon}`}></i>
-                        </a>
-                    </div>
-                    <h4 className={styles.footerColumnTitle} style={{ marginTop: '20px' }}>TU E-MAIL</h4>
-                    <div className={styles.emailInputContainer}>
-                        <input type="email" placeholder="Ingresa tu e-mail" className={styles.footerEmailInput} />
-                        <button className={styles.footerEmailSubmit}>OK</button>
-                    </div>
-                </div>
             </div>
 
             {/* Sección inferior del footer: Logo y Copyright */}
