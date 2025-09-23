@@ -32,7 +32,7 @@ const Footer = () => {
         const email = e.target.email.value;
         const message = e.target.message.value;
 
-        const phoneNumber = "5491123456789"; // Cambialo por tu número
+        const phoneNumber = "+18326935093"; // Cambialo por tu número
         const text = `Hola, soy ${name} (${email}).%0D%0A%0D%0A${message}`;
         const url = `https://wa.me/${phoneNumber}?text=${text}`;
 
@@ -88,11 +88,11 @@ const Footer = () => {
                 <div className={styles.footerColumn}>
                     <h4 className={styles.footerColumnTitle}>NUESTRAS DIRECCIONES</h4>
                     <ul className={styles.footerList}>
-                        <li><a href="#link">Sucursal Centro</a></li>
-                        <li><a href="#link">Sucursal Nueva Córdoba</a></li>
-                        <li><a href="#link">Sucursal Cerro de las Rosas</a></li>
-                        <li><a href="#link">Sucursal Jardín</a></li>
-                        <li><a href="#link">Ver todas</a></li>
+                        <li><a href="https://www.google.com/maps/place/Esquiú+217,+Córdoba/@-31.401311,-64.167882,17z/data=!3m1!4b1!4m6!3m5!1s0x9432a265636b0051:0xa7d19c30f4066d71!8m2!3d-31.401311!4d-64.167882!16s%2Fg%2F11b5p0w7p7?entry=ttu">Sucursal General Paz</a></li>
+                        <li><a href="https://www.google.com/maps/place/H.+Yrigoyen+189,+C%C3%B3rdoba/@-31.4239869,-64.1866326,17z/data=!3m1!4b1!4m6!3m5!1s0x9432a28b0f8e914d:0xc5c73c88e8d89e7e!8m2!3d-31.4239869!4d-64.1866326!16s%2Fg%2F11bpt1b14f?entry=ttu">Sucursal Nueva Córdoba</a></li>
+                        <li><a href="https://www.google.com/maps/place/Rafael+Núñez+4385,+Córdoba/@-31.3734002,-64.2217757,17z/data=!3m1!4b1!4m6!3m5!1s0x94329e160f4e3b7b:0x597282b3d63c5576!8m2!3d-31.3734002!4d-64.2217757!16s%2Fg%2F11bz42k1f4?entry=ttu">Sucursal Cerro de las Rosas</a></li>
+                        <li><a href="https://www.google.com/maps/place/Panicaf%C3%A9+Barrio+Jard%C3%ADn/@-31.4506125,-64.1818185,18z/data=!4m15!1m8!3m7!1s0x9432a2e31315d569:0x52e0523df029353f!2sMal+Paso+3292,+X5016+C%C3%B3rdoba!3b1!8m2!3d-31.4505118!4d-64.1813518!16s%2Fg%2F11y21st1qs!3m5!1s0x9432a3f76e2bb46f:0x3dd28db864109e42!8m2!3d-31.4504419!4d-64.1813503!16s%2Fg%2F11m7tqkxjj?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D">Sucursal Jardín</a></li>
+                        <li><a href="/sucursales">Ver todas</a></li>
                     </ul>
                 </div>
 
