@@ -52,14 +52,14 @@ const FranchiseHeader = ({
         </div>
 
         {/* Logo en esquina inferior derecha */}
-        <motion.img
+        {/* <motion.img
           className={styles.bottomRightLogo}
           src={logo}
           alt="Panicafé Logo"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 1 }}
-        />
+        /> */}
       </div>
     </header>
   );

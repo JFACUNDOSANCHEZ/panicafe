@@ -55,18 +55,18 @@ viewport={{ once: true, amount: 0.3 }}
 <li>
 <h3 className={styles.locationName}>USA</h3>
 <p className={styles.locationDetail}>
-Contacto Local: <span className={styles.contactName}>John Doe</span><br />
-Tel: <a href="tel:+15551234567" className={styles.contactLink}>(555) 123-4567</a><br />
-Email: <a href="mailto:usa@panicafe.com" className={styles.contactLink}>usa@panicafe.com</a>
+{/* Contacto Local: <span className={styles.contactName}>John Doe</span><br /> */}
+Tel: <a href="tel:+15551234567" className={styles.contactLink}>+1 (832) 693-5093</a><br />
+Email: <a href="mailto:usa@panicafe.com" className={styles.contactLink}>Panicafemanager@gmail.com</a>
 </p>
 </li>
 {/* Contacto para LATAM */}
 <li>
 <h3 className={styles.locationName}>LATAM</h3>
 <p className={styles.locationDetail}>
-Contacto Regional: <span className={styles.contactName}>Ana Pérez</span><br />
-Tel: <a href="tel:+5493518765432" className={styles.contactLink}>(351) 876-5432</a><br />
-Email: <a href="mailto:latam@panicafe.com" className={styles.contactLink}>latam@panicafe.com</a>
+{/* Contacto Regional: <span className={styles.contactName}>Ana Pérez</span><br /> */}
+Tel: <a href="tel:+5493518765432" className={styles.contactLink}>+1 (832) 693-5093</a><br />
+Email: <a href="mailto:latam@panicafe.com" className={styles.contactLink}>Panicafemanager@gmail.com</a>
 </p>
 </li>
 {/* Contacto para Europa */}
@@ -93,7 +93,7 @@ Brochure institucional 📥
 </a>
 </div>
 <div className={styles.bottomImageContainer}>
-<img src={bottomImage} alt="Nuestra Cafetería" className={styles.bottomImage} />
+{/* <img src={bottomImage} alt="Nuestra Cafetería" className={styles.bottomImage} /> */}
 </div>
 </div>
 </motion.div>

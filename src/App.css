@@ -1,8 +1,8 @@
 body, html {
+  overflow-x: hidden;
+  width: 100%;
   margin: 0;
   padding: 0;
-  height: 100%; /* Opcional, pero recomendado */
-  width: 100%; /* Opcional, pero recomendado */
 }
 html {
   scrollbar-width: none; /* Oculta la barra de desplazamiento de forma nativa */

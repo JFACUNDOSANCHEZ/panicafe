@@ -156,9 +156,10 @@ body {
 }
 /* Estilo final Franquicias Detail */
 
+/* --- VARIABLES Y FUENTES --- */
 
 :root {
-  --primary-color: #8b4513; /* Marrón cálido para acentos */
+  --primary-color: #2f2e2e; /* Marrón cálido para acentos */
   --accent-color: #A08C63; /* Marrón claro para destacar */
   --text-color-dark: #333333; /* Color oscuro para títulos */
   --text-color-light: #666666; /* Color para texto secundario */
