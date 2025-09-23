@@ -47,9 +47,9 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className={styles.title}>PONTE EN CONTACTO</h2>
+              <h2 className={styles.title}>Hablemos</h2>
               <p className={styles.subtitle}>
-                Estamos listos para ayudarte. Envíanos un mensaje por WhatsApp y te responderemos a la brevedad.
+               Ya sea para consultas, propuestas o simplemente decirnos “hola”, estamos para escucharte.
               </p>
 
               <form className={styles.contactForm} onSubmit={handleWhatsApp}>
