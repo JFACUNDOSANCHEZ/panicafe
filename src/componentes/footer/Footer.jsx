@@ -100,9 +100,9 @@ const Footer = () => {
                 <div className={styles.footerColumn}>
                     <h4 className={styles.footerColumnTitle}>CONTACTO</h4>
                     <ul className={styles.footerList}>
-                        <li><a href="#link">Nuestra historia</a></li>
-                        <li><a href="#link">Trabaja con nosotros</a></li>
-                        <li><a href="#link">Contáctanos</a></li>
+                        <li><a href="/somospanicafe">Nuestra historia</a></li>
+                        <li><a href="#contacto">Trabaja con nosotros</a></li>
+                        <li><a href="/contacto">Contáctanos</a></li>
                     </ul>
                 </div>
 
