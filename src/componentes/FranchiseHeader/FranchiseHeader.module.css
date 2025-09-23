@@ -81,11 +81,11 @@
 
 /* Subtítulo */
 .subTitle {
-  font-family: "Inter", sans-serif;
   font-size: 1.3rem;
+  margin-bottom: 2rem;
   color: #f0e6d2;
+   font-family: "Georgia", serif;
   line-height: 1.6;
-  margin-top: 1rem;
   opacity: 0;
   animation: fadeInSlideUp 1s ease-out forwards;
   animation-delay: 0.4s;

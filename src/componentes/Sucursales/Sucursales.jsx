@@ -124,7 +124,7 @@ const Sucursales = () => {
                 </div>
 
                 <div className={styles.usaButtonWrapper}>
-                    <a href="/panicafe-usa" className={styles.usaButton}>
+                    <a href="/eeuu" className={styles.usaButton}>
                         Ver Panicafé en EE.UU
                     </a>
                 </div>

@@ -12,12 +12,25 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // 👉 Manejo de WhatsApp
+  const handleWhatsApp = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const message = e.target.message.value;
+
+    const phoneNumber = "+18326935093"; // tu número con código de país
+    const text = `Hola, soy ${name}.%0D%0A%0D%0A${message}`;
+    const url = `https://wa.me/${phoneNumber}?text=${text}`;
+
+    window.open(url, "_blank");
+  };
+
   return (
     <>
       <Nav />
-      <ScrollToTop /> {/* Componente para manejar el scroll */}
+      <ScrollToTop />
       
-      <div className={styles.mainContent}> {/* Contenedor para el contenido principal */}
+      <div className={styles.mainContent}>
         <motion.section
           className={styles.contactSection}
           initial={{ opacity: 0, y: 50 }}
@@ -36,16 +49,27 @@ const Contact = () => {
             >
               <h2 className={styles.title}>PONTE EN CONTACTO</h2>
               <p className={styles.subtitle}>
-                Estamos listos para ayudarte. Envíanos un mensaje y te responderemos
-                a la brevedad.
+                Estamos listos para ayudarte. Envíanos un mensaje por WhatsApp y te responderemos a la brevedad.
               </p>
 
-              <form className={styles.contactForm}>
-                <input type="text" placeholder="Tu Nombre" className={styles.inputField} required />
-                <input type="email" placeholder="Tu Email" className={styles.inputField} required />
-                <textarea placeholder="Tu Mensaje" className={styles.textareaField} rows="6" required />
+              <form className={styles.contactForm} onSubmit={handleWhatsApp}>
+                <input 
+                  type="text" 
+                  name="name" 
+                  placeholder="Tu Nombre" 
+                  className={styles.inputField} 
+                  required 
+                />
+                <textarea 
+                  name="message" 
+                  placeholder="Tu Mensaje" 
+                  className={styles.textareaField} 
+                  rows="6" 
+                  required 
+                />
+                
                 <button type="submit" className={styles.submitButton}>
-                  Enviar Mensaje
+                  Enviar por WhatsApp
                 </button>
               </form>
             </motion.div>
