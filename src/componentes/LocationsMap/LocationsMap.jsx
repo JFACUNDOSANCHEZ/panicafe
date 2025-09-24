@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import 'leaflet/dist/leaflet.css'; 
+import React, { useEffect } from "react"; 
+import 'leaflet/dist/leaflet.css';
 import styles from './LocationsMap.module.css';
 import Footer from '../footer/Footer';
 import FranchiseHeader from '../FranchiseHeader/FranchiseHeader';
@@ -13,11 +13,11 @@ import Gallery from '../gallery/Gallery.jsx';
 import Nav from '../Nav/Nav';
 
 const LocationsMap = () => {
-     const { pathname } = useLocation();
-      useEffect(() => {
-    // Al cargar el componente, desplaza la ventana a la parte superior
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     const locations = [
         {
             name: "PANICAFÉ Spring",
@@ -38,25 +38,25 @@ const LocationsMap = () => {
 
     return (
         <div className={styles.container}>
-            <Nav></Nav>
-            <FranchiseHeader 
+            <Nav />
+            <FranchiseHeader
                 backgroundImage={porta2}
-                title="PANICAFÉ EN EE.UU"
+                title="PANICAFÉ EN EE.UU."
                 subtitle="El sabor argentino que conquistó Texas"
             />
 
-            {/* Sección Intro */}
-            <motion.div 
+            {/* Sección de introducción */}
+            <motion.div
                 className={styles.introSection}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
             >
-                <motion.div 
+                <motion.div
                     className={styles.introImageContainer}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
@@ -66,56 +66,60 @@ const LocationsMap = () => {
                         className={styles.introImage}
                     />
                 </motion.div>
-                <motion.div 
+                <motion.div
                     className={styles.introTextContent}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.2 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className={styles.mainTitle}>PANICAFÉ EN EE.UU</h2>
+                    <h2 className={styles.mainTitle}>PANICAFÉ EN EE.UU.</h2>
                     <h2 className={styles.subTitle}>Llevando el sabor argentino a Texas</h2>
-                    <div className={styles.subTitleSeparatorLine}></div> 
-                    <div className={styles.spacer}></div>
-                    <p className={styles.introText}>
-                        En 2023, Panicafé cruzó fronteras para conquistar nuevos paladares. Hoy, tres sucursales en Texas comparten nuestra pasión por el café y la pastelería artesanal, manteniendo intacta la esencia que nos vio nacer en Argentina.
-                    </p>
-                </motion.div>   
-            </motion.div>
-
-
-       
-
-            {/* Mapa + Ubicaciones */}
-
-                  <motion.div 
+                    {/* <div className={styles.subTitleSeparatorLine}></div> */}
+                    <motion.div
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
             ></motion.div>
-            <div className={styles.contentWrapper}>
-                {/* Imagen tipo mapa */}
+                    <div className={styles.spacer}></div>
+                    <p className={styles.introText}>
+                        En 2023, Panicafé cruzó fronteras para conquistar nuevos paladares. 
+                        Hoy, tres sucursales en Texas comparten nuestra pasión por el café 
+                        y la pastelería artesanal, manteniendo intacta la esencia que nos vio nacer en Argentina.
+                    </p>
+                </motion.div>
+            </motion.div>
 
-                {/* Lista de Sucursales */}
-                <motion.div 
+            {/* Línea separadora */}
+            <motion.div
+                className={styles.separatorLine}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+            ></motion.div>
+
+            {/* Sección Mapa + Sucursales */}
+            <div className={styles.contentWrapper}>
+                <motion.div
                     className={styles.locationsColumn}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.2 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className={styles.locationsSubtitle}>SUCURSALES TEXAS:</h2>
+                    <h2 className={styles.locationsSubtitle}>SUCURSALES EN TEXAS:</h2>
                     <div className={styles.locationsList}>
                         {locations.map((location, index) => (
-                            <motion.div 
-                            key={index} 
-                            className={styles.locationItem}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 * index }}
-                            viewport={{ once: true, amount: 0.3 }}
+                            <motion.div
+                                key={index}
+                                className={styles.locationItem}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.2 * index }}
+                                viewport={{ once: true, amount: 0.3 }}
                             >
                                 <h3 className={styles.locationName}>{location.name}</h3>
                                 <p className={styles.locationAddress}>{location.address}</p>
@@ -123,31 +127,31 @@ const LocationsMap = () => {
                         ))}
                     </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                     className={styles.mapWrapper}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <img
                         src={porta2}
-                        alt="Mapa de Panicafé en Texas"
+                        alt="Mapa de sucursales de Panicafé en Texas"
                         className={styles.gifImage}
                     />
                 </motion.div>
             </div>
 
             {/* Línea separadora final */}
-            <motion.div 
+            <motion.div
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
             ></motion.div>
-                        <InvitationSection />
-                        <motion.div 
+            <InvitationSection />
+            <motion.div
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

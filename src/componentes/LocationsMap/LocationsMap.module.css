@@ -177,9 +177,9 @@
   background-color: var(--background);
   padding: 10px;
   border-radius: 0px;
-  box-shadow: var(--shadow-light);
+  /* box-shadow: var(--shadow-light); */
   border-left: 3px solid var(--accent-color);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; */
 }
 
 .locationItem:hover {
@@ -245,7 +245,7 @@
 .subTitleSeparatorLine {
   width: 100px;
   height: 2px;
-  background-color: var(--accent-color);
+  background-color: rgba(0, 0, 0, 0.349);
   margin: 20px auto 30px;
 }
 

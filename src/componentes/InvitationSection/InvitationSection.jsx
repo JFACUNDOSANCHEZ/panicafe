@@ -10,16 +10,21 @@ import instaImage4 from '../../assets/34.jpeg';
 const InvitationSection = () => {
     return (
         <section className={styles.invitationContainer}>
-            {/* Imágenes a la izquierda */}
-            <div className={styles.contentImages}>
+            {/* Imagens à esquerda com animação de entrada lateral */}
+            <motion.div 
+                className={styles.contentImages}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true, amount: 0.3 }}
+            >
                 <motion.h2 
                     className={styles.instagramTitle}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.6 }}
+                    transition={{ duration: 1, delay: 0.4 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    {/* El enlace se añade aquí dentro del h2 */}
                     <a 
                         href="https://www.instagram.com/panicafetexas/" 
                         target="_blank" 
@@ -35,7 +40,7 @@ const InvitationSection = () => {
                         className={styles.gridImage} 
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.8 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
                         viewport={{ once: true, amount: 0.3 }}
                     />
                     <motion.img 
@@ -44,7 +49,7 @@ const InvitationSection = () => {
                         className={styles.gridImage} 
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 1 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
                         viewport={{ once: true, amount: 0.3 }}
                     />
                     <motion.img 
@@ -53,7 +58,7 @@ const InvitationSection = () => {
                         className={styles.gridImage} 
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 1.2 }}
+                        transition={{ duration: 0.5, delay: 1 }}
                         viewport={{ once: true, amount: 0.3 }}
                     />
                     <motion.img 
@@ -62,22 +67,28 @@ const InvitationSection = () => {
                         className={styles.gridImage} 
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 1.4 }}
+                        transition={{ duration: 0.5, delay: 1.2 }}
                         viewport={{ once: true, amount: 0.3 }}
                     />
                 </div>
-            </div>
+            </motion.div>
 
-            {/* Texto a la derecha */}
-            <div className={styles.contentText}>
+            {/* Texto à direita com animação de entrada lateral */}
+            <motion.div 
+                className={styles.contentText}
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true, amount: 0.3 }}
+            >
                 <motion.div 
                     className={styles.followUsSection} 
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.2 }}
+                    transition={{ duration: 1, delay: 0.4 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className={styles.followUsTitle}>SEGUINOS</h2>
+                    <h2 className={styles.followUsTitle}>Seguinos</h2>
                     <div className={styles.socialIcons}>
                         <a href="https://www.facebook.com/panicafetexas" target="_blank" rel="noopener noreferrer">
                             <i className={`fab fa-facebook-f ${styles.socialIcon}`}></i>
@@ -85,8 +96,8 @@ const InvitationSection = () => {
                         <a href="https://www.instagram.com/panicafetexas/" target="_blank" rel="noopener noreferrer">
                             <i className={`fab fa-instagram ${styles.socialIcon}`}></i>
                         </a>
-                        <a href="https://www.tiktok.com/@panicafetexas" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-tiktok ${styles.socialIcon}`}></i>
+                        <a href="mailto:info@panicafe.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                            <i className="fas fa-envelope"></i>
                         </a>
                     </div>
                 </motion.div>
@@ -97,16 +108,15 @@ const InvitationSection = () => {
                     className={styles.newsletterSection}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.4 }}
+                    transition={{ duration: 1, delay: 0.6 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <p className={styles.newsletterSubtitle}>
                         ¡Para que no te pierdas nada!
-                        Recibe nuestras nuevas recetas exclusivas, grandes ofertas y todas las novedades sobre Panicafé,
-                        ¡directamente en tu buzón!
+                        Recibe nuestras nuevas recetas exclusivas, grandes ofertas y todas las últimas noticias sobre Panicafé directamente en tu mano.
                     </p>
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 };
