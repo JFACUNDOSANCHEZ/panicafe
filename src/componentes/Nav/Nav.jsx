@@ -7,6 +7,7 @@ import logoNavWhite from "../../assets/pP3.png";
 import logoNavBlack from "../../assets/pb8.png";
 import TranslateButton from "../TranslateButton/TranslateButton";
 
+
 const Nav = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -28,11 +29,10 @@ const Nav = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-
     >
-      {/* PreNav con redes sociales */}
+      {/* PreNav con redes sociales y botón de traducción */}
       <div className={`${styles.preNav} ${scrolled ? styles.preNavHidden : ""}`}>
-      <TranslateButton />
+        <TranslateButton />
         <div className={styles.socialIcons}>
           <a href="https://www.facebook.com/panicafe" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <FaFacebook />
