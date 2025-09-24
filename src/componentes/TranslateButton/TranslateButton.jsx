@@ -16,26 +16,29 @@ const getGoogleTranslateCookieLang = () => {
   return 'es';
 };
 
+// Función para borrar la cookie googtrans (considerando dominio y sin dominio)
+const deleteGoogleTranslateCookie = () => {
+  document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname + ';';
+  document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+};
+
 const TranslateButton = () => {
   const googleTranslateElementRef = useRef(null);
   const [currentLanguage, setCurrentLanguage] = useState(getGoogleTranslateCookieLang());
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Cambia el idioma limpiando y seteando la cookie, luego recarga la página
   const changeLanguage = (lang) => {
     if (!isInitialized) return;
 
-    // Limpiar cookie previa
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // Borrar cookie previa para asegurar cambio
+    deleteGoogleTranslateCookie();
 
-    // Setear nueva cookie
     const cookieValue = `/es/${lang}`;
     document.cookie = `googtrans=${cookieValue};path=/;domain=${window.location.hostname}`;
     document.cookie = `googtrans=${cookieValue};path=/`;
 
     setCurrentLanguage(lang);
 
-    // Recargar para que Google Translate aplique el cambio
     setTimeout(() => {
       window.location.reload();
     }, 100);
