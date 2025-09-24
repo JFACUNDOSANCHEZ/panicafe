@@ -57,7 +57,7 @@ viewport={{ once: true, amount: 0.3 }}
 <p className={styles.locationDetail}>
 {/* Contacto Local: <span className={styles.contactName}>John Doe</span><br /> */}
 Tel: <a href="tel:+15551234567" className={styles.contactLink}>+1 (832) 693-5093</a><br />
-Email: <a href="mailto:usa@panicafe.com" className={styles.contactLink}>Panicafemanager@gmail.com</a>
+Email: <a href="mailto:usa@panicafe.com" className={styles.contactLink}>panicafemanager@gmail.com</a>
 </p>
 </li>
 {/* Contacto para LATAM */}
@@ -65,8 +65,8 @@ Email: <a href="mailto:usa@panicafe.com" className={styles.contactLink}>Panicafe
 <h3 className={styles.locationName}>LATAM</h3>
 <p className={styles.locationDetail}>
 {/* Contacto Regional: <span className={styles.contactName}>Ana Pérez</span><br /> */}
-Tel: <a href="tel:+5493518765432" className={styles.contactLink}>+1 (832) 693-5093</a><br />
-Email: <a href="mailto:latam@panicafe.com" className={styles.contactLink}>Panicafemanager@gmail.com</a>
+Tel: <a href="tel:+5493518765432" className={styles.contactLink}>+1 (346) 730-1286</a><br />
+Email: <a href="mailto:latam@panicafe.com" className={styles.contactLink}>administracion@panicafe.com.ar</a>
 </p>
 </li>
 {/* Contacto para Europa */}

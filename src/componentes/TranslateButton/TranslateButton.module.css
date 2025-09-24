@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.languageButton {
+  background: none; /* Elimina cualquier fondo predeterminado */
+  border: none; /* ¡Esto elimina el borde! */
+  cursor: pointer;
+  padding: 0.5rem; /* Un padding más uniforme se ve mejor */
+  transition: opacity 0.3s ease; /* Para una transición suave */
+  opacity: 0.6; /* Un poco transparentes por defecto */
+}
+
+.languageButton:hover {
+  opacity: 1;
+}
+
+.languageButton.active {
+  opacity: 1;
+}
+
+/* Estilos para las banderas */
+.languageButton img {
+  width: 25px;
+  height: auto;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.separator {
+  padding: 0 8px;
+}
+
+.hiddenWidget {
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}

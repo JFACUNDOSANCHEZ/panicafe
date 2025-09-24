@@ -30,7 +30,7 @@ const slides = [
     title: "Descubre nuestra variedad",
     description: "Encuentra productos únicos para todos los gustos",
     button: "Ver Carta",
-    link: "/menu",
+    link: "https://linktr.ee/panicafe?fbclid=PAZnRzaAM_971leHRuA2FlbQIxMQABp1TWDQvIHUipUJEX5ZQmFK5usZREWnqTB_tKi3we4IkepX25HAKwxZSwZ58d_aem_F5E7S7E5hEssLjnzK32ahg",
   },
 ];
 

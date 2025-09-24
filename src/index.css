@@ -9,3 +9,16 @@ body, html {
   flex-direction: column;
   min-height: 100vh;
 }
+body .goog-te-banner-frame.skiptranslate {
+  display: none !important;
+} 
+body {
+  top: 0px !important;
+}
+iframe.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}

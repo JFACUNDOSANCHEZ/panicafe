@@ -28,6 +28,7 @@ const Franquicias = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.3 }}
         >
+    <br /><br /><br />
           <h2 className={styles.title}>Sumate a la familia Panicafé</h2>
           <div className={styles.subTitleSeparatorLine}></div>
           <br />

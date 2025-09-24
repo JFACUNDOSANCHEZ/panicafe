@@ -36,6 +36,8 @@ const Gallery = () => {
           >
             SEE PANICAFE
           </a>
+
+          
          
         </div>
       </div>
