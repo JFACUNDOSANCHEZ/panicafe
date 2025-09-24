@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './TranslateButton.module.css';
 
-// Helper para leer el idioma actual desde la cookie de Google Translate
+// Leer idioma actual desde la cookie
 const getGoogleTranslateCookieLang = () => {
   const name = 'googtrans';
   const cookies = document.cookie.split(';');
@@ -16,10 +16,21 @@ const getGoogleTranslateCookieLang = () => {
   return 'es';
 };
 
-// Función para borrar la cookie googtrans (considerando dominio y sin dominio)
+// Borrar la cookie googtrans
 const deleteGoogleTranslateCookie = () => {
-  document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname + ';';
+  const hostname = window.location.hostname;
+
+  // Sin dominio
   document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  // Dominio exacto
+  document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${hostname};`;
+
+  // Dominio de segundo nivel
+  const parts = hostname.split('.');
+  if (parts.length > 1) {
+    const domain = '.' + parts.slice(-2).join('.');
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain};`;
+  }
 };
 
 const TranslateButton = () => {
@@ -28,23 +39,32 @@ const TranslateButton = () => {
   const [isInitialized, setIsInitialized] = useState(false);
 
   const changeLanguage = (lang) => {
-    if (!isInitialized) return;
-
-    // Borrar cookie previa para asegurar cambio
-    deleteGoogleTranslateCookie();
-
-    const cookieValue = `/es/${lang}`;
-    document.cookie = `googtrans=${cookieValue};path=/;domain=${window.location.hostname}`;
-    document.cookie = `googtrans=${cookieValue};path=/`;
-
-    setCurrentLanguage(lang);
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    // Redirige con parámetro para aplicar cambio antes de que se cargue Google Translate
+    window.location.href = `?lang=${lang}`;
   };
 
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+
+    if (langParam) {
+      // Borrar y establecer la nueva cookie
+      deleteGoogleTranslateCookie();
+      const cookieValue = `/es/${langParam}`;
+
+      // Setear cookie con múltiples variantes (para asegurar compatibilidad)
+      const secureFlag = window.location.protocol === 'https:' ? ';Secure' : '';
+
+      document.cookie = `googtrans=${cookieValue}; path=/; domain=${window.location.hostname}${secureFlag}`;
+      document.cookie = `googtrans=${cookieValue}; path=/${secureFlag}`;
+
+      setCurrentLanguage(langParam);
+
+      // Eliminar ?lang= de la URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // Inicializar Google Translate solo después de aplicar cookie (si existe)
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
         {
