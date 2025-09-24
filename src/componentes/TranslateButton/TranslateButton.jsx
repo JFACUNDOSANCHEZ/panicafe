@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './TranslateButton.module.css';
 
-// 💡 Helper function to get the current language from the Google Translate cookie
+// Helper para leer el idioma actual desde la cookie de Google Translate
 const getGoogleTranslateCookieLang = () => {
   const name = 'googtrans';
   const cookies = document.cookie.split(';');
-  for(let i = 0; i < cookies.length; i++) {
+  for (let i = 0; i < cookies.length; i++) {
     let cookie = cookies[i].trim();
     if (cookie.startsWith(name + '=')) {
-      const cookieValue = cookie.substring(name.length + 1, cookie.length);
+      const cookieValue = cookie.substring(name.length + 1);
       const parts = cookieValue.split('/');
       return parts.length > 2 ? parts[parts.length - 1] : 'es';
     }
@@ -21,19 +21,24 @@ const TranslateButton = () => {
   const [currentLanguage, setCurrentLanguage] = useState(getGoogleTranslateCookieLang());
   const [isInitialized, setIsInitialized] = useState(false);
 
-  const setGoogleTranslateCookie = (lang) => {
+  // Cambia el idioma limpiando y seteando la cookie, luego recarga la página
+  const changeLanguage = (lang) => {
+    if (!isInitialized) return;
+
+    // Limpiar cookie previa
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+    // Setear nueva cookie
     const cookieValue = `/es/${lang}`;
     document.cookie = `googtrans=${cookieValue};path=/;domain=${window.location.hostname}`;
     document.cookie = `googtrans=${cookieValue};path=/`;
-  };
 
-  const changeLanguage = (lang) => {
-    if (!isInitialized || currentLanguage === lang) return;
-
-    setGoogleTranslateCookie(lang);
     setCurrentLanguage(lang);
 
-    window.location.reload();
+    // Recargar para que Google Translate aplique el cambio
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const TranslateButton = () => {
     };
 
     const addScript = document.createElement('script');
-    addScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    addScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.body.appendChild(addScript);
 
     return () => {
@@ -83,7 +88,16 @@ const TranslateButton = () => {
       <div
         id="google_translate_element"
         ref={googleTranslateElementRef}
-        style={{ display: 'none' }}
+        style={{
+          opacity: 0,
+          pointerEvents: 'none',
+          position: 'absolute',
+          height: '40px',
+          width: '100px',
+          overflow: 'hidden',
+          top: 0,
+          left: 0,
+        }}
       ></div>
     </div>
   );
