@@ -1,24 +1,35 @@
+/* --- Wrapper general para posicionar el overlay blanco --- */
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Swiper base */
 .carousel {
+  position: relative;
   margin-top: 140px;
   height: 90vh;
-  width: 100vw; /* Asegura el 100% del viewport */
+  width: 100vw;
   min-width: 100vw;
   overflow: hidden;
   font-family: "Georgia", serif;
 }
 
+/* Cada slide */
 .slide {
   background-size: cover;
   background-position: center;
   height: 100vh;
   width: 100vw;
-
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Gradiente oscuro encima del fondo */
 .slide::before {
   content: "";
   position: absolute;
@@ -32,6 +43,7 @@
   z-index: 1;
 }
 
+/* Contenido del slide */
 .overlay {
   position: relative;
   z-index: 2;
@@ -97,23 +109,35 @@
   }
 }
 
-/* Personalizar puntitos de Swiper */
-:global(.swiper-pagination-bullet) {
+/* Efecto blanco al cargar */
+.whiteOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Personalización de Swiper bullets */
+.swiper-pagination-bullet {
   background: #ffffff !important;
   opacity: 0.7;
   transition: all 0.3s ease;
 }
 
-:global(.swiper-pagination-bullet-active) {
+.swiper-pagination-bullet-active {
   background: #ffffff !important;
   transform: scale(1.3);
 }
 
-/* Responsivo */
+/* --- Responsive --- */
 @media (max-width: 992px) {
   .carousel {
-    margin-top: 160px; /* Ajusta el margen superior para pantallas medianas */
-    min-height: 75vh; /* Reduce la altura en pantallas medianas */
+    margin-top: 160px;
+    min-height: 75vh;
   }
 
   .overlay h2 {
@@ -148,9 +172,8 @@
     font-size: 1rem;
   }
 
-  /* Mejorar el espacio entre las palabras y los bordes en móviles */
   .carousel {
-    height: 70vh; /* Menos altura para que sea más cómodo */
+    height: 70vh;
   }
 
   .slide {
@@ -160,7 +183,8 @@
 
 @media (max-width: 576px) {
   .carousel {
-    margin-top: 200px; /* Mayor espacio en pantallas pequeñas */
+    margin-top: 200px;
+    min-height: 65vh;
   }
 
   .overlay {
@@ -179,10 +203,5 @@
     width: 100%;
     padding: 12px 0;
     font-size: 1rem;
-  }
-
-  .carousel {
-      width: 100%;
-    min-height: 65vh; /* Menor altura */
   }
 }
