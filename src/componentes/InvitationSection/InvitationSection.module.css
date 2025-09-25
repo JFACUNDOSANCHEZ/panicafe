@@ -20,12 +20,14 @@
     display: flex;
     flex-direction: column;
 }
+
 .instagramTitle a {
-  text-decoration: none; /* Elimina el subrayado */
-  color: inherit; /* Hereda el color del h2 padre */
+    text-decoration: none;
+    color: inherit;
 }
+
 .instagramTitle {
-   font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 500;
     color: var(--text-primary-dark);
@@ -61,11 +63,15 @@
     min-width: 400px;
     background-color: var(--background-white);
     color: var(--text-on-white);
-    padding: 90px 50px;
+    padding: 60px 40px; /* Antes: 90px 50px */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+}
+
+.followUsSection {
+    margin-bottom: 30px; /* Separación sutil del bloque de abajo */
 }
 
 .followUsTitle {
@@ -94,6 +100,7 @@
     color: var(--accent-color);
 }
 
+/* Línea divisoria opcional */
 .separatorLineSolid {
     width: 100%;
     height: 1px;
@@ -101,11 +108,24 @@
     margin: 1px 0;
 }
 
+/* Línea suave para separar bloques sin cortar visualmente */
+.separatorLineSoft {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin: 0px 0;
+}
+
+.newsletterSection {
+    margin-top: 0px; /* Evita separación excesiva */
+}
+
 .newsletterSubtitle {
-  font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    line-height: 1.5;
-    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-primary-dark);
+    margin-top: 0px;
 }
 
 /* Responsive */
@@ -120,7 +140,7 @@
     .contentText {
         min-width: unset;
         width: 100%;
-        padding: 40px 20px;
+        padding: 0px 0px;
         text-align: center;
     }
 

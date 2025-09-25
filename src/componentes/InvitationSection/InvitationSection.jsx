@@ -88,19 +88,13 @@ const InvitationSection = () => {
                     transition={{ duration: 1, delay: 0.4 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className={styles.followUsTitle}>Seguinos</h2>
-                    <div className={styles.socialIcons}>
-                        <a href="https://www.facebook.com/panicafetexas" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-facebook-f ${styles.socialIcon}`}></i>
-                        </a>
-                        <a href="https://www.instagram.com/panicafetexas/" target="_blank" rel="noopener noreferrer">
-                            <i className={`fab fa-instagram ${styles.socialIcon}`}></i>
-                        </a>
-                        <a href="mailto:info@panicafe.com" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
-                            <i className="fas fa-envelope"></i>
-                        </a>
-                    </div>
+                
                 </motion.div>
+                    <h2 className={styles.followUsTitle}>Seguinos</h2>
+                    <p className={styles.newsletterSubtitle}>
+                        ¡Para que no te pierdas nada!
+                        Recibe nuestras nuevas recetas exclusivas, grandes ofertas y todas las últimas noticias sobre Panicafé directamente en tu mano.
+                    </p>
 
                 {/* <div className={styles.separatorLineSolid}></div> */}
 
@@ -111,10 +105,6 @@ const InvitationSection = () => {
                     transition={{ duration: 1, delay: 0.6 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <p className={styles.newsletterSubtitle}>
-                        ¡Para que no te pierdas nada!
-                        Recibe nuestras nuevas recetas exclusivas, grandes ofertas y todas las últimas noticias sobre Panicafé directamente en tu mano.
-                    </p>
                 </motion.div>
             </motion.div>
         </section>
