@@ -102,7 +102,7 @@ const InvitationSection = () => {
                     </div>
                 </motion.div>
 
-                <div className={styles.separatorLineSolid}></div>
+                {/* <div className={styles.separatorLineSolid}></div> */}
 
                 <motion.div 
                     className={styles.newsletterSection}

@@ -22,17 +22,14 @@ const LocationsMap = () => {
         {
             name: "PANICAFÉ Spring",
             address: "24345 Gosling Rd. Suite 120A, Spring, TX",
-            position: [30.1065, -95.5562],
         },
         {
             name: "PANICAFÉ TEA ROOM",
             address: "30420 FM2978, Suite 160, The Woodlands, TX",
-            position: [30.1663, -95.6148],
         },
         {
             name: "PANICAFÉ Montgomery",
             address: "859 Pine Market Ave Suite 200, Montgomery, TX",
-            position: [30.4079, -95.6322],
         },
     ];
 
@@ -45,52 +42,37 @@ const LocationsMap = () => {
                 subtitle="El sabor argentino que conquistó Texas"
             />
 
-            {/* Sección de introducción */}
-            <motion.div
-                className={styles.introSection}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-            >
-                <motion.div
-                    className={styles.introImageContainer}
-                    initial={{ opacity: 0, x: -100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <img
-                        src={porta}
-                        alt="Panicafé en Texas"
-                        className={styles.introImage}
-                    />
-                </motion.div>
-                <motion.div
-                    className={styles.introTextContent}
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <h2 className={styles.mainTitle}>PANICAFÉ EN EE.UU.</h2>
-                    <h2 className={styles.subTitle}>Llevando el sabor argentino a Texas</h2>
-                    {/* <div className={styles.subTitleSeparatorLine}></div> */}
+            {/* Intro con imagen */}
+            <section className={styles.section}>
+                <div className={styles.row}>
+                    {/* Imagen izquierda */}
                     <motion.div
-                className={styles.separatorLine}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-            ></motion.div>
-                    <div className={styles.spacer}></div>
-                    <p className={styles.introText}>
-                        En 2023, Panicafé cruzó fronteras para conquistar nuevos paladares. 
-                        Hoy, tres sucursales en Texas comparten nuestra pasión por el café 
-                        y la pastelería artesanal, manteniendo intacta la esencia que nos vio nacer en Argentina.
-                    </p>
-                </motion.div>
-            </motion.div>
+                        className={styles.imageWrapper}
+                        initial={{ opacity: 0, x: -100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <img src={porta} alt="Panicafé en Texas" className={styles.image} />
+                    </motion.div>
+
+                    {/* Texto derecha */}
+                    <motion.div
+                        className={styles.textWrapper}
+                        initial={{ opacity: 0, x: 100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <h2 className={styles.title}>PANICAFÉ EN EE.UU.</h2>
+                        <p className={styles.text}>
+                            En 2023, Panicafé cruzó fronteras para conquistar nuevos paladares.
+                            Hoy, tres sucursales en Texas comparten nuestra pasión por el café
+                            y la pastelería artesanal, manteniendo intacta la esencia que nos vio nacer en Argentina.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
 
             {/* Línea separadora */}
             <motion.div
@@ -99,65 +81,57 @@ const LocationsMap = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-            ></motion.div>
+            />
+{/* NUEVA sección: Lista a la izquierda - imagen a la derecha */}
+<section className={styles.section}>
+    <div className={styles.row}>
+        {/* Lista de Sucursales (izquierda) */}
+        <motion.div
+            className={styles.textWrapper}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.3 }}
+        >
+            <h2 className={styles.title}>SUCURSALES EN TEXAS</h2>
+            {locations.map((location, index) => (
+                <div key={index} className={styles.locationItem}>
+                    <h3 className={styles.locationName}>{location.name}</h3>
+                    <p className={styles.locationAddress}>{location.address}</p>
+                </div>
+            ))}
+        </motion.div>
 
-            {/* Sección Mapa + Sucursales */}
-            <div className={styles.contentWrapper}>
-                <motion.div
-                    className={styles.locationsColumn}
-                    initial={{ opacity: 0, x: -100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <h2 className={styles.locationsSubtitle}>SUCURSALES EN TEXAS:</h2>
-                    <div className={styles.locationsList}>
-                        {locations.map((location, index) => (
-                            <motion.div
-                                key={index}
-                                className={styles.locationItem}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 * index }}
-                                viewport={{ once: true, amount: 0.3 }}
-                            >
-                                <h3 className={styles.locationName}>{location.name}</h3>
-                                <p className={styles.locationAddress}>{location.address}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-                <motion.div
-                    className={styles.mapWrapper}
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                >
-                    <img
-                        src={porta2}
-                        alt="Mapa de sucursales de Panicafé en Texas"
-                        className={styles.gifImage}
-                    />
-                </motion.div>
-            </div>
-
-            {/* Línea separadora final */}
+        {/* Imagen Mapa (derecha) */}
+        <motion.div
+            className={styles.imageWrapper}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+        >
+            <img src={porta2} alt="Mapa de sucursales de Panicafé" className={styles.image} />
+        </motion.div>
+    </div>
+</section>
+            {/* Línea separadora */}
             <motion.div
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-            ></motion.div>
+            />
+
             <InvitationSection />
+
             <motion.div
                 className={styles.separatorLine}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-            ></motion.div>
+            />
 
             <Gallery />
             <br /><br /><br /><br />
