@@ -37,6 +37,15 @@ const Gallery = () => {
             SEE PANICAFE
           </a>
 
+            <a
+            href="https://www.panicafetx.com/menus/#salads"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.button}
+          >
+            SEE FOOD
+          </a>
+
           
          
         </div>

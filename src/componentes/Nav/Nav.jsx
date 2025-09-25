@@ -65,7 +65,8 @@ const Nav = () => {
         </nav>
 
         <div className={styles.franquiciasBtnWrapper}>
-          <Link to="/franquicias" className={styles.franquiciasBtn}>
+         
+          <Link to="/franquicias" className={`${styles.btn} ${styles.btn1} ${styles.hoverFilledSlideDown}`}>
             <span>FRANQUICIAS</span>
           </Link>
         </div>
