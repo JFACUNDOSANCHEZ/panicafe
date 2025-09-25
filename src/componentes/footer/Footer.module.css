@@ -94,6 +94,8 @@
 
 .formButton:hover {
   background-color: rgb(170, 168, 168);
+      transform: translateY(-2px);
+
 }
 
 .contactComment {
